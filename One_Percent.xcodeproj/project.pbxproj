@@ -13,6 +13,19 @@
 		AECB774228CC9EEC004B77F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECB774028CC9EEC004B77F2 /* Main.storyboard */; };
 		AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECB774328CC9EEE004B77F2 /* Assets.xcassets */; };
 		AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */; };
+		AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */; };
+		AECB775428CC9F50004B77F2 /* OnBoardingItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775328CC9F50004B77F2 /* OnBoardingItemViewController.swift */; };
+		AECB775628CC9F5E004B77F2 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECB775528CC9F5E004B77F2 /* OnBoarding.storyboard */; };
+		AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775828CCA113004B77F2 /* ReusableProtocol.swift */; };
+		AECB775C28CCA139004B77F2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AECB775B28CCA139004B77F2 /* .gitignore */; };
+		AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775D28CCA27D004B77F2 /* Transition+Extension.swift */; };
+		AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776028CCA2AB004B77F2 /* Constant.swift */; };
+		AECB776428CCA389004B77F2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776328CCA389004B77F2 /* APIKey.swift */; };
+		AECB776628CCA395004B77F2 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776528CCA395004B77F2 /* APIManager.swift */; };
+		AECB776928CCBE74004B77F2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776828CCBE74004B77F2 /* BaseView.swift */; };
+		AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776A28CCBE87004B77F2 /* BaseViewController.swift */; };
+		AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776C28CCBE98004B77F2 /* BaseTableViewCell.swift */; };
+		AECB776F28CCBEA8004B77F2 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +37,19 @@
 		AECB774328CC9EEE004B77F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AECB774628CC9EEE004B77F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AECB774828CC9EEE004B77F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
+		AECB775328CC9F50004B77F2 /* OnBoardingItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingItemViewController.swift; sourceTree = "<group>"; };
+		AECB775528CC9F5E004B77F2 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		AECB775828CCA113004B77F2 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
+		AECB775B28CCA139004B77F2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		AECB775D28CCA27D004B77F2 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
+		AECB776028CCA2AB004B77F2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		AECB776328CCA389004B77F2 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		AECB776528CCA395004B77F2 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		AECB776828CCBE74004B77F2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		AECB776A28CCBE87004B77F2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		AECB776C28CCBE98004B77F2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +66,7 @@
 		AECB772E28CC9EEC004B77F2 = {
 			isa = PBXGroup;
 			children = (
+				AECB775B28CCA139004B77F2 /* .gitignore */,
 				AECB773928CC9EEC004B77F2 /* One_Percent */,
 				AECB773828CC9EEC004B77F2 /* Products */,
 			);
@@ -56,6 +83,12 @@
 		AECB773928CC9EEC004B77F2 /* One_Percent */ = {
 			isa = PBXGroup;
 			children = (
+				AECB776728CCA3BA004B77F2 /* BaseView */,
+				AECB776228CCA37A004B77F2 /* NetworkAPI */,
+				AECB775F28CCA29A004B77F2 /* Utility */,
+				AECB775A28CCA125004B77F2 /* Extension */,
+				AECB775728CCA0FF004B77F2 /* Protocol */,
+				AECB774E28CC9F09004B77F2 /* OnBoarding */,
 				AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */,
 				AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */,
 				AECB773E28CC9EEC004B77F2 /* ViewController.swift */,
@@ -65,6 +98,60 @@
 				AECB774828CC9EEE004B77F2 /* Info.plist */,
 			);
 			path = One_Percent;
+			sourceTree = "<group>";
+		};
+		AECB774E28CC9F09004B77F2 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */,
+				AECB775328CC9F50004B77F2 /* OnBoardingItemViewController.swift */,
+				AECB775528CC9F5E004B77F2 /* OnBoarding.storyboard */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		AECB775728CCA0FF004B77F2 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				AECB775828CCA113004B77F2 /* ReusableProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		AECB775A28CCA125004B77F2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AECB775D28CCA27D004B77F2 /* Transition+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AECB775F28CCA29A004B77F2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				AECB776028CCA2AB004B77F2 /* Constant.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		AECB776228CCA37A004B77F2 /* NetworkAPI */ = {
+			isa = PBXGroup;
+			children = (
+				AECB776328CCA389004B77F2 /* APIKey.swift */,
+				AECB776528CCA395004B77F2 /* APIManager.swift */,
+			);
+			path = NetworkAPI;
+			sourceTree = "<group>";
+		};
+		AECB776728CCA3BA004B77F2 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				AECB776828CCBE74004B77F2 /* BaseView.swift */,
+				AECB776A28CCBE87004B77F2 /* BaseViewController.swift */,
+				AECB776C28CCBE98004B77F2 /* BaseTableViewCell.swift */,
+				AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +212,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AECB775C28CCA139004B77F2 /* .gitignore in Resources */,
 				AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */,
 				AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */,
 				AECB774228CC9EEC004B77F2 /* Main.storyboard in Resources */,
+				AECB775628CC9F5E004B77F2 /* OnBoarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +227,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */,
+				AECB776F28CCBEA8004B77F2 /* BaseCollectionViewCell.swift in Sources */,
+				AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */,
+				AECB776628CCA395004B77F2 /* APIManager.swift in Sources */,
 				AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */,
+				AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */,
+				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
+				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
+				AECB775428CC9F50004B77F2 /* OnBoardingItemViewController.swift in Sources */,
+				AECB776428CCA389004B77F2 /* APIKey.swift in Sources */,
+				AECB776928CCBE74004B77F2 /* BaseView.swift in Sources */,
+				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
 				AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -295,6 +395,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +405,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -323,6 +424,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +434,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
