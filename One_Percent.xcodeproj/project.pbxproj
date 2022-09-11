@@ -14,8 +14,6 @@
 		AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECB774328CC9EEE004B77F2 /* Assets.xcassets */; };
 		AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */; };
 		AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */; };
-		AECB775428CC9F50004B77F2 /* OnBoardingItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775328CC9F50004B77F2 /* OnBoardingItemViewController.swift */; };
-		AECB775628CC9F5E004B77F2 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECB775528CC9F5E004B77F2 /* OnBoarding.storyboard */; };
 		AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775828CCA113004B77F2 /* ReusableProtocol.swift */; };
 		AECB775C28CCA139004B77F2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AECB775B28CCA139004B77F2 /* .gitignore */; };
 		AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775D28CCA27D004B77F2 /* Transition+Extension.swift */; };
@@ -26,6 +24,16 @@
 		AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776A28CCBE87004B77F2 /* BaseViewController.swift */; };
 		AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776C28CCBE98004B77F2 /* BaseTableViewCell.swift */; };
 		AECB776F28CCBEA8004B77F2 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */; };
+		AECB777428CE2C43004B77F2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777328CE2C43004B77F2 /* SnapKit */; };
+		AECB777728CE2C4D004B77F2 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777628CE2C4D004B77F2 /* Then */; };
+		AECB777A28CE2C89004B77F2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777928CE2C89004B77F2 /* Realm */; };
+		AECB777C28CE2C89004B77F2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777B28CE2C89004B77F2 /* RealmSwift */; };
+		AECB777F28CE2C9A004B77F2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777E28CE2C9A004B77F2 /* FSCalendar */; };
+		AECB778228CE2CAC004B77F2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AECB778128CE2CAC004B77F2 /* Alamofire */; };
+		AECB778528CE2CBC004B77F2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AECB778428CE2CBC004B77F2 /* SwiftyJSON */; };
+		AECB778828CE2D5B004B77F2 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AECB778728CE2D5B004B77F2 /* JGProgressHUD */; };
+		AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB778E28CE33C7004B77F2 /* OnBoardingItemViewController.swift */; };
+		AECB779128CE33C8004B77F2 /* OnBoardingItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECB778F28CE33C8004B77F2 /* OnBoardingItemViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +46,6 @@
 		AECB774628CC9EEE004B77F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AECB774828CC9EEE004B77F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
-		AECB775328CC9F50004B77F2 /* OnBoardingItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingItemViewController.swift; sourceTree = "<group>"; };
-		AECB775528CC9F5E004B77F2 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
 		AECB775828CCA113004B77F2 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		AECB775B28CCA139004B77F2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AECB775D28CCA27D004B77F2 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
@@ -50,6 +56,8 @@
 		AECB776A28CCBE87004B77F2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AECB776C28CCBE98004B77F2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		AECB778E28CE33C7004B77F2 /* OnBoardingItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingItemViewController.swift; sourceTree = "<group>"; };
+		AECB778F28CE33C8004B77F2 /* OnBoardingItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnBoardingItemViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AECB777C28CE2C89004B77F2 /* RealmSwift in Frameworks */,
+				AECB778528CE2CBC004B77F2 /* SwiftyJSON in Frameworks */,
+				AECB777A28CE2C89004B77F2 /* Realm in Frameworks */,
+				AECB777428CE2C43004B77F2 /* SnapKit in Frameworks */,
+				AECB778828CE2D5B004B77F2 /* JGProgressHUD in Frameworks */,
+				AECB778228CE2CAC004B77F2 /* Alamofire in Frameworks */,
+				AECB777F28CE2C9A004B77F2 /* FSCalendar in Frameworks */,
+				AECB777728CE2C4D004B77F2 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */,
-				AECB775328CC9F50004B77F2 /* OnBoardingItemViewController.swift */,
-				AECB775528CC9F5E004B77F2 /* OnBoarding.storyboard */,
+				AECB778E28CE33C7004B77F2 /* OnBoardingItemViewController.swift */,
+				AECB778F28CE33C8004B77F2 /* OnBoardingItemViewController.xib */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -170,6 +186,16 @@
 			dependencies = (
 			);
 			name = One_Percent;
+			packageProductDependencies = (
+				AECB777328CE2C43004B77F2 /* SnapKit */,
+				AECB777628CE2C4D004B77F2 /* Then */,
+				AECB777928CE2C89004B77F2 /* Realm */,
+				AECB777B28CE2C89004B77F2 /* RealmSwift */,
+				AECB777E28CE2C9A004B77F2 /* FSCalendar */,
+				AECB778128CE2CAC004B77F2 /* Alamofire */,
+				AECB778428CE2CBC004B77F2 /* SwiftyJSON */,
+				AECB778728CE2D5B004B77F2 /* JGProgressHUD */,
+			);
 			productName = One_Percent;
 			productReference = AECB773728CC9EEC004B77F2 /* One_Percent.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +224,15 @@
 				Base,
 			);
 			mainGroup = AECB772E28CC9EEC004B77F2;
+			packageReferences = (
+				AECB777228CE2C43004B77F2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				AECB777528CE2C4D004B77F2 /* XCRemoteSwiftPackageReference "Then" */,
+				AECB777828CE2C89004B77F2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				AECB777D28CE2C9A004B77F2 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				AECB778028CE2CAC004B77F2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				AECB778328CE2CBC004B77F2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				AECB778628CE2D5A004B77F2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+			);
 			productRefGroup = AECB773828CC9EEC004B77F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -213,10 +248,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AECB775C28CCA139004B77F2 /* .gitignore in Resources */,
+				AECB779128CE33C8004B77F2 /* OnBoardingItemViewController.xib in Resources */,
 				AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */,
 				AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */,
 				AECB774228CC9EEC004B77F2 /* Main.storyboard in Resources */,
-				AECB775628CC9F5E004B77F2 /* OnBoarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,8 +270,8 @@
 				AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */,
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
+				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
-				AECB775428CC9F50004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB776428CCA389004B77F2 /* APIKey.swift in Sources */,
 				AECB776928CCBE74004B77F2 /* BaseView.swift in Sources */,
 				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
@@ -460,6 +495,108 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AECB777228CE2C43004B77F2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		AECB777528CE2C4D004B77F2 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		AECB777828CE2C89004B77F2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		AECB777D28CE2C9A004B77F2 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		AECB778028CE2CAC004B77F2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		AECB778328CE2CBC004B77F2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		AECB778628CE2D5A004B77F2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AECB777328CE2C43004B77F2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB777228CE2C43004B77F2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		AECB777628CE2C4D004B77F2 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB777528CE2C4D004B77F2 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		AECB777928CE2C89004B77F2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB777828CE2C89004B77F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		AECB777B28CE2C89004B77F2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB777828CE2C89004B77F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		AECB777E28CE2C9A004B77F2 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB777D28CE2C9A004B77F2 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		AECB778128CE2CAC004B77F2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB778028CE2CAC004B77F2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		AECB778428CE2CBC004B77F2 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB778328CE2CBC004B77F2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		AECB778728CE2D5B004B77F2 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AECB778628CE2D5A004B77F2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AECB772F28CC9EEC004B77F2 /* Project object */;
 }

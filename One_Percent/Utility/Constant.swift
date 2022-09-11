@@ -22,7 +22,7 @@ extension Constants {
         static let border = UIColor.label.cgColor
         static let text = UIColor.label
         static let placeholder = UIColor.systemGray
-        static let point = UIColor.systemOrange
+        static let point = UIColor.systemMint
     }
     
 }
