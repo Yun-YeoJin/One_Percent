@@ -34,6 +34,9 @@
 		AECB778828CE2D5B004B77F2 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AECB778728CE2D5B004B77F2 /* JGProgressHUD */; };
 		AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB778E28CE33C7004B77F2 /* OnBoardingItemViewController.swift */; };
 		AECB779128CE33C8004B77F2 /* OnBoardingItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECB778F28CE33C8004B77F2 /* OnBoardingItemViewController.xib */; };
+		AECB779428CE3AAA004B77F2 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779328CE3AAA004B77F2 /* MainListViewController.swift */; };
+		AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779528CE3B2A004B77F2 /* MainListView.swift */; };
+		AECB779828CE3B38004B77F2 /* MainListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		AECB778E28CE33C7004B77F2 /* OnBoardingItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingItemViewController.swift; sourceTree = "<group>"; };
 		AECB778F28CE33C8004B77F2 /* OnBoardingItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnBoardingItemViewController.xib; sourceTree = "<group>"; };
+		AECB779328CE3AAA004B77F2 /* MainListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
+		AECB779528CE3B2A004B77F2 /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 				AECB775728CCA0FF004B77F2 /* Protocol */,
 				AECB774E28CC9F09004B77F2 /* OnBoarding */,
 				AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */,
+				AECB779228CE3A7D004B77F2 /* MainListViewController */,
 				AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */,
 				AECB773E28CC9EEC004B77F2 /* ViewController.swift */,
 				AECB774028CC9EEC004B77F2 /* Main.storyboard */,
@@ -168,6 +175,16 @@
 				AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		AECB779228CE3A7D004B77F2 /* MainListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AECB779328CE3AAA004B77F2 /* MainListViewController.swift */,
+				AECB779528CE3B2A004B77F2 /* MainListView.swift */,
+				AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */,
+			);
+			path = MainListViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,14 +279,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AECB779828CE3B38004B77F2 /* MainListTableViewCell.swift in Sources */,
 				AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */,
 				AECB776F28CCBEA8004B77F2 /* BaseCollectionViewCell.swift in Sources */,
 				AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */,
+				AECB779428CE3AAA004B77F2 /* MainListViewController.swift in Sources */,
 				AECB776628CCA395004B77F2 /* APIManager.swift in Sources */,
 				AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */,
 				AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */,
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
+				AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
 				AECB776428CCA389004B77F2 /* APIKey.swift in Sources */,

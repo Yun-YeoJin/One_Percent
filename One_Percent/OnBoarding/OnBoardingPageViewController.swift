@@ -138,7 +138,10 @@ class OnBoardingPageViewController: UIPageViewController {
     }
     
     @objc func dismissPageVC() {
-        self.dismiss(animated: true, completion: nil)
+        
+        self.dismiss(animated: true)
+        UserDefaults.standard.set(true, forKey: "SecondRun")
+        
     }
     
 }
