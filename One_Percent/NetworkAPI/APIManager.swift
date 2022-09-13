@@ -16,9 +16,9 @@ class OpenWeatherAPIManager {
 
     private init() { }
 
-    var list: [WeatherInfo] = []
+    var list: [WeatherModel] = []
 
-    func requestAPI(_ lat: Double, _ lon: Double, completionHandler: @escaping (WeatherInfo) -> ()) {
+    func requestAPI(_ lat: Double, _ lon: Double, completionHandler: @escaping (WeatherModel) -> ()) {
 
         // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
         let url = "\(EndPoint.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(APIKey.openWeather)"
@@ -36,7 +36,7 @@ class OpenWeatherAPIManager {
                 let iconNumber = json["weather"][0]["icon"].stringValue
               
 
-                let data = WeatherInfo(name: name, temp: temp, humidity: humidity, windspeed: windspeed, iconNumber: iconNumber)
+                let data = WeatherModel(name: name, temp: temp, humidity: humidity, windspeed: windspeed, iconNumber: iconNumber)
 
                 completionHandler(data)
 
@@ -47,5 +47,50 @@ class OpenWeatherAPIManager {
         print(list)
     }
 
+}
+
+class NewsAPIManager {
+    
+    static let shared = NewsAPIManager()
+    
+    private init() { }
+    
+    typealias completionHandler = (Int, [NewsModel]) -> Void
+    
+    func requestNewsData(query: String, startPage: Int, completionHandler: @escaping completionHandler) {
+    
+    let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        let url = EndPoint.newsURL + "query=\(text)&display=10&start=\(startPage)"
+        
+        let header: HTTPHeaders = [
+            "X-Naver-Client-Id": APIKey.NAVER_ID,
+            "X-Naver-Client-Secret": APIKey.NAVER_SECRET
+        ]
+        
+        AF.request(url, method: .get, headers: header).validate().responseData(queue: .global()) {
+            response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+                /*
+                 title : String
+                 description : String
+                 pubDate : String
+                 link : String
+                 */
+                let totalCount = json["total"].intValue
+                
+                let list = json["items"].arrayValue.map { NewsModel(title: $0["title"].stringValue, description: $0["description"].stringValue, pubDate: $0["pubDate"].stringValue, link: $0["link"].stringValue) }
+                
+                completionHandler(totalCount, list)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    
+    }
 }
 

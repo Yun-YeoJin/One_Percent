@@ -1,5 +1,5 @@
 //
-//  WeatherInfo.swift
+//  WeatherModel.swift
 //  One_Percent
 //
 //  Created by 윤여진 on 2022/09/13.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherInfo {
+struct WeatherModel {
     
     let name: String
     let temp: Double
