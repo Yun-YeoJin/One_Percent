@@ -57,7 +57,7 @@ class MainListViewController: BaseViewController {
         tableView.snp.makeConstraints { make in
             make.top.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide)
         }
-        
+         
     }
     
 }

@@ -37,6 +37,8 @@
 		AECB779428CE3AAA004B77F2 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779328CE3AAA004B77F2 /* MainListViewController.swift */; };
 		AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779528CE3B2A004B77F2 /* MainListView.swift */; };
 		AECB779828CE3B38004B77F2 /* MainListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */; };
+		AECB779D28D05830004B77F2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779C28D05830004B77F2 /* URL.swift */; };
+		AECB77A028D05893004B77F2 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779F28D05893004B77F2 /* WeatherInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		AECB779328CE3AAA004B77F2 /* MainListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
 		AECB779528CE3B2A004B77F2 /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
 		AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListTableViewCell.swift; sourceTree = "<group>"; };
+		AECB779C28D05830004B77F2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		AECB779F28D05893004B77F2 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,9 @@
 		AECB773928CC9EEC004B77F2 /* One_Percent */ = {
 			isa = PBXGroup;
 			children = (
+				AECB779A28CF1FE7004B77F2 /* NewsTab */,
+				AECB779B28CF1FEA004B77F2 /* CaculateTab */,
+				AECB779928CF1FE5004B77F2 /* ChartPatternTab */,
 				AECB776728CCA3BA004B77F2 /* BaseView */,
 				AECB776228CCA37A004B77F2 /* NetworkAPI */,
 				AECB775F28CCA29A004B77F2 /* Utility */,
@@ -160,8 +167,10 @@
 		AECB776228CCA37A004B77F2 /* NetworkAPI */ = {
 			isa = PBXGroup;
 			children = (
+				AECB779E28D05887004B77F2 /* Model */,
 				AECB776328CCA389004B77F2 /* APIKey.swift */,
 				AECB776528CCA395004B77F2 /* APIManager.swift */,
+				AECB779C28D05830004B77F2 /* URL.swift */,
 			);
 			path = NetworkAPI;
 			sourceTree = "<group>";
@@ -185,6 +194,36 @@
 				AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */,
 			);
 			path = MainListViewController;
+			sourceTree = "<group>";
+		};
+		AECB779928CF1FE5004B77F2 /* ChartPatternTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChartPatternTab;
+			sourceTree = "<group>";
+		};
+		AECB779A28CF1FE7004B77F2 /* NewsTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NewsTab;
+			path = "New Group/NewsTab";
+			sourceTree = "<group>";
+		};
+		AECB779B28CF1FEA004B77F2 /* CaculateTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CaculateTab;
+			sourceTree = "<group>";
+		};
+		AECB779E28D05887004B77F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AECB779F28D05893004B77F2 /* WeatherInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,10 +329,12 @@
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
 				AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */,
+				AECB779D28D05830004B77F2 /* URL.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
 				AECB776428CCA389004B77F2 /* APIKey.swift in Sources */,
 				AECB776928CCBE74004B77F2 /* BaseView.swift in Sources */,
+				AECB77A028D05893004B77F2 /* WeatherInfo.swift in Sources */,
 				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
 				AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */,
 			);
