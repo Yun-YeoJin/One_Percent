@@ -40,6 +40,8 @@
 		AECB779D28D05830004B77F2 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779C28D05830004B77F2 /* EndPoint.swift */; };
 		AECB77A028D05893004B77F2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB779F28D05893004B77F2 /* WeatherModel.swift */; };
 		AECB77A428D06071004B77F2 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77A328D06071004B77F2 /* NewsModel.swift */; };
+		AECB77A728D06F50004B77F2 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77A628D06F50004B77F2 /* NewsViewController.swift */; };
+		AECB77A928D06F5C004B77F2 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77A828D06F5C004B77F2 /* NewsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		AECB779C28D05830004B77F2 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		AECB779F28D05893004B77F2 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		AECB77A328D06071004B77F2 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		AECB77A628D06F50004B77F2 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		AECB77A828D06F5C004B77F2 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 		AECB77A528D061CA004B77F2 /* NewsTab */ = {
 			isa = PBXGroup;
 			children = (
+				AECB77A628D06F50004B77F2 /* NewsViewController.swift */,
+				AECB77A828D06F5C004B77F2 /* NewsTableViewCell.swift */,
 			);
 			path = NewsTab;
 			sourceTree = "<group>";
@@ -332,12 +338,14 @@
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
 				AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */,
+				AECB77A928D06F5C004B77F2 /* NewsTableViewCell.swift in Sources */,
 				AECB779D28D05830004B77F2 /* EndPoint.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
 				AECB776428CCA389004B77F2 /* APIKey.swift in Sources */,
 				AECB776928CCBE74004B77F2 /* BaseView.swift in Sources */,
 				AECB77A028D05893004B77F2 /* WeatherModel.swift in Sources */,
+				AECB77A728D06F50004B77F2 /* NewsViewController.swift in Sources */,
 				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
 				AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */,
 			);
