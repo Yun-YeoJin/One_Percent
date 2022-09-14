@@ -38,7 +38,7 @@ class NewsTableViewCell: BaseTableViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(8)
-            make.leading.trailing.equalTo(8)
+            make.leading.equalTo(8)
             make.height.equalTo(20)
             
         }

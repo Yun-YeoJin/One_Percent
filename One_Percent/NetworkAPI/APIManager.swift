@@ -55,9 +55,7 @@ class NewsAPIManager {
     
     private init() { }
     
-    typealias completionHandler = (Int, [NewsModel]) -> Void
-    
-    func requestNewsData(query: String, startPage: Int, completionHandler: @escaping completionHandler) {
+    func requestNewsData(query: String, startPage: Int, completionHandler: @escaping ([NewsModel]) -> () ) {
     
     let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
@@ -74,17 +72,12 @@ class NewsAPIManager {
             case .success(let value):
                 let json = JSON(value)
                 print("JSON: \(json)")
-                /*
-                 title : String
-                 description : String
-                 pubDate : String
-                 link : String
-                 */
-                let totalCount = json["total"].intValue
+   
+                let list = json["items"].arrayValue.map { NewsModel(title: $0["title"].stringValue, description: $0["description"].stringValue, pubDate: $0["pubDate"].stringValue, link: $0["link"].stringValue)
+                }
                 
-                let list = json["items"].arrayValue.map { NewsModel(title: $0["title"].stringValue, description: $0["description"].stringValue, pubDate: $0["pubDate"].stringValue, link: $0["link"].stringValue) }
+                completionHandler(list)
                 
-                completionHandler(totalCount, list)
                 
             case .failure(let error):
                 print(error)

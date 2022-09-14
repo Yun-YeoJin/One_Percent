@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 import SnapKit
 import Then
@@ -21,11 +22,24 @@ class NewsViewController: BaseViewController {
         return view
     }()
     
+    var startPage = 1
+    var totalCount = 0
+    
+    var newsList: [NewsModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "경제 뉴스"
         navigationController?.navigationBar.tintColor = .systemMint
+        
+        NewsAPIManager.shared.requestNewsData(query: "domestic finance", startPage: 1) { list in
+            DispatchQueue.main.async {
+                self.newsList = list
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     
     
@@ -42,28 +56,46 @@ class NewsViewController: BaseViewController {
         }
         
     }
+    
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        
+        
+        return newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reusableIdentifier, for: indexPath) as? NewsTableViewCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = "이곳이 제목이요~"
+        cell.titleLabel.text = "\(newsList[indexPath.row].title)"
         
         return cell
         
+        
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let url = URL(string: newsList[indexPath.row].link) else {
+            return
+        }
+        
+        let safari = SFSafariViewController(url: url)
+        present(safari, animated: true)
+
+    }
     //MARK: TableViewHeader UI 설정
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView{
