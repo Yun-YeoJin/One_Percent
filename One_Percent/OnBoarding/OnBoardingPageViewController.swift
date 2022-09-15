@@ -8,7 +8,7 @@
 import UIKit
 
 class OnBoardingPageViewController: UIPageViewController {
-    
+
     let button: UIButton = {
         let view = UIButton()
         view.setTitle("시작하기", for: .normal)
@@ -17,7 +17,6 @@ class OnBoardingPageViewController: UIPageViewController {
         view.layer.cornerRadius = Constants.Design.cornerRadius
         return view
     }()
-    
     
     var pages = [UIViewController]()
     var bottomButtonMargin: NSLayoutConstraint?
@@ -30,14 +29,13 @@ class OnBoardingPageViewController: UIPageViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.makePageVC()
         self.makeBottomButton()
         self.makePageControl()
-        
+        setTransitionStyle()
     }
     
     func makePageVC() {
@@ -87,6 +85,11 @@ class OnBoardingPageViewController: UIPageViewController {
         
         self.dataSource = self
         self.delegate = self
+        
+    }
+    
+    func setTransitionStyle() -> TransitionStyle {
+        return .scroll
     }
     
     func makePageControl() {
@@ -94,13 +97,13 @@ class OnBoardingPageViewController: UIPageViewController {
         self.view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         
-        pageControl.currentPageIndicatorTintColor = .black //선택된 점의 페이지 색깔
+        pageControl.currentPageIndicatorTintColor = Constants.BaseColor.point //선택된 점의 페이지 색깔
         pageControl.pageIndicatorTintColor = .lightGray //선택 안된 점의 색깔
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = startindex //현재 페이지
         
         pageControl.isUserInteractionEnabled = true //모든 터치와 관련된 이벤트는 동작하지 않는다!
-        pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -100).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -80).isActive = true
         pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         pageControl.addTarget(self, action: #selector(pageControlTapped), for: .valueChanged)
     }
@@ -204,11 +207,11 @@ extension OnBoardingPageViewController: UIPageViewControllerDelegate {
     }
     
     func showButton() {
-        bottomButtonMargin?.constant = -20
+        bottomButtonMargin?.constant = 0
     }
     
     func hideButton() {
-        bottomButtonMargin?.constant = 120
+        bottomButtonMargin?.constant = 100
     }
 }
 

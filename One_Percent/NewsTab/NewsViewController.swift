@@ -33,7 +33,7 @@ class NewsViewController: BaseViewController {
         navigationItem.title = "경제 뉴스"
         navigationController?.navigationBar.tintColor = .systemMint
         
-        NewsAPIManager.shared.requestNewsData(query: "domestic finance", startPage: 1) { list in
+        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: 1) { list in
             DispatchQueue.main.async {
                 self.newsList = list
                 self.tableView.reloadData()
@@ -79,7 +79,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reusableIdentifier, for: indexPath) as? NewsTableViewCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = "\(newsList[indexPath.row].title)"
+        cell.titleLabel.text = String(htmlEncodedString: "\(newsList[indexPath.row].title)")!
         
         return cell
         
@@ -119,4 +119,6 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+
 

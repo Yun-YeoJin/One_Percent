@@ -43,11 +43,11 @@ class MainListViewController: BaseViewController {
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let calculateTab = UIBarButtonItem(image: UIImage(systemName: "x.squareroot"), style: .done, target: self, action: nil)
-        let mainListTab = UIBarButtonItem(image: UIImage(systemName: "doc.text.below.ecg"), style: .plain, target: self, action: nil)
+//        let mainListTab = UIBarButtonItem(image: UIImage(systemName: "doc.text.below.ecg"), style: .plain, target: self, action: nil)
         let chartPatternTab = UIBarButtonItem(image: UIImage(systemName: "chart.xyaxis.line"), style: .plain, target: self, action: nil)
         let newsTab = UIBarButtonItem(image: UIImage(systemName: "globe.asia.australia.fill"), style: .plain, target: self, action: #selector(newsTabClicked))
 
-        toolbarItems = [calculateTab, spacer, mainListTab, spacer, chartPatternTab, spacer, newsTab]
+        toolbarItems = [spacer, calculateTab, spacer, chartPatternTab, spacer, newsTab, spacer]
         navigationController?.isToolbarHidden = false
         navigationController?.toolbar.tintColor = Constants.BaseColor.point
         navigationController?.toolbar.backgroundColor = Constants.BaseColor.background
