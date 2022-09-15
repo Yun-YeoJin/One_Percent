@@ -29,7 +29,7 @@ class NewsViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationItem.title = "경제 뉴스"
-        navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.tintColor = Constants.BaseColor.point
         
         NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...10)) { list in
             DispatchQueue.main.async {
@@ -43,8 +43,7 @@ class NewsViewController: BaseViewController {
                 self.tableView.reloadData()
             }
         }
- 
-    }
+     }
     
     override func configureUI() {
         

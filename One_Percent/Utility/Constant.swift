@@ -21,8 +21,9 @@ extension Constants {
         static let background = UIColor.systemBackground
         static let border = UIColor.label.cgColor
         static let text = UIColor.label
-        static let placeholder = UIColor.systemGray
+        static let placeholder = UIColor.systemTeal
         static let point = UIColor.systemMint
+        static let textField = UIColor.systemGray5
     }
     
 }

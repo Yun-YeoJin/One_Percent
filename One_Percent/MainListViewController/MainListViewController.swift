@@ -42,8 +42,7 @@ class MainListViewController: BaseViewController {
         view.addSubview(tableView)
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let calculateTab = UIBarButtonItem(image: UIImage(systemName: "x.squareroot"), style: .done, target: self, action: nil)
-//        let mainListTab = UIBarButtonItem(image: UIImage(systemName: "doc.text.below.ecg"), style: .plain, target: self, action: nil)
+        let calculateTab = UIBarButtonItem(image: UIImage(systemName: "x.squareroot"), style: .done, target: self, action: #selector(calculateTabClicked))
         let chartPatternTab = UIBarButtonItem(image: UIImage(systemName: "chart.xyaxis.line"), style: .plain, target: self, action: nil)
         let newsTab = UIBarButtonItem(image: UIImage(systemName: "globe.asia.australia.fill"), style: .plain, target: self, action: #selector(newsTabClicked))
 
@@ -51,6 +50,12 @@ class MainListViewController: BaseViewController {
         navigationController?.isToolbarHidden = false
         navigationController?.toolbar.tintColor = Constants.BaseColor.point
         navigationController?.toolbar.backgroundColor = Constants.BaseColor.background
+        
+    }
+    
+    @objc func calculateTabClicked() {
+        let vc = CaculateViewController()
+        transition(vc, transitionStyle: .presentNavigation)
         
     }
     
