@@ -13,7 +13,13 @@ import Then
 class NewsTableViewCell: BaseTableViewCell {
     
     let titleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 15)
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.textAlignment = .left
+        $0.textColor = Constants.BaseColor.text
+    }
+    
+    let pubDateLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 15)
         $0.textAlignment = .left
         $0.textColor = Constants.BaseColor.text
     }
@@ -29,7 +35,7 @@ class NewsTableViewCell: BaseTableViewCell {
     }
     
     override func configureUI() {
-        [titleLabel].forEach {
+        [titleLabel, pubDateLabel].forEach {
             self.addSubview($0)
         }
     }
@@ -39,8 +45,13 @@ class NewsTableViewCell: BaseTableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(8)
             make.leading.equalTo(8)
+            make.height.equalTo(30)
+        }
+        
+        pubDateLabel.snp.makeConstraints { make in
+            make.leading.equalTo(8)
+            make.top.equalTo(titleLabel.snp.bottom).offset(16)
             make.height.equalTo(20)
-            
         }
     }
     

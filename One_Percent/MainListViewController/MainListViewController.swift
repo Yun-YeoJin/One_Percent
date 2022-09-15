@@ -56,7 +56,7 @@ class MainListViewController: BaseViewController {
     
     @objc func newsTabClicked() {
         let vc = NewsViewController()
-        transition(vc, transitionStyle: .push)
+        transition(vc, transitionStyle: .presentNavigation)
         
     }
     

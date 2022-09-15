@@ -21,11 +21,9 @@ class NewsViewController: BaseViewController {
         view.backgroundColor = Constants.BaseColor.background
         return view
     }()
-    
-    var startPage = 1
-    var totalCount = 0
-    
-    var newsList: [NewsModel] = []
+  
+    var domesticNewsList: [NewsModel] = []
+    var globalNewsList: [NewsModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +31,20 @@ class NewsViewController: BaseViewController {
         navigationItem.title = "경제 뉴스"
         navigationController?.navigationBar.tintColor = .systemMint
         
-        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: 1) { list in
+        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...10)) { list in
             DispatchQueue.main.async {
-                self.newsList = list
+                self.domesticNewsList = list
                 self.tableView.reloadData()
             }
         }
-        
+        NewsAPIManager.shared.requestNewsData(query: "세계증시", startPage: Int.random(in: 1...10)) { list in
+            DispatchQueue.main.async {
+                self.globalNewsList = list
+                self.tableView.reloadData()
+            }
+        }
+ 
     }
-    
     
     override func configureUI() {
         
@@ -54,9 +57,7 @@ class NewsViewController: BaseViewController {
         tableView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        
     }
-    
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,30 +72,37 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        return newsList.count
+        return section == 0 ? domesticNewsList.count : globalNewsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reusableIdentifier, for: indexPath) as? NewsTableViewCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = String(htmlEncodedString: "\(newsList[indexPath.row].title)")!
+        if indexPath.section == 0 {
+            cell.titleLabel.text = String(htmlEncodedString: "\(domesticNewsList[indexPath.row].title)")!
+            
+            cell.pubDateLabel.text = domesticNewsList[indexPath.row].pubDate
+            
+        } else {
+            cell.titleLabel.text = String(htmlEncodedString: "\(globalNewsList[indexPath.row].title)")!
+            
+            cell.pubDateLabel.text = globalNewsList[indexPath.row].pubDate
+        }
         
         return cell
-        
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let url = URL(string: newsList[indexPath.row].link) else {
+        guard let url = URL(string: domesticNewsList[indexPath.row].link) else {
             return
         }
         
         let safari = SFSafariViewController(url: url)
         present(safari, animated: true)
-
+        
     }
     //MARK: TableViewHeader UI 설정
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -113,9 +121,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if section == 0 {
-            return "국내 증시"
+            return "* 국내 증시 *"
         } else {
-            return "세계 증시"
+            return "* 세계 증시 *"
         }
     }
 }
