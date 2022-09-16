@@ -47,7 +47,9 @@
 		AECB77AF28D36E14004B77F2 /* CaculateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77AE28D36E14004B77F2 /* CaculateView.swift */; };
 		AECB77B128D36E21004B77F2 /* ChartPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77B028D36E21004B77F2 /* ChartPatternViewController.swift */; };
 		AECB77B428D36E5D004B77F2 /* ChartPatternCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77B328D36E5D004B77F2 /* ChartPatternCollectionViewCell.swift */; };
-		AECB77B628D36EB0004B77F2 /* ChartPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77B528D36EB0004B77F2 /* ChartPatternView.swift */; };
+		AECB77B928D495C9004B77F2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */; };
+		AECB77BB28D49B2A004B77F2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */; };
+		AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77BC28D4AECD004B77F2 /* ChartPatternView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +87,9 @@
 		AECB77AE28D36E14004B77F2 /* CaculateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaculateView.swift; sourceTree = "<group>"; };
 		AECB77B028D36E21004B77F2 /* ChartPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPatternViewController.swift; sourceTree = "<group>"; };
 		AECB77B328D36E5D004B77F2 /* ChartPatternCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPatternCollectionViewCell.swift; sourceTree = "<group>"; };
-		AECB77B528D36EB0004B77F2 /* ChartPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPatternView.swift; sourceTree = "<group>"; };
+		AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		AECB77BC28D4AECD004B77F2 /* ChartPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPatternView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,23 +131,23 @@
 		AECB773928CC9EEC004B77F2 /* One_Percent */ = {
 			isa = PBXGroup;
 			children = (
-				AECB77A528D061CA004B77F2 /* NewsTab */,
-				AECB779B28CF1FEA004B77F2 /* CaculateTab */,
-				AECB779928CF1FE5004B77F2 /* ChartPatternTab */,
-				AECB776728CCA3BA004B77F2 /* BaseView */,
-				AECB776228CCA37A004B77F2 /* NetworkAPI */,
-				AECB775F28CCA29A004B77F2 /* Utility */,
-				AECB775A28CCA125004B77F2 /* Extension */,
-				AECB775728CCA0FF004B77F2 /* Protocol */,
-				AECB774E28CC9F09004B77F2 /* OnBoarding */,
+				AECB774828CC9EEE004B77F2 /* Info.plist */,
 				AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */,
-				AECB779228CE3A7D004B77F2 /* MainListViewController */,
 				AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */,
 				AECB773E28CC9EEC004B77F2 /* ViewController.swift */,
-				AECB774028CC9EEC004B77F2 /* Main.storyboard */,
 				AECB774328CC9EEE004B77F2 /* Assets.xcassets */,
+				AECB779228CE3A7D004B77F2 /* MainListViewController */,
+				AECB779B28CF1FEA004B77F2 /* CaculateTab */,
+				AECB779928CF1FE5004B77F2 /* ChartPatternTab */,
+				AECB77A528D061CA004B77F2 /* NewsTab */,
+				AECB776728CCA3BA004B77F2 /* BaseView */,
+				AECB775A28CCA125004B77F2 /* Extension */,
 				AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */,
-				AECB774828CC9EEE004B77F2 /* Info.plist */,
+				AECB774028CC9EEC004B77F2 /* Main.storyboard */,
+				AECB776228CCA37A004B77F2 /* NetworkAPI */,
+				AECB774E28CC9F09004B77F2 /* OnBoarding */,
+				AECB775728CCA0FF004B77F2 /* Protocol */,
+				AECB775F28CCA29A004B77F2 /* Utility */,
 			);
 			path = One_Percent;
 			sourceTree = "<group>";
@@ -171,6 +175,8 @@
 			children = (
 				AECB775D28CCA27D004B77F2 /* Transition+Extension.swift */,
 				AECB77AA28D31CAD004B77F2 /* String+Extension.swift */,
+				AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */,
+				AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -220,7 +226,7 @@
 			children = (
 				AECB77B028D36E21004B77F2 /* ChartPatternViewController.swift */,
 				AECB77B328D36E5D004B77F2 /* ChartPatternCollectionViewCell.swift */,
-				AECB77B528D36EB0004B77F2 /* ChartPatternView.swift */,
+				AECB77BC28D4AECD004B77F2 /* ChartPatternView.swift */,
 			);
 			path = ChartPatternTab;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */,
 				AECB77B128D36E21004B77F2 /* ChartPatternViewController.swift in Sources */,
 				AECB776F28CCBEA8004B77F2 /* BaseCollectionViewCell.swift in Sources */,
+				AECB77B928D495C9004B77F2 /* UIViewController+Extension.swift in Sources */,
 				AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */,
 				AECB77A428D06071004B77F2 /* NewsModel.swift in Sources */,
 				AECB779428CE3AAA004B77F2 /* MainListViewController.swift in Sources */,
@@ -355,9 +362,10 @@
 				AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */,
 				AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */,
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
+				AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
-				AECB77B628D36EB0004B77F2 /* ChartPatternView.swift in Sources */,
 				AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */,
+				AECB77BB28D49B2A004B77F2 /* Int+Extension.swift in Sources */,
 				AECB77AB28D31CAE004B77F2 /* String+Extension.swift in Sources */,
 				AECB77A928D06F5C004B77F2 /* NewsTableViewCell.swift in Sources */,
 				AECB779D28D05830004B77F2 /* EndPoint.swift in Sources */,

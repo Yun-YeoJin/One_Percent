@@ -13,17 +13,20 @@ import Then
 class CaculateView: BaseView {
     
     let moneyLabel = UILabel().then {
-        $0.text = "원금"
+        $0.text = "원금(₩)"
         $0.textColor = Constants.BaseColor.text
         $0.font = .systemFont(ofSize: 15)
         $0.textAlignment = .left
     }
     
+    
     let moneyTextField = UITextField().then {
+
         $0.attributedPlaceholder = NSAttributedString(string: "원금을 입력하세요. ex) 100,000", attributes: [NSAttributedString.Key.foregroundColor : Constants.BaseColor.placeholder])
         $0.backgroundColor = Constants.BaseColor.textField
         $0.layer.cornerRadius = 25
         $0.textAlignment = .center
+        $0.keyboardType = .numberPad
     }
     
     let rateLabel = UILabel().then {
@@ -37,6 +40,7 @@ class CaculateView: BaseView {
         $0.backgroundColor = Constants.BaseColor.textField
         $0.layer.cornerRadius = 25
         $0.textAlignment = .center
+        $0.keyboardType = .numberPad
     }
     
     let dateLabel = UILabel().then {
@@ -50,6 +54,7 @@ class CaculateView: BaseView {
         $0.backgroundColor = Constants.BaseColor.textField
         $0.layer.cornerRadius = 25
         $0.textAlignment = .center
+        $0.keyboardType = .numberPad
     }
     
     let caculateLabel = UILabel().then {

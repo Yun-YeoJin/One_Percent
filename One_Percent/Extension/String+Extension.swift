@@ -32,7 +32,7 @@ extension String {
     func toDate() -> Date? { //"yyyy-MM-dd HH:mm:ss"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.timeZone = TimeZone(identifier: "ko_KR")
         if let date = dateFormatter.date(from: self) {
             return date
         } else {
@@ -45,8 +45,14 @@ extension Date {
     func toString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.timeZone = TimeZone(identifier: "ko_KR")
         return dateFormatter.string(from: self)
+    }
+}
+
+extension String  {
+    var isNumber: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
 }
 
