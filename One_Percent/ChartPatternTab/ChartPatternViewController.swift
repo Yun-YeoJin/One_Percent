@@ -12,7 +12,8 @@ class ChartPatternViewController: BaseViewController {
     
     let mainView = ChartPatternView()
     
-    var PatternInfo = ChartInfo()
+    var chartDetail = ChartInfo()
+    var candleDetail = CandleInfo()
    
     enum Section: CaseIterable {
         case chartPattern
@@ -60,7 +61,14 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ChartInfo.chartPattern.count
+        
+        if section == 0 {
+            return chartDetail.chartPattern.count
+        } else {
+            return candleDetail.candlePattern.count
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,11 +76,11 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChartPatternCollectionViewCell.reusableIdentifier, for: indexPath) as? ChartPatternCollectionViewCell else { return UICollectionViewCell() }
         
         if indexPath.section == 0 {
-            let data = ChartInfo.chartPattern[indexPath.item]
+            let data = chartDetail.chartPattern[indexPath.item]
             cell.titleLabel.text = data.title
             cell.chartImageView.image = UIImage(named: data.imageName)
         } else {
-            let data = CandleInfo.candlePattern[indexPath.item]
+            let data = candleDetail.candlePattern[indexPath.item]
             cell.titleLabel.text = data.title
             cell.chartImageView.image = UIImage(named: data.imageName)
         }
@@ -83,6 +91,11 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = ChartDetailViewController()
+        if indexPath.section == 0 {
+            vc.patternData = chartDetail.chartPattern[indexPath.item]
+        } else {
+            vc.patternData = candleDetail.candlePattern[indexPath.item]
+        }
         transition(vc, transitionStyle: .present)
         
     }

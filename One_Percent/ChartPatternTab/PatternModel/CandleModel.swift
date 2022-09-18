@@ -9,7 +9,7 @@ import UIKit
 
 struct CandleInfo {
     
-    static let candlePattern: [PatternsModel] = [
+    let candlePattern: [PatternsModel] = [
     
         PatternsModel(title: "1", description: "2", imageName: "Candle01"),
         PatternsModel(title: "2", description: "2", imageName: "Candle02"),
@@ -25,7 +25,13 @@ struct CandleInfo {
         PatternsModel(title: "2", description: "2", imageName: "Candle12"),
         PatternsModel(title: "3", description: "2", imageName: "Candle13"),
         PatternsModel(title: "4", description: "2", imageName: "Candle14"),
+        PatternsModel(title: "5", description: "2", imageName: "Candle15"),
+        PatternsModel(title: "1", description: "2", imageName: "Candle11"),
+        PatternsModel(title: "2", description: "2", imageName: "Candle12"),
+        PatternsModel(title: "3", description: "2", imageName: "Candle13"),
+        PatternsModel(title: "4", description: "2", imageName: "Candle14"),
         PatternsModel(title: "5", description: "2", imageName: "Candle15")
+        
         
     ]
 }

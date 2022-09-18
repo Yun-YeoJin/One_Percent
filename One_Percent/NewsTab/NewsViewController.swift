@@ -130,6 +130,8 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
             //테이블뷰 헤더 UI 설정
             headerView.textLabel?.textColor = Constants.BaseColor.text
             headerView.textLabel?.font = .boldSystemFont(ofSize: 30)
+            headerView.textLabel?.textAlignment = .center
+    
         }
     }
     

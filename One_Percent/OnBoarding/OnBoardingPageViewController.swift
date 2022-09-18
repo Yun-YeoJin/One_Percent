@@ -141,7 +141,7 @@ class OnBoardingPageViewController: UIPageViewController {
     @objc func dismissPageVC() {
         
         self.dismiss(animated: true)
-        UserDefaults.standard.set(true, forKey: "SecondRun")
+        //UserDefaults.standard.set(true, forKey: "SecondRun")
         
     }
     
@@ -151,7 +151,8 @@ extension OnBoardingPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentindex = pages.firstIndex(of: viewController) else {
             return nil
-        }//firstindex = 찾으면 끝나는 것.
+        }
+        //firstindex = 찾으면 끝나는 것.
         //해당되는 값이 몇번 index인지 알려줌. //옵셔널값이라 guard let
         self.currentindex = currentindex //현재 페이지 알려주기
         if currentindex == 0 {

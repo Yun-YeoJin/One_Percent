@@ -22,6 +22,8 @@ class MainListView: BaseView {
     
     let weatherView = UIImageView().then {
         $0.image = UIImage(named: "backgroundImage")
+        $0.layer.cornerRadius = 10
+        $0.clipsToBounds = true
         $0.alpha = 0.5
     }
     

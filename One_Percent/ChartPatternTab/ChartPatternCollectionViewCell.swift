@@ -25,15 +25,9 @@ class ChartPatternCollectionViewCell: BaseCollectionViewCell {
         $0.font = .boldSystemFont(ofSize: 20)
         $0.textAlignment = .center
         $0.textColor = Constants.BaseColor.text
+        $0.adjustsFontSizeToFitWidth = true
         
     }
-    
-//    let descriptionLabel = UILabel().then {
-//        $0.font = .boldSystemFont(ofSize: 12)
-//        $0.textAlignment = .center
-//        $0.textColor = Constants.BaseColor.text
-//        $0.text = "설명"
-//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,16 +51,10 @@ class ChartPatternCollectionViewCell: BaseCollectionViewCell {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(chartImageView.snp.bottom).offset(8)
+            make.top.equalTo(chartImageView.snp.bottom).offset(16)
             make.leading.trailing.equalTo(0)
             make.height.equalTo(20)
         }
-        
-//        descriptionLabel.snp.makeConstraints { make in
-//            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-//            make.leading.trailing.equalTo(0)
-//            make.height.equalTo(20)
-//        }
         
     }
     
