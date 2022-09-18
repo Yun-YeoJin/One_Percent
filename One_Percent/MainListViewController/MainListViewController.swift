@@ -13,15 +13,11 @@ import SwiftUI
 
 class MainListViewController: BaseViewController {
     
-    lazy var tableView: UITableView = {
-        let view = UITableView.init(frame: .zero, style: .insetGrouped)
-        view.delegate = self
-        view.dataSource = self
-        view.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
-        view.rowHeight = 70
-        view.backgroundColor = Constants.BaseColor.background
-        return view
-    }()
+    let mainView = MainListView()
+    
+    override func loadView() {
+        self.view = mainView
+    }
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +30,48 @@ class MainListViewController: BaseViewController {
             
         }
     
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
+        mainView.tableView.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
         configureUI()
-        setConstraints()
+        
+        navigationItem.title = "윤기사의 매매일지"
+        navigationController?.navigationBar.tintColor = .systemMint
+        
+        let plusButton = UIBarButtonItem(image: UIImage(systemName: "note.text.badge.plus"), style: .plain, target: self, action: #selector(plusButtonClicked))
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.circle"), style: .plain, target: self, action: #selector(settingButtonClicked))
+        navigationItem.rightBarButtonItems = [plusButton, settingButton]
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.star"), primaryAction: nil, menu: alignButtonClicked())
+    }
+    
+    @objc func plusButtonClicked() {
+        
+    }
+    
+    @objc func settingButtonClicked() {
+        
+    }
+    
+    @objc func alignButtonClicked() -> UIMenu  {
+        
+        let sortContents = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
+            
+        }
+        let sortCheckBox = UIAction(title: "수익률순", image: UIImage(systemName: "chart.line.uptrend.xyaxis")) { _ in
+            
+        }
+        let sortFavorite = UIAction(title: "총 평가액순", image: UIImage(systemName: "dollarsign.circle")) { _ in
+            
+        }
+        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortContents, sortCheckBox, sortFavorite])
+        
+        return menu
+        
     }
     
     override func configureUI() {
-        
-        view.addSubview(tableView)
-        
+                
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let calculateTab = UIBarButtonItem(image: UIImage(systemName: "x.squareroot"), style: .done, target: self, action: #selector(calculateTabClicked))
         let chartPatternTab = UIBarButtonItem(image: UIImage(systemName: "chart.xyaxis.line"), style: .plain, target: self, action: #selector(chartPatternTabClicked))
@@ -70,14 +100,6 @@ class MainListViewController: BaseViewController {
         let vc = NewsViewController()
         transition(vc, transitionStyle: .presentNavigation)
         
-    }
-    
-    override func setConstraints() {
-        
-        tableView.snp.makeConstraints { make in
-            make.top.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide)
-        }
-         
     }
     
 }
