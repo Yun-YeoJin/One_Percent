@@ -30,20 +30,41 @@ class NewsViewController: BaseViewController {
         
         navigationItem.title = "경제 뉴스"
         navigationController?.navigationBar.tintColor = Constants.BaseColor.point
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
+        navigationController?.navigationBar.prefersLargeTitles = true
         
-        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...10)) { list in
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(refreshButtonClicked))
+        
+        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...30)) { list in
             DispatchQueue.main.async {
                 self.domesticNewsList = list
                 self.tableView.reloadData()
             }
         }
-        NewsAPIManager.shared.requestNewsData(query: "세계증시", startPage: Int.random(in: 1...10)) { list in
+        NewsAPIManager.shared.requestNewsData(query: "세계증시", startPage: Int.random(in: 1...30)) { list in
             DispatchQueue.main.async {
                 self.globalNewsList = list
                 self.tableView.reloadData()
             }
         }
      }
+    
+    @objc func refreshButtonClicked() {
+        
+        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...30)) { list in
+            DispatchQueue.main.async {
+                self.domesticNewsList = list
+                self.tableView.reloadData()
+            }
+        }
+        NewsAPIManager.shared.requestNewsData(query: "세계증시", startPage: Int.random(in: 1...30)) { list in
+            DispatchQueue.main.async {
+                self.globalNewsList = list
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
     
     override func configureUI() {
         

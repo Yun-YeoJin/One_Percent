@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE77881528D766AD00014C74 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881428D766AD00014C74 /* ChartModel.swift */; };
+		AE77881728D76BBF00014C74 /* CandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881628D76BBF00014C74 /* CandleModel.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE77881428D766AD00014C74 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
+		AE77881628D76BBF00014C74 /* CandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleModel.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				AEE7227B28D4C371002B569C /* PatternModel.swift */,
+				AE77881428D766AD00014C74 /* ChartModel.swift */,
+				AE77881628D76BBF00014C74 /* CandleModel.swift */,
 			);
 			path = PatternModel;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE77881728D76BBF00014C74 /* CandleModel.swift in Sources */,
 				AECB779828CE3B38004B77F2 /* MainListTableViewCell.swift in Sources */,
 				AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */,
 				AECB77B128D36E21004B77F2 /* ChartPatternViewController.swift in Sources */,
@@ -402,6 +409,7 @@
 				AECB77A928D06F5C004B77F2 /* NewsTableViewCell.swift in Sources */,
 				AECB779D28D05830004B77F2 /* EndPoint.swift in Sources */,
 				AECB77AF28D36E14004B77F2 /* CaculateView.swift in Sources */,
+				AE77881528D766AD00014C74 /* ChartModel.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB77AD28D36E0A004B77F2 /* CaculateViewController.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
