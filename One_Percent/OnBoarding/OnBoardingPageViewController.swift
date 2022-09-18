@@ -35,7 +35,8 @@ class OnBoardingPageViewController: UIPageViewController {
         self.makePageVC()
         self.makeBottomButton()
         self.makePageControl()
-        setTransitionStyle()
+       
+       
     }
     
     func makePageVC() {
@@ -86,10 +87,7 @@ class OnBoardingPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         
-    }
-    
-    func setTransitionStyle() -> TransitionStyle {
-        return .scroll
+        
     }
     
     func makePageControl() {

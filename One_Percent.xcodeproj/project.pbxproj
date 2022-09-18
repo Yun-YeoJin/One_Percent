@@ -50,6 +50,10 @@
 		AECB77B928D495C9004B77F2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */; };
 		AECB77BB28D49B2A004B77F2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */; };
 		AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB77BC28D4AECD004B77F2 /* ChartPatternView.swift */; };
+		AEE7227C28D4C371002B569C /* PatternModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7227B28D4C371002B569C /* PatternModel.swift */; };
+		AEE7228028D4CF22002B569C /* ChartPatternHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7227F28D4CF22002B569C /* ChartPatternHeaderView.swift */; };
+		AEE7228328D6D3EF002B569C /* ChartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7228228D6D3EF002B569C /* ChartDetailViewController.swift */; };
+		AEE7228528D6D3F7002B569C /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7228428D6D3F7002B569C /* ChartDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +94,10 @@
 		AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		AECB77BC28D4AECD004B77F2 /* ChartPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPatternView.swift; sourceTree = "<group>"; };
+		AEE7227B28D4C371002B569C /* PatternModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternModel.swift; sourceTree = "<group>"; };
+		AEE7227F28D4CF22002B569C /* ChartPatternHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPatternHeaderView.swift; sourceTree = "<group>"; };
+		AEE7228228D6D3EF002B569C /* ChartDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailViewController.swift; sourceTree = "<group>"; };
+		AEE7228428D6D3F7002B569C /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +232,10 @@
 		AECB779928CF1FE5004B77F2 /* ChartPatternTab */ = {
 			isa = PBXGroup;
 			children = (
+				AEE7228128D6D3DE002B569C /* ChartDetail */,
+				AEE7227A28D4C365002B569C /* PatternModel */,
 				AECB77B028D36E21004B77F2 /* ChartPatternViewController.swift */,
+				AEE7227F28D4CF22002B569C /* ChartPatternHeaderView.swift */,
 				AECB77B328D36E5D004B77F2 /* ChartPatternCollectionViewCell.swift */,
 				AECB77BC28D4AECD004B77F2 /* ChartPatternView.swift */,
 			);
@@ -256,6 +267,23 @@
 				AECB77A828D06F5C004B77F2 /* NewsTableViewCell.swift */,
 			);
 			path = NewsTab;
+			sourceTree = "<group>";
+		};
+		AEE7227A28D4C365002B569C /* PatternModel */ = {
+			isa = PBXGroup;
+			children = (
+				AEE7227B28D4C371002B569C /* PatternModel.swift */,
+			);
+			path = PatternModel;
+			sourceTree = "<group>";
+		};
+		AEE7228128D6D3DE002B569C /* ChartDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AEE7228228D6D3EF002B569C /* ChartDetailViewController.swift */,
+				AEE7228428D6D3F7002B569C /* ChartDetailView.swift */,
+			);
+			path = ChartDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,8 +386,12 @@
 				AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */,
 				AECB77A428D06071004B77F2 /* NewsModel.swift in Sources */,
 				AECB779428CE3AAA004B77F2 /* MainListViewController.swift in Sources */,
+				AEE7228528D6D3F7002B569C /* ChartDetailView.swift in Sources */,
+				AEE7227C28D4C371002B569C /* PatternModel.swift in Sources */,
 				AECB776628CCA395004B77F2 /* APIManager.swift in Sources */,
 				AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */,
+				AEE7228328D6D3EF002B569C /* ChartDetailViewController.swift in Sources */,
+				AEE7228028D4CF22002B569C /* ChartPatternHeaderView.swift in Sources */,
 				AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */,
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */,
@@ -526,7 +558,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2VD6SF7B9;
+				DEVELOPMENT_TEAM = 7HN73WS8Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -555,7 +587,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2VD6SF7B9;
+				DEVELOPMENT_TEAM = 7HN73WS8Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

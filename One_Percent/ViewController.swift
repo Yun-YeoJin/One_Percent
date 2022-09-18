@@ -13,14 +13,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let pageVC = OnBoardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
-        // 페이지뷰 넘기는 스타일 바꾸기. (scroll / curl)
         
         pageVC.modalPresentationStyle = .fullScreen //전체화면으로 표시
     

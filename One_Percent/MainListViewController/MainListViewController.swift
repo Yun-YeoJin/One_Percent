@@ -28,8 +28,9 @@ class MainListViewController: BaseViewController {
         
         if UserDefaults.standard.bool(forKey: "SecondRun") == false {
             
-            let vc = OnBoardingPageViewController()
-            transition(vc, transitionStyle: .presentNavigation)
+            let vc = OnBoardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
             
         }
     
