@@ -12,6 +12,21 @@ class ChartPatternViewController: BaseViewController {
     
     let mainView = ChartPatternView()
     
+    let chartPattern = Patterns.chartPattern
+    let candlePattern = Patterns.candlePattern
+    
+    enum Section: CaseIterable {
+        case chartPattern
+        case candlePattern
+        
+        var title: String {
+            switch self {
+            case .chartPattern: return "Chart Patterns"
+            case .candlePattern: return "Candle Patterns"
+            }
+        }
+    }
+    
     override func loadView() {
         self.view = mainView
     }
@@ -23,20 +38,26 @@ class ChartPatternViewController: BaseViewController {
         mainView.collectionView.dataSource = self
         mainView.searchBar.delegate = self
         mainView.collectionView.register(ChartPatternCollectionViewCell.self, forCellWithReuseIdentifier: ChartPatternCollectionViewCell.reusableIdentifier)
-        mainView.collectionView.collectionViewLayout = collectionViewLayout()
+
+        mainView.collectionView.collectionViewLayout = layout()
+        
     }
     
     override func configureUI() {
         
         navigationItem.title = "차트 패턴"
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
         navigationController?.navigationBar.tintColor = .systemMint
         
     }
     
-    
 }
 
 extension ChartPatternViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -53,22 +74,33 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
         
     }
     
-    func collectionViewLayout() -> UICollectionViewFlowLayout {
-        
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 8
-        let width = (UIScreen.main.bounds.width / 3) - ((layout.minimumInteritemSpacing * 3) - (spacing * 2))
-        layout.itemSize = CGSize(width: width, height: width)
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        layout.minimumInteritemSpacing = 8
-        layout.minimumLineSpacing = 8
-        
-        return layout
-    }
     
     
 }
 
 extension ChartPatternViewController: UISearchBarDelegate {
     
+}
+
+private func layout() -> UICollectionViewCompositionalLayout {
+    
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .estimated(200))
+    
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))//Label 크기에 따른 사이즈 자동 조절
+    
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2) //2줄로 표현하겠다.
+    group.interItemSpacing = .fixed(10)
+    
+    let section = NSCollectionLayoutSection(group: group)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20)
+    section.interGroupSpacing = 20
+    
+    let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+    section.boundarySupplementaryItems = [header]
+    
+    let layout = UICollectionViewCompositionalLayout(section: section)
+    return layout
 }
