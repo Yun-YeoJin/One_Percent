@@ -12,16 +12,28 @@ import Then
 
 class ChartPatternCollectionViewCell: BaseCollectionViewCell {
     
-    let unsplashImageView = UIImageView().then {
+    let chartImageView = UIImageView().then {
         $0.backgroundColor = .clear
+        $0.layer.cornerRadius = 20
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = Constants.BaseColor.border
+        $0.clipsToBounds = true
     }
     
     let titleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 12)
+        
+        $0.font = .boldSystemFont(ofSize: 20)
         $0.textAlignment = .center
         $0.textColor = Constants.BaseColor.text
-        $0.text = "패턴이름"
+        
     }
+    
+//    let descriptionLabel = UILabel().then {
+//        $0.font = .boldSystemFont(ofSize: 12)
+//        $0.textAlignment = .center
+//        $0.textColor = Constants.BaseColor.text
+//        $0.text = "설명"
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,23 +44,29 @@ class ChartPatternCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureUI() {
-        [unsplashImageView, titleLabel].forEach {
+        [chartImageView, titleLabel].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
         
-        unsplashImageView.snp.makeConstraints { make in
+        chartImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(0)
-            make.height.equalTo(50)
+            make.height.equalToSuperview().multipliedBy(0.7)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(unsplashImageView.snp.bottom).offset(8)
+            make.top.equalTo(chartImageView.snp.bottom).offset(8)
             make.leading.trailing.equalTo(0)
             make.height.equalTo(20)
         }
+        
+//        descriptionLabel.snp.makeConstraints { make in
+//            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+//            make.leading.trailing.equalTo(0)
+//            make.height.equalTo(20)
+//        }
         
     }
     
