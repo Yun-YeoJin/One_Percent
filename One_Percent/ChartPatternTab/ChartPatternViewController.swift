@@ -96,7 +96,7 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
         } else {
             vc.patternData = candleDetail.candlePattern[indexPath.item]
         }
-        transition(vc, transitionStyle: .present)
+        transition(vc, transitionStyle: .presentNavigation)
         
     }
     

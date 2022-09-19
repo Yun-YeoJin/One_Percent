@@ -34,7 +34,7 @@ class CaculateViewController: BaseViewController {
     
     override func configureUI() {
         
-        navigationItem.title = "일 복리 계산기"
+        navigationItem.title = "복리 계산기"
         navigationController?.navigationBar.tintColor = .systemMint
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "계산하기", style: .plain, target: self, action: #selector(caculateButtonClicked))

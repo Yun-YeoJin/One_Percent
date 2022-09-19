@@ -206,7 +206,7 @@ extension OnBoardingPageViewController: UIPageViewControllerDelegate {
     }
     
     func showButton() {
-        bottomButtonMargin?.constant = 0
+        bottomButtonMargin?.constant = -10
     }
     
     func hideButton() {

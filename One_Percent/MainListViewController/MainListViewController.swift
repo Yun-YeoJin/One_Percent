@@ -14,6 +14,8 @@ import SwiftUI
 class MainListViewController: BaseViewController {
     
     let mainView = MainListView()
+  
+    
     
     override func loadView() {
         self.view = mainView
@@ -29,7 +31,7 @@ class MainListViewController: BaseViewController {
             self.present(vc, animated: true, completion: nil)
             
         }
-    
+       
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
@@ -37,17 +39,20 @@ class MainListViewController: BaseViewController {
         
         navigationItem.title = "윤기사의 매매일지"
         navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
         
-        let plusButton = UIBarButtonItem(image: UIImage(systemName: "note.text.badge.plus"), style: .plain, target: self, action: #selector(plusButtonClicked))
+        
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.circle"), style: .plain, target: self, action: #selector(settingButtonClicked))
-        navigationItem.rightBarButtonItems = [plusButton, settingButton]
+        navigationItem.rightBarButtonItems = [settingButton]
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.star"), primaryAction: nil, menu: alignButtonClicked())
+        
+        mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
     }
     
-    @objc func plusButtonClicked() {
+    @objc func floatingButtonClicked() {
         
-    }
+           }
     
     @objc func settingButtonClicked() {
         
@@ -69,6 +74,13 @@ class MainListViewController: BaseViewController {
         return menu
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        mainView.floatingButton.frame = CGRect(x: view.frame.size.width-80, y: view.frame.size.height-170, width: 60, height: 60)
+    }
+    
+    
     
     override func configureUI() {
                 

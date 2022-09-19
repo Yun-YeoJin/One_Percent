@@ -27,6 +27,22 @@ class MainListView: BaseView {
         $0.alpha = 0.5
     }
     
+    let floatingButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        
+        button.backgroundColor = Constants.BaseColor.point
+        let image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium))
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.3
+        button.layer.cornerRadius = 30
+        return button
+        
+    }()
+    
+       
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -36,9 +52,10 @@ class MainListView: BaseView {
     }
     
     override func configureUI() {
-        [tableView, weatherView].forEach {
+        [tableView, weatherView, floatingButton].forEach {
             self.addSubview($0)
         }
+      
     }
     
     override func setConstraints() {
@@ -52,7 +69,7 @@ class MainListView: BaseView {
             make.top.equalTo(weatherView.snp.bottom).offset(0)
             make.leading.bottom.trailing.equalTo(safeAreaLayoutGuide)
         }
-        
+ 
     }
     
 }
