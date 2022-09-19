@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AE77881528D766AD00014C74 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881428D766AD00014C74 /* ChartModel.swift */; };
 		AE77881728D76BBF00014C74 /* CandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881628D76BBF00014C74 /* CandleModel.swift */; };
+		AE77881A28D8B21400014C74 /* BuyandSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881928D8B21400014C74 /* BuyandSellViewController.swift */; };
+		AE77881C28D8B21F00014C74 /* BuyandSellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881B28D8B21F00014C74 /* BuyandSellView.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 /* Begin PBXFileReference section */
 		AE77881428D766AD00014C74 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		AE77881628D76BBF00014C74 /* CandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleModel.swift; sourceTree = "<group>"; };
+		AE77881928D8B21400014C74 /* BuyandSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyandSellViewController.swift; sourceTree = "<group>"; };
+		AE77881B28D8B21F00014C74 /* BuyandSellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyandSellView.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE77881828D8B1DB00014C74 /* BuyandSellViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE77881928D8B21400014C74 /* BuyandSellViewController.swift */,
+				AE77881B28D8B21F00014C74 /* BuyandSellView.swift */,
+			);
+			path = BuyandSellViewController;
+			sourceTree = "<group>";
+		};
 		AECB772E28CC9EEC004B77F2 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +239,7 @@
 		AECB779228CE3A7D004B77F2 /* MainListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AE77881828D8B1DB00014C74 /* BuyandSellViewController */,
 				AECB779328CE3AAA004B77F2 /* MainListViewController.swift */,
 				AECB779528CE3B2A004B77F2 /* MainListView.swift */,
 				AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */,
@@ -409,6 +423,7 @@
 				AECB77A928D06F5C004B77F2 /* NewsTableViewCell.swift in Sources */,
 				AECB779D28D05830004B77F2 /* EndPoint.swift in Sources */,
 				AECB77AF28D36E14004B77F2 /* CaculateView.swift in Sources */,
+				AE77881A28D8B21400014C74 /* BuyandSellViewController.swift in Sources */,
 				AE77881528D766AD00014C74 /* ChartModel.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB77AD28D36E0A004B77F2 /* CaculateViewController.swift in Sources */,
@@ -418,6 +433,7 @@
 				AECB776928CCBE74004B77F2 /* BaseView.swift in Sources */,
 				AECB77A028D05893004B77F2 /* WeatherModel.swift in Sources */,
 				AECB77A728D06F50004B77F2 /* NewsViewController.swift in Sources */,
+				AE77881C28D8B21F00014C74 /* BuyandSellView.swift in Sources */,
 				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
 				AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */,
 			);

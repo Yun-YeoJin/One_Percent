@@ -101,13 +101,11 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             cell.titleLabel.text = String(htmlEncodedString: "\(domesticNewsList[indexPath.row].title)")!
-            
-            cell.pubDateLabel.text = domesticNewsList[indexPath.row].pubDate
+            cell.pubDateLabel.text = domesticNewsList[indexPath.row].pubDate.toDate()?.toString()
             
         } else {
             cell.titleLabel.text = String(htmlEncodedString: "\(globalNewsList[indexPath.row].title)")!
-            
-            cell.pubDateLabel.text = globalNewsList[indexPath.row].pubDate
+            cell.pubDateLabel.text = globalNewsList[indexPath.row].pubDate.toDate()?.toString()
         }
         
         return cell
