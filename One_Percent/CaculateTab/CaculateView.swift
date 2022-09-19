@@ -12,13 +12,14 @@ import Then
 
 class CaculateView: BaseView {
     
+    var selected = -1 // 0을 넣으면 tag값이 있기 때문에 나올 수 없는 값을 넣어줌.
+    
     let moneyLabel = UILabel().then {
         $0.text = "원금(₩)"
         $0.textColor = Constants.BaseColor.text
         $0.font = .systemFont(ofSize: 15)
         $0.textAlignment = .left
     }
-    
     
     let moneyTextField = UITextField().then {
 
@@ -69,6 +70,7 @@ class CaculateView: BaseView {
         $0.layer.cornerRadius = 10
         $0.layer.borderColor = Constants.BaseColor.border
         $0.backgroundColor = Constants.BaseColor.textField
+        $0.tag = 0
     }
     
     let monthCaculateButton = UIButton().then {
@@ -77,6 +79,7 @@ class CaculateView: BaseView {
         $0.layer.cornerRadius = 10
         $0.layer.borderColor = Constants.BaseColor.border
         $0.backgroundColor = Constants.BaseColor.textField
+        $0.tag = 1
     }
     
     let dayCaculateButton = UIButton().then {
@@ -85,6 +88,7 @@ class CaculateView: BaseView {
         $0.layer.cornerRadius = 10
         $0.layer.borderColor = Constants.BaseColor.border
         $0.backgroundColor = Constants.BaseColor.textField
+        $0.tag = 2
     }
     
     let stackview = UIStackView().then {
@@ -125,11 +129,29 @@ class CaculateView: BaseView {
         [moneyLabel, moneyTextField, rateLabel, rateTextField, dateLabel, dateTextField, caculateLabel, stackview, resultLabel, resultView, resultViewLabel].forEach {
             self.addSubview($0)
             
-            [yearCaculateButton, monthCaculateButton, dayCaculateButton].map {
+            [yearCaculateButton, monthCaculateButton, dayCaculateButton].forEach {
                 self.stackview.addArrangedSubview($0)
             }
         }
+        
+        [yearCaculateButton, monthCaculateButton, dayCaculateButton].forEach { sender in
+            sender.addTarget(self, action: #selector(buttonClicked(_ :)), for: .touchUpInside)
+        }
+        
         self.backgroundColor = Constants.BaseColor.background
+    }
+    
+    @objc func buttonClicked(_ sender: UIButton) {
+        
+        [yearCaculateButton, monthCaculateButton, dayCaculateButton].forEach { sender in
+            sender.isSelected = false
+            sender.backgroundColor = Constants.BaseColor.textField
+        }
+        sender.isSelected = true
+        sender.backgroundColor = .systemTeal
+        
+        selected = sender.tag
+       
     }
     
     override func setConstraints() {
