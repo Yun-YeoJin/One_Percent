@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import CoreLocation
 
 import SnapKit
 import Then
 import SwiftUI
+import Kingfisher
+
 
 class MainListViewController: BaseViewController {
     
     let mainView = MainListView()
-  
     
+    let locationManager = CLLocationManager()
+    
+    var myLocation: CLLocationCoordinate2D?
     
     override func loadView() {
         self.view = mainView
@@ -48,11 +53,34 @@ class MainListViewController: BaseViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.star"), primaryAction: nil, menu: alignButtonClicked())
         
         mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
+        
+        weatherAPI()
+    }
+    
+    func weatherAPI() {
+        
+        WeatherAPIManager.shared.getWeatherData(lat: 37.65128, lon: 127.08335) { value in
+            
+            let url = URL(string: "https://openweathermap.org/img/wn/\(value.iconId)@2x.png")
+            self.mainView.weatherImageView.kf.setImage(with: url)
+            
+            self.mainView.currentTempLabel.text = value.temperatureText
+            self.mainView.maxminTempLabel.text = value.maxMinText
+            self.mainView.windLabel.text = value.windText
+            self.mainView.humidityLabel.text = value.humidityText
+            self.mainView.pressureLabel.text = value.pressureText
+            self.mainView.messageLabel.text = WeatherModel.getMessage(weather: value.weather)
+
+        }
+        
     }
     
     @objc func floatingButtonClicked() {
         
-           }
+        let vc = BuyandSellViewController()
+        transition(vc, transitionStyle: .push)
+        
+    }
     
     @objc func settingButtonClicked() {
         
@@ -79,7 +107,6 @@ class MainListViewController: BaseViewController {
         super.viewDidLayoutSubviews()
         mainView.floatingButton.frame = CGRect(x: view.frame.size.width-80, y: view.frame.size.height-170, width: 60, height: 60)
     }
-    
     
     
     override func configureUI() {
@@ -126,6 +153,78 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainListTableViewCell.reusableIdentifier, for: indexPath) as? MainListTableViewCell else { return UITableViewCell() }
         
         return cell
+    }
+    
+}
+
+extension MainListViewController: CLLocationManagerDelegate {
+    
+    func checkUserDeviceLocationServiceAuthorization() {
+        
+        let authorizationStatus: CLAuthorizationStatus
+        
+        if #available(iOS 14.0, *) {
+            //인스턴스를 통해 locationManager가 가지고 있는 상태를 가져옴.
+            authorizationStatus = locationManager.authorizationStatus
+        } else {
+            authorizationStatus = CLLocationManager.authorizationStatus()
+        }
+        
+        //iOS 위치 서비스 활성화 여부 체크: locationServicesEnabled
+        if CLLocationManager.locationServicesEnabled() {
+            //위치 서비스가 활성화 되어 있음 => 위치 권한 요청 가능 => 위치 권한을 요청
+            checkUserCurrentLocationAuthorization(authorizationStatus)
+        } else {
+            print("위치 서비스가 꺼져 있어 위치 권한 요청이 불가합니다.")
+        }
+        
+    }
+    
+    func checkUserCurrentLocationAuthorization(_ authorizationStatus: CLAuthorizationStatus) {
+        switch authorizationStatus {
+            
+        case .notDetermined:
+            print("NOTDETERMINED")
+            
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            
+        case .restricted, .denied:
+            print("DENIED, 아이폰 설정으로 유도")
+            
+        case .authorizedWhenInUse:
+            print("WHEN IN USE")
+            
+            locationManager.startUpdatingLocation()
+            
+        default:
+            print("DEFAULT")
+        }
+    }
+    
+    
+    
+    func showRequestLocationServiceAlert() {
+        
+        let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
+        let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
+            
+            if let appSetting = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(appSetting)
+            }
+            
+        }
+        let cancel = UIAlertAction(title: "취소", style: .default)
+        requestLocationServiceAlert.addAction(cancel)
+        requestLocationServiceAlert.addAction(goSetting)
+        
+        present(requestLocationServiceAlert, animated: true, completion: nil)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        checkUserDeviceLocationServiceAuthorization()
+        
     }
     
 }

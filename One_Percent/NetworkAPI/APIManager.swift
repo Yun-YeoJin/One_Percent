@@ -10,45 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class OpenWeatherAPIManager {
-
-    static let shared = OpenWeatherAPIManager()
-
-    private init() { }
-
-    var list: [WeatherModel] = []
-
-    func requestAPI(_ lat: Double, _ lon: Double, completionHandler: @escaping (WeatherModel) -> ()) {
-
-        // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
-        let url = "\(EndPoint.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(APIKey.openWeather)"
-
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-            
-                
-                let name = json["name"].stringValue
-                let temp = json["main"]["temp"].doubleValue
-                let humidity = json["main"]["humidity"].doubleValue
-                let windspeed = json["wind"]["speed"].doubleValue
-                let iconNumber = json["weather"][0]["icon"].stringValue
-              
-
-                let data = WeatherModel(name: name, temp: temp, humidity: humidity, windspeed: windspeed, iconNumber: iconNumber)
-
-                completionHandler(data)
-
-            case .failure(let error):
-                print(error)
-            }
-        }
-        print(list)
-    }
-
-}
-
 class NewsAPIManager {
     
     static let shared = NewsAPIManager()
@@ -87,5 +48,75 @@ class NewsAPIManager {
     }
 }
 
+//class AddressAPIManager {
+//
+//    private init() {}
+//
+//    static let shared = AddressAPIManager()
+//
+//    func getLocationData(lat: Double, lon: Double, completionHandler: @escaping (AddressModel) -> ()) {
+//
+//        let url = Endpoint.kakaoAddress + "x=\(lon)&y=\(lat)&input_coord=WGS84"
+//
+//        let header: HTTPHeaders = [
+//            "Authorization": "KakaoAK \(APIKey.kakao)"
+//        ]
+//
+//        AF.request(url, method: .get, headers: header).validate().responseData { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//
+//                let address = json["documents"].arrayValue[0]["address"]
+//
+//                let first = address["region_1depth_name"].stringValue
+//                let third = address["region_3depth_name"].stringValue
+//
+//                completionHandler(AddressModel(regionFirst: first, regionThird: third))
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//
+//    }
+//}
+
+class WeatherAPIManager {
+    
+    private init() {}
+    
+    static let shared = WeatherAPIManager()
+    
+    func getWeatherData(lat: Double, lon: Double, completionHandler: @escaping (WeatherModel) -> ()) {
+        
+        let url = "\(EndPoint.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(APIKey.openWeather)"
+        
+        AF.request(url, method: .get).validate().responseData { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                let main = json["main"]
+                
+                let temp = Int(round(main["temp"].doubleValue - 273.15))
+                let tempMin = Int(round(main["temp_min"].doubleValue - 273.15))
+                let tempMax = Int(round(main["temp_max"].doubleValue - 273.15))
+                let pressure = main["pressure"].intValue
+                let humidity = main["humidity"].intValue
+                let wind = round(json["wind"]["speed"].doubleValue * 10) / 10
+                let iconId = json["weather"][0]["icon"].stringValue
+                let weatherName = json["weather"][0]["main"].stringValue
+                
+                let weather = WeatherModel(temp: temp, temp_min: tempMin, temp_max: tempMax, pressure: pressure, humidity: humidity, wind: wind, iconId: iconId, weather: weatherName)
+                
+                completionHandler(weather)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
 
 

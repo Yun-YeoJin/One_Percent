@@ -27,6 +27,54 @@ class MainListView: BaseView {
         $0.alpha = 0.5
     }
     
+    let locationImageView = UIImageView().then {
+        $0.backgroundColor = .systemPink
+    }
+    
+    let locationLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.text = "위치"
+    }
+    
+    let weatherImageView = UIImageView().then {
+        $0.backgroundColor = .clear
+        $0.contentMode = .scaleAspectFill
+    }
+    
+    let currentTempLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.font = .boldSystemFont(ofSize: 15)
+        $0.text = "현재온도"
+    }
+    
+    let maxminTempLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.font = .boldSystemFont(ofSize: 15)
+        $0.text = "최소최저온도"
+    }
+    
+    let windLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.font = .boldSystemFont(ofSize: 15)
+        $0.text = "바람세기"
+    }
+    let humidityLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.font = .boldSystemFont(ofSize: 15)
+        $0.text = "습도"
+    }
+    let pressureLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.font = .boldSystemFont(ofSize: 15)
+        $0.text = "기압"
+    }
+    let messageLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.font = .boldSystemFont(ofSize: 15)
+        $0.text = "메시지"
+    }
+    
     let floatingButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         
@@ -55,6 +103,9 @@ class MainListView: BaseView {
         [tableView, weatherView, floatingButton].forEach {
             self.addSubview($0)
         }
+        [locationImageView, locationLabel, weatherImageView, currentTempLabel, maxminTempLabel, windLabel, humidityLabel, pressureLabel, messageLabel].forEach {
+            self.addSubview($0)
+        }
       
     }
     
@@ -65,6 +116,61 @@ class MainListView: BaseView {
             make.height.equalToSuperview().multipliedBy(0.3)
         }
         
+        locationImageView.snp.makeConstraints { make in
+            make.top.equalTo(weatherView.snp.top).offset(16)
+            make.leading.equalTo(weatherView.snp.leading).offset(16)
+            make.height.width.equalTo(30)
+        }
+        
+        locationLabel.snp.makeConstraints { make in
+            make.top.equalTo(weatherView.snp.top).offset(16)
+            make.leading.equalTo(locationImageView.snp.trailing).offset(8)
+            make.height.equalTo(30)
+        }
+        
+        weatherImageView.snp.makeConstraints { make in
+            make.top.equalTo(weatherView.snp.top).offset(16)
+            make.trailing.equalTo(weatherView.snp.trailing).offset(-16)
+            make.width.height.equalTo(100)
+        }
+        
+        currentTempLabel.snp.makeConstraints { make in
+            make.top.equalTo(locationLabel.snp.bottom).offset(16)
+            make.leading.equalTo(weatherView.snp.leading).offset(16)
+            make.height.equalTo(30)
+        }
+        
+        maxminTempLabel.snp.makeConstraints { make in
+            make.top.equalTo(locationLabel.snp.bottom).offset(16)
+            make.leading.equalTo(currentTempLabel.snp.trailing).offset(8)
+            make.height.equalTo(30)
+        }
+        
+        windLabel.snp.makeConstraints { make in
+            make.top.equalTo(currentTempLabel.snp.bottom).offset(16)
+            make.leading.equalTo(weatherView.snp.leading).offset(16)
+            make.height.equalTo(20)
+        }
+        
+        humidityLabel.snp.makeConstraints { make in
+            make.top.equalTo(windLabel.snp.bottom).offset(8)
+            make.leading.equalTo(weatherView.snp.leading).offset(16)
+            make.height.equalTo(20)
+        }
+        
+        pressureLabel.snp.makeConstraints { make in
+            make.top.equalTo(humidityLabel.snp.bottom).offset(8)
+            make.leading.equalTo(weatherView.snp.leading).offset(16)
+            make.height.equalTo(20)
+        }
+        
+        messageLabel.snp.makeConstraints { make in
+            make.top.equalTo(pressureLabel.snp.bottom).offset(16)
+            make.leading.equalTo(weatherView.snp.leading).offset(16)
+            make.height.equalTo(20)
+        }
+        
+   
         tableView.snp.makeConstraints { make in
             make.top.equalTo(weatherView.snp.bottom).offset(0)
             make.leading.bottom.trailing.equalTo(safeAreaLayoutGuide)
