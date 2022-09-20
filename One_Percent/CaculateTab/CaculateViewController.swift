@@ -60,8 +60,6 @@ class CaculateViewController: BaseViewController {
                     
                 }
                 
-                
-                
             }
         }
         

@@ -144,8 +144,8 @@ class OnBoardingPageViewController: UIPageViewController {
         UserDefaults.standard.set(true, forKey: "SecondRun")
         
     }
-    
 }
+
 extension OnBoardingPageViewController: UIPageViewControllerDataSource {
     //PageView를 구현하기 위해 해야하는 것,
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

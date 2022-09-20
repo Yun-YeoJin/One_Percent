@@ -65,7 +65,7 @@ class CaculateView: BaseView {
     }
     
     let yearCaculateButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.placeholder, for: .normal)
+        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
         $0.setTitle("연 복리", for: .normal)
         $0.layer.cornerRadius = 10
         $0.layer.borderColor = Constants.BaseColor.border
@@ -74,7 +74,7 @@ class CaculateView: BaseView {
     }
     
     let monthCaculateButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.placeholder, for: .normal)
+        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
         $0.setTitle("월 복리", for: .normal)
         $0.layer.cornerRadius = 10
         $0.layer.borderColor = Constants.BaseColor.border
@@ -83,7 +83,7 @@ class CaculateView: BaseView {
     }
     
     let dayCaculateButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.placeholder, for: .normal)
+        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
         $0.setTitle("일 복리", for: .normal)
         $0.layer.cornerRadius = 10
         $0.layer.borderColor = Constants.BaseColor.border
@@ -112,9 +112,10 @@ class CaculateView: BaseView {
     
     let resultViewLabel = UILabel().then {
         $0.text = "여기에 계산 결과"
-        $0.textColor = .darkGray
+        $0.textColor = Constants.BaseColor.text
         $0.font = .boldSystemFont(ofSize: 20)
         $0.textAlignment = .center
+        $0.preferredMaxLayoutWidth = .greatestFiniteMagnitude
     }
     
     override init(frame: CGRect) {
@@ -196,7 +197,7 @@ class CaculateView: BaseView {
         }
         
         caculateLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateTextField.snp.bottom).offset(30)
+            make.top.equalTo(dateTextField.snp.bottom).offset(40)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
             make.height.equalTo(24)
         }

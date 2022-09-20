@@ -14,6 +14,7 @@ class ChartPatternView: BaseView {
     
     let searchBar = UISearchBar().then {
         $0.tintColor = .black
+        $0.backgroundColor = Constants.BaseColor.background
     }
     
     let collectionView: UICollectionView = {
