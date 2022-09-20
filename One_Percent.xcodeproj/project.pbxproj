@@ -11,6 +11,8 @@
 		AE77881728D76BBF00014C74 /* CandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881628D76BBF00014C74 /* CandleModel.swift */; };
 		AE77881A28D8B21400014C74 /* BuyandSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881928D8B21400014C74 /* BuyandSellViewController.swift */; };
 		AE77881C28D8B21F00014C74 /* BuyandSellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881B28D8B21F00014C74 /* BuyandSellView.swift */; };
+		AE77882428DA08A600014C74 /* ChosunKm.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AE77882328DA08A600014C74 /* ChosunKm.TTF */; };
+		AE77882628DA08AF00014C74 /* ChosunSm.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AE77882528DA08AF00014C74 /* ChosunSm.TTF */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -65,6 +67,8 @@
 		AE77881628D76BBF00014C74 /* CandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleModel.swift; sourceTree = "<group>"; };
 		AE77881928D8B21400014C74 /* BuyandSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyandSellViewController.swift; sourceTree = "<group>"; };
 		AE77881B28D8B21F00014C74 /* BuyandSellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyandSellView.swift; sourceTree = "<group>"; };
+		AE77882328DA08A600014C74 /* ChosunKm.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChosunKm.TTF; sourceTree = "<group>"; };
+		AE77882528DA08AF00014C74 /* ChosunSm.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChosunSm.TTF; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,15 @@
 			path = BuyandSellViewController;
 			sourceTree = "<group>";
 		};
+		AE77881D28DA058500014C74 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AE77882528DA08AF00014C74 /* ChosunSm.TTF */,
+				AE77882328DA08A600014C74 /* ChosunKm.TTF */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		AECB772E28CC9EEC004B77F2 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +169,7 @@
 		AECB773928CC9EEC004B77F2 /* One_Percent */ = {
 			isa = PBXGroup;
 			children = (
+				AE77881D28DA058500014C74 /* Font */,
 				AECB774828CC9EEE004B77F2 /* Info.plist */,
 				AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */,
 				AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */,
@@ -383,11 +397,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE77882428DA08A600014C74 /* ChosunKm.TTF in Resources */,
 				AECB775C28CCA139004B77F2 /* .gitignore in Resources */,
 				AECB779128CE33C8004B77F2 /* OnBoardingItemViewController.xib in Resources */,
 				AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */,
 				AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */,
 				AECB774228CC9EEC004B77F2 /* Main.storyboard in Resources */,
+				AE77882628DA08AF00014C74 /* ChosunSm.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

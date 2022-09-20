@@ -29,6 +29,7 @@ class NewsViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationItem.title = "경제 뉴스"
+        //navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "ChosunKm", size: 30)!]
         navigationController?.navigationBar.tintColor = Constants.BaseColor.point
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -126,8 +127,8 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView{
             //테이블뷰 헤더 UI 설정
-            headerView.textLabel?.textColor = Constants.BaseColor.text
-            headerView.textLabel?.font = .boldSystemFont(ofSize: 30)
+            headerView.textLabel?.textColor = Constants.BaseColor.point
+            headerView.textLabel?.font = UIFont(name: "ChosunKm", size: 30)
             headerView.textLabel?.textAlignment = .center
     
         }

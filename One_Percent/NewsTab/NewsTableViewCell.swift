@@ -13,7 +13,7 @@ import Then
 class NewsTableViewCell: BaseTableViewCell {
     
     let titleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = UIFont(name: "ChosunSm", size: 20)
         $0.textAlignment = .left
         $0.textColor = Constants.BaseColor.text
     }
