@@ -19,7 +19,10 @@ class BuyandSellViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.mainView.priceTextField.delegate = self
+        self.mainView.countTextField.delegate = self
         
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func configureUI() {
@@ -38,4 +41,40 @@ class BuyandSellViewController: BaseViewController {
     }
 
         
+}
+
+extension BuyandSellViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale.current
+        formatter.maximumFractionDigits = 0
+        
+        if let removeAllSeprator = textField.text?.replacingOccurrences(of: formatter.groupingSeparator, with: ""){
+            var beforeForemattedString = removeAllSeprator + string
+            if formatter.number(from: string) != nil {
+                if let formattedNumber = formatter.number(from: beforeForemattedString), let formattedString = formatter.string(from: formattedNumber){
+                    textField.text = formattedString
+                    return false
+                }
+            } else {
+                if string == "" {
+                    let lastIndex = beforeForemattedString.index(beforeForemattedString.endIndex, offsetBy: -1)
+                    beforeForemattedString = String(beforeForemattedString[..<lastIndex])
+                    if let formattedNumber = formatter.number(from: beforeForemattedString), let formattedString = formatter.string(from: formattedNumber){
+                        textField.text = formattedString
+                        return false
+                    }
+                } else {
+                    return false
+                }
+            }
+            
+        }
+        
+        return true
+        
+    }
 }
