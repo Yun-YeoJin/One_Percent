@@ -142,9 +142,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if section == 0 {
-            return "* 국내 증시 *"
+            return "🇰🇷 국내 증시 🇰🇷"
         } else {
-            return "* 세계 증시 *"
+            return "🇺🇸 세계 증시 🇺🇸"
         }
     }
 }

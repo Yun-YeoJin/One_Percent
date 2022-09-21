@@ -111,7 +111,7 @@ class CaculateView: BaseView {
     }
     
     let resultViewLabel = UILabel().then {
-        $0.text = "과연 얼마가 나올까요?"
+        $0.text = "과연 얼마가 나올까요!?"
         $0.textColor = Constants.BaseColor.text
         $0.font = .boldSystemFont(ofSize: 20)
         $0.textAlignment = .center

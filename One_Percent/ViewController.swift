@@ -22,10 +22,10 @@ class ViewController: UIViewController {
         let pageVC = OnBoardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
         
         pageVC.modalPresentationStyle = .fullScreen //전체화면으로 표시
-    
+        
         self.present(pageVC, animated: true, completion: nil)
         
     }
-
+    
 }
 
