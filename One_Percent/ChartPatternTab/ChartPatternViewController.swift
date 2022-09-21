@@ -49,6 +49,7 @@ class ChartPatternViewController: BaseViewController {
         navigationItem.title = "차트 패턴"
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
         navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         
     }
     

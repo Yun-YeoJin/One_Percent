@@ -29,10 +29,10 @@ class NewsViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationItem.title = "경제 뉴스"
-        //navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "ChosunKm", size: 30)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         navigationController?.navigationBar.tintColor = Constants.BaseColor.point
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(refreshButtonClicked))
         

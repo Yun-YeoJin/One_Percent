@@ -17,7 +17,7 @@ class ChartPatternHeaderView: UICollectionReusableView {
     
     let titleLabel = UILabel().then {
       
-        $0.font = .boldSystemFont(ofSize: 25)
+        $0.font = UIFont(name: "VITRO CORE TTF", size: 25)
         $0.textAlignment = .center
         $0.textColor = Constants.BaseColor.text
       

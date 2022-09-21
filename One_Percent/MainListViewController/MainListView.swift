@@ -38,8 +38,9 @@ class MainListView: BaseView {
     }
     
     let weatherImageView = UIImageView().then {
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .white
         $0.contentMode = .scaleAspectFill
+        $0.layer.cornerRadius = 20
     }
     
     let currentTempLabel = UILabel().then {

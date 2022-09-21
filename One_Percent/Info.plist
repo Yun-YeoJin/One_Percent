@@ -8,6 +8,8 @@
 	<array>
 		<string>ChosunSm.TTF</string>
 		<string>ChosunKm.TTF</string>
+		<string>VITRO CORE TTF.ttf</string>
+		<string>VITRO PRIDE TTF.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

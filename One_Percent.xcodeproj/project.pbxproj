@@ -15,6 +15,8 @@
 		AE77882628DA08AF00014C74 /* ChosunSm.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AE77882528DA08AF00014C74 /* ChosunSm.TTF */; };
 		AE77882828DA137100014C74 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77882728DA137100014C74 /* AddressModel.swift */; };
 		AE77882B28DA268F00014C74 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AE77882A28DA268F00014C74 /* Kingfisher */; };
+		AE77883828DB3F0500014C74 /* VITRO CORE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE77883628DB3F0500014C74 /* VITRO CORE TTF.ttf */; };
+		AE77883928DB3F0500014C74 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE77883728DB3F0500014C74 /* VITRO PRIDE TTF.ttf */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -72,6 +74,8 @@
 		AE77882328DA08A600014C74 /* ChosunKm.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChosunKm.TTF; sourceTree = "<group>"; };
 		AE77882528DA08AF00014C74 /* ChosunSm.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChosunSm.TTF; sourceTree = "<group>"; };
 		AE77882728DA137100014C74 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		AE77883628DB3F0500014C74 /* VITRO CORE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO CORE TTF.ttf"; sourceTree = "<group>"; };
+		AE77883728DB3F0500014C74 /* VITRO PRIDE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO PRIDE TTF.ttf"; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 		AE77881D28DA058500014C74 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				AE77883628DB3F0500014C74 /* VITRO CORE TTF.ttf */,
+				AE77883728DB3F0500014C74 /* VITRO PRIDE TTF.ttf */,
 				AE77882528DA08AF00014C74 /* ChosunSm.TTF */,
 				AE77882328DA08A600014C74 /* ChosunKm.TTF */,
 			);
@@ -405,7 +411,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE77882428DA08A600014C74 /* ChosunKm.TTF in Resources */,
+				AE77883828DB3F0500014C74 /* VITRO CORE TTF.ttf in Resources */,
 				AECB775C28CCA139004B77F2 /* .gitignore in Resources */,
+				AE77883928DB3F0500014C74 /* VITRO PRIDE TTF.ttf in Resources */,
 				AECB779128CE33C8004B77F2 /* OnBoardingItemViewController.xib in Resources */,
 				AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */,
 				AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */,

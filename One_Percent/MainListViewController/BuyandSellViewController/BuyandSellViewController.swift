@@ -27,6 +27,7 @@ class BuyandSellViewController: BaseViewController {
         navigationItem.title = "매매일지 추가하기"
         navigationController?.navigationBar.tintColor = .systemMint
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장하기", style: .done, target: .none, action: #selector(saveButtonClicked))
         

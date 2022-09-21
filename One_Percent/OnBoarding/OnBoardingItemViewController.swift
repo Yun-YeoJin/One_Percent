@@ -19,7 +19,7 @@ class OnBoardingItemViewController: UIViewController {
         didSet {
             startLabel.textColor = Constants.BaseColor.point
             startLabel.textAlignment = .left
-            startLabel.font = .boldSystemFont(ofSize: 25)
+            
         }
     }
     
@@ -28,13 +28,13 @@ class OnBoardingItemViewController: UIViewController {
     @IBOutlet weak var mainTitleLabel: UILabel! {
         didSet {
             mainTitleLabel.textColor = .label
-            mainTitleLabel.font = .boldSystemFont(ofSize: 20)
+          
         }
     }
     @IBOutlet weak var desrcriptionLabel: UILabel! {
         didSet {
             desrcriptionLabel.textColor = .label
-            desrcriptionLabel.font = .systemFont(ofSize: 18)
+            
         }
     }
     
@@ -45,6 +45,10 @@ class OnBoardingItemViewController: UIViewController {
         startImageView.image = startImage
         mainTitleLabel.text = mainTitle
         desrcriptionLabel.text = desrcription
+        
+        startLabel.font = UIFont(name: "VITRO CORE TTF", size: 25)
+        mainTitleLabel.font = UIFont(name: "VITRO CORE TTF", size: 20)
+        desrcriptionLabel.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
        
     }
 

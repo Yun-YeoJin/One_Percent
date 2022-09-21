@@ -17,7 +17,7 @@ class CaculateView: BaseView {
     let moneyLabel = UILabel().then {
         $0.text = "원금(₩)"
         $0.textColor = Constants.BaseColor.text
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
         $0.textAlignment = .left
     }
     
@@ -32,7 +32,7 @@ class CaculateView: BaseView {
     
     let rateLabel = UILabel().then {
         $0.text = "이자율(%)"
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
         $0.textAlignment = .left
     }
     
@@ -46,7 +46,7 @@ class CaculateView: BaseView {
     
     let dateLabel = UILabel().then {
         $0.text = "투자 기간"
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
         $0.textAlignment = .left
     }
     
@@ -60,7 +60,7 @@ class CaculateView: BaseView {
     
     let caculateLabel = UILabel().then {
         $0.text = "복리 계산 단위 선택"
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
         $0.textAlignment = .left
     }
     
@@ -100,22 +100,22 @@ class CaculateView: BaseView {
     
     let resultLabel = UILabel().then {
         $0.text = "복리 계산 결과"
-        $0.font = .systemFont(ofSize: 15)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
         $0.textAlignment = .left
     }
     
     let resultView = UIView().then {
-        $0.backgroundColor = .systemGreen
+        $0.backgroundColor = Constants.BaseColor.textField
         $0.layer.cornerRadius = 25
         $0.clipsToBounds = true
     }
     
     let resultViewLabel = UILabel().then {
-        $0.text = "여기에 계산 결과"
+        $0.text = "과연 얼마가 나올까요?"
         $0.textColor = Constants.BaseColor.text
         $0.font = .boldSystemFont(ofSize: 20)
         $0.textAlignment = .center
-        $0.preferredMaxLayoutWidth = .greatestFiniteMagnitude
+        $0.preferredMaxLayoutWidth = .leastNormalMagnitude
     }
     
     override init(frame: CGRect) {

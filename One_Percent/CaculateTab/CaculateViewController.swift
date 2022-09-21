@@ -69,6 +69,7 @@ class CaculateViewController: BaseViewController {
         
         navigationItem.title = "복리 계산기"
         navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "계산하기", style: .plain, target: self, action: #selector(caculateButtonClicked))
         

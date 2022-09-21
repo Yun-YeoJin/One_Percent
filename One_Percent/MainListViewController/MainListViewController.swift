@@ -42,7 +42,8 @@ class MainListViewController: BaseViewController {
         mainView.tableView.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
         configureUI()
         
-        navigationItem.title = "윤기사의 매매일지"
+        navigationItem.title = "매매일지"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         navigationController?.navigationBar.tintColor = .systemMint
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
         

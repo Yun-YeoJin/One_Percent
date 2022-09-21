@@ -17,7 +17,7 @@ class BuyandSellView: BaseView {
     let contentLabel = UILabel().then {
         $0.text = "종목명"
         $0.textColor = Constants.BaseColor.text
-        $0.font = .systemFont(ofSize: 17)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
         $0.textAlignment = .left
     }
     
@@ -34,7 +34,7 @@ class BuyandSellView: BaseView {
     let dateLabel = UILabel().then {
         $0.text = "날짜"
         $0.textColor = Constants.BaseColor.text
-        $0.font = .systemFont(ofSize: 17)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
         $0.textAlignment = .left
     }
     
@@ -53,7 +53,7 @@ class BuyandSellView: BaseView {
     let priceLabel = UILabel().then {
         $0.text = "체결 단가"
         $0.textColor = Constants.BaseColor.text
-        $0.font = .systemFont(ofSize: 17)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
         $0.textAlignment = .left
         $0.adjustsFontSizeToFitWidth = true
     }
@@ -74,7 +74,7 @@ class BuyandSellView: BaseView {
     
     let countLabel = UILabel().then {
         $0.text = "수량(주)"
-        $0.font = .systemFont(ofSize: 17)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
         $0.textAlignment = .left
     }
     
@@ -93,7 +93,7 @@ class BuyandSellView: BaseView {
     
     let reasonLabel = UILabel().then {
         $0.text = "매수 / 매도"
-        $0.font = .systemFont(ofSize: 17)
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
         $0.textAlignment = .left
     }
     
