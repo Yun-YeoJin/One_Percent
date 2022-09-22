@@ -31,18 +31,35 @@ class BuyandSellView: BaseView {
         $0.layer.borderColor = Constants.BaseColor.border
     }
     
-    let dateLabel = UILabel().then {
-        $0.text = "날짜"
-        $0.textColor = Constants.BaseColor.text
+    let buyandsellLabel = UILabel().then {
+        $0.text = "매수 / 매도"
         $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
         $0.textAlignment = .left
     }
     
-    let datePicker = UIDatePicker().then {
-        $0.locale = .autoupdatingCurrent
-        $0.preferredDatePickerStyle = .compact
-        $0.datePickerMode = .date
-        $0.timeZone = NSTimeZone.local
+    let buyButton = UIButton().then {
+        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
+        $0.setTitle("매수(Buy)", for: .normal)
+        $0.layer.cornerRadius = 25
+        $0.layer.borderColor = Constants.BaseColor.border
+        $0.backgroundColor = Constants.BaseColor.textField
+        $0.tag = 0
+    }
+    
+    let sellButton = UIButton().then {
+        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
+        $0.setTitle("매도(Sell)", for: .normal)
+        $0.layer.cornerRadius = 25
+        $0.layer.borderColor = Constants.BaseColor.border
+        $0.backgroundColor = Constants.BaseColor.textField
+        $0.tag = 1
+    }
+    
+    let stackview = UIStackView().then {
+        $0.axis = .horizontal
+        $0.alignment = .fill
+        $0.distribution = .fillEqually
+        $0.spacing = 10
     }
     
     let underBarView2 = UIView().then {
@@ -91,36 +108,7 @@ class BuyandSellView: BaseView {
         $0.layer.borderColor = Constants.BaseColor.border
     }
     
-    let reasonLabel = UILabel().then {
-        $0.text = "매수 / 매도"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
-        $0.textAlignment = .left
-    }
-    
-    let buyButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
-        $0.setTitle("매수(Buy)", for: .normal)
-        $0.layer.cornerRadius = 25
-        $0.layer.borderColor = Constants.BaseColor.border
-        $0.backgroundColor = Constants.BaseColor.textField
-        $0.tag = 0
-    }
-    
-    let sellButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
-        $0.setTitle("매도(Sell)", for: .normal)
-        $0.layer.cornerRadius = 25
-        $0.layer.borderColor = Constants.BaseColor.border
-        $0.backgroundColor = Constants.BaseColor.textField
-        $0.tag = 1
-    }
-    
-    let stackview = UIStackView().then {
-        $0.axis = .horizontal
-        $0.alignment = .fill
-        $0.distribution = .fillEqually
-        $0.spacing = 10
-    }
+   
     
     
     
@@ -136,7 +124,7 @@ class BuyandSellView: BaseView {
     
     override func configureUI() {
         
-        [contentLabel, contentSearchBar, underBarView, dateLabel, datePicker, underBarView2, priceLabel, priceTextField, underBarView3, countLabel, countTextField, underBarView4, reasonLabel, stackview].forEach {
+        [contentLabel, contentSearchBar, underBarView, buyandsellLabel, stackview, underBarView2, priceLabel, priceTextField, underBarView3, countLabel, countTextField, underBarView4].forEach {
             self.addSubview($0)
             
             [buyButton, sellButton].forEach {
@@ -190,34 +178,34 @@ class BuyandSellView: BaseView {
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
         }
         
-        dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(underBarView.snp.bottom).offset(30)
+        buyandsellLabel.snp.makeConstraints { make in
+            make.top.equalTo(underBarView.snp.bottom).offset(24)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
             make.height.equalTo(50)
         }
-        
-        datePicker.snp.makeConstraints { make in
-            make.top.equalTo(underBarView.snp.bottom).offset(30)
-            make.leadingMargin.equalTo(dateLabel.snp.trailing).offset(16)
+    
+        stackview.snp.makeConstraints { make in
+            make.top.equalTo(underBarView.snp.bottom).offset(24)
+            make.leadingMargin.equalTo(buyandsellLabel.snp.trailing).offset(30)
             make.trailingMargin.equalTo(-16)
             make.height.equalTo(50)
         }
         
         underBarView2.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(8)
+            make.top.equalTo(buyandsellLabel.snp.bottom).offset(8)
             make.height.equalTo(1)
             make.trailing.equalTo(self.safeAreaLayoutGuide).offset(-16)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
         }
         
         priceLabel.snp.makeConstraints { make in
-            make.top.equalTo(underBarView2.snp.bottom).offset(30)
+            make.top.equalTo(underBarView2.snp.bottom).offset(24)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
             make.height.equalTo(50)
         }
         
         priceTextField.snp.makeConstraints { make in
-            make.top.equalTo(underBarView2.snp.bottom).offset(30)
+            make.top.equalTo(underBarView2.snp.bottom).offset(24)
             make.leadingMargin.equalTo(priceLabel.snp.trailing).offset(30)
             make.trailingMargin.equalTo(-16)
             make.height.equalTo(50)
@@ -231,13 +219,13 @@ class BuyandSellView: BaseView {
         }
         
         countLabel.snp.makeConstraints { make in
-            make.top.equalTo(underBarView3.snp.bottom).offset(30)
+            make.top.equalTo(underBarView3.snp.bottom).offset(24)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
             make.height.equalTo(50)
         }
         
         countTextField.snp.makeConstraints { make in
-            make.top.equalTo(underBarView3.snp.bottom).offset(30)
+            make.top.equalTo(underBarView3.snp.bottom).offset(24)
             make.leadingMargin.equalTo(countLabel.snp.trailing).offset(30)
             make.trailingMargin.equalTo(-16)
             make.height.equalTo(50)
@@ -249,21 +237,6 @@ class BuyandSellView: BaseView {
             make.trailing.equalTo(self.safeAreaLayoutGuide).offset(-16)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
         }
-        
-        reasonLabel.snp.makeConstraints { make in
-            make.top.equalTo(underBarView4.snp.bottom).offset(30)
-            make.leadingMargin.equalTo(12)
-            make.trailingMargin.equalTo(-12)
-            make.height.equalTo(24)
-        }
-        
-        stackview.snp.makeConstraints { make in
-            make.top.equalTo(reasonLabel.snp.bottom).offset(24)
-            make.leadingMargin.equalTo(16)
-            make.trailingMargin.equalTo(-16)
-            make.height.equalTo(100)
-        }
-        
         
     }
 }
