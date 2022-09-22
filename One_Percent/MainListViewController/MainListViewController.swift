@@ -13,7 +13,6 @@ import Then
 import SwiftUI
 import Kingfisher
 
-
 class MainListViewController: BaseViewController {
     
     let mainView = MainListView()
@@ -46,6 +45,7 @@ class MainListViewController: BaseViewController {
         mainView.tableView.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
         configureUI()
         
+        
         navigationItem.title = "매매일지"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         navigationController?.navigationBar.tintColor = .systemMint
@@ -64,6 +64,37 @@ class MainListViewController: BaseViewController {
         sendNotification()
     }
     
+    @objc func floatingButtonClicked() {
+        
+        let vc = BuyandSellViewController()
+        transition(vc, transitionStyle: .push)
+        
+    }
+    
+    @objc func settingButtonClicked() {
+        
+        let vc = SettingViewController()
+        transition(vc, transitionStyle: .push)
+        
+    }
+    
+    @objc func alignButtonClicked() -> UIMenu  {
+        
+        let sortContents = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
+            
+        }
+        let sortCheckBox = UIAction(title: "수익률순", image: UIImage(systemName: "chart.line.uptrend.xyaxis")) { _ in
+            
+        }
+        let sortFavorite = UIAction(title: "총 평가액순", image: UIImage(systemName: "dollarsign.circle")) { _ in
+            
+        }
+        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortContents, sortCheckBox, sortFavorite])
+        
+        return menu
+        
+    }
+    
     //MARK: Notification 설정
     
     func requestAuthorization () {
@@ -80,7 +111,7 @@ class MainListViewController: BaseViewController {
     
     func sendNotification() {
         
-        // 콘텐트
+        // Contents
         let notificationContent = UNMutableNotificationContent() // mutable 없으면 get-only임
         
         notificationContent.title = "⏰ 국내장이 개장했어요!"
@@ -89,8 +120,6 @@ class MainListViewController: BaseViewController {
         notificationContent.badge = 1
         
         // 트리거 : 1. 시간간격 2. 캘린더 3. 위치에 따라 설정 가능
-        // 시간간격 : 60초 이상 설정해야 반복 가능하다.
-        // 하루에 한번이면 86400
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
         // 트리거 - 캘린더
@@ -123,33 +152,7 @@ class MainListViewController: BaseViewController {
         
     }
     
-    @objc func floatingButtonClicked() {
-        
-        let vc = BuyandSellViewController()
-        transition(vc, transitionStyle: .push)
-        
-    }
     
-    @objc func settingButtonClicked() {
-        
-    }
-    
-    @objc func alignButtonClicked() -> UIMenu  {
-        
-        let sortContents = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
-            
-        }
-        let sortCheckBox = UIAction(title: "수익률순", image: UIImage(systemName: "chart.line.uptrend.xyaxis")) { _ in
-            
-        }
-        let sortFavorite = UIAction(title: "총 평가액순", image: UIImage(systemName: "dollarsign.circle")) { _ in
-            
-        }
-        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortContents, sortCheckBox, sortFavorite])
-        
-        return menu
-        
-    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -191,6 +194,8 @@ class MainListViewController: BaseViewController {
     
 }
 
+//MARK: 매매일지 TableView 설정
+
 extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -204,6 +209,7 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
 
 //MARK: 사용자 위치 설정
 

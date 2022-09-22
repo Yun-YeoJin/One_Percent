@@ -17,6 +17,10 @@
 		AE77882B28DA268F00014C74 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AE77882A28DA268F00014C74 /* Kingfisher */; };
 		AE77883828DB3F0500014C74 /* VITRO CORE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE77883628DB3F0500014C74 /* VITRO CORE TTF.ttf */; };
 		AE77883928DB3F0500014C74 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE77883728DB3F0500014C74 /* VITRO PRIDE TTF.ttf */; };
+		AE77883C28DB625C00014C74 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77883B28DB625C00014C74 /* StockModel.swift */; };
+		AE77883E28DB626700014C74 /* StockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77883D28DB626700014C74 /* StockRepository.swift */; };
+		AE77884128DCA14600014C74 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884028DCA14600014C74 /* SettingViewController.swift */; };
+		AE77884328DCA15500014C74 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884228DCA15500014C74 /* SettingTableViewCell.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -76,6 +80,10 @@
 		AE77882728DA137100014C74 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		AE77883628DB3F0500014C74 /* VITRO CORE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO CORE TTF.ttf"; sourceTree = "<group>"; };
 		AE77883728DB3F0500014C74 /* VITRO PRIDE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO PRIDE TTF.ttf"; sourceTree = "<group>"; };
+		AE77883B28DB625C00014C74 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
+		AE77883D28DB626700014C74 /* StockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepository.swift; sourceTree = "<group>"; };
+		AE77884028DCA14600014C74 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		AE77884228DCA15500014C74 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +167,24 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		AE77883A28DB5E9F00014C74 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				AE77883B28DB625C00014C74 /* StockModel.swift */,
+				AE77883D28DB626700014C74 /* StockRepository.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		AE77883F28DCA13A00014C74 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				AE77884028DCA14600014C74 /* SettingViewController.swift */,
+				AE77884228DCA15500014C74 /* SettingTableViewCell.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		AECB772E28CC9EEC004B77F2 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +205,7 @@
 		AECB773928CC9EEC004B77F2 /* One_Percent */ = {
 			isa = PBXGroup;
 			children = (
+				AE77883A28DB5E9F00014C74 /* Realm */,
 				AE77881D28DA058500014C74 /* Font */,
 				AECB774828CC9EEE004B77F2 /* Info.plist */,
 				AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */,
@@ -263,6 +290,7 @@
 		AECB779228CE3A7D004B77F2 /* MainListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AE77883F28DCA13A00014C74 /* Setting */,
 				AE77881828D8B1DB00014C74 /* BuyandSellViewController */,
 				AECB779328CE3AAA004B77F2 /* MainListViewController.swift */,
 				AECB779528CE3B2A004B77F2 /* MainListView.swift */,
@@ -434,6 +462,7 @@
 				AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */,
 				AECB77B128D36E21004B77F2 /* ChartPatternViewController.swift in Sources */,
 				AECB776F28CCBEA8004B77F2 /* BaseCollectionViewCell.swift in Sources */,
+				AE77884128DCA14600014C74 /* SettingViewController.swift in Sources */,
 				AE77882828DA137100014C74 /* AddressModel.swift in Sources */,
 				AECB77B928D495C9004B77F2 /* UIViewController+Extension.swift in Sources */,
 				AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */,
@@ -443,8 +472,10 @@
 				AEE7227C28D4C371002B569C /* PatternModel.swift in Sources */,
 				AECB776628CCA395004B77F2 /* APIManager.swift in Sources */,
 				AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */,
+				AE77883E28DB626700014C74 /* StockRepository.swift in Sources */,
 				AEE7228328D6D3EF002B569C /* ChartDetailViewController.swift in Sources */,
 				AEE7228028D4CF22002B569C /* ChartPatternHeaderView.swift in Sources */,
+				AE77883C28DB625C00014C74 /* StockModel.swift in Sources */,
 				AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */,
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */,
@@ -459,6 +490,7 @@
 				AE77881528D766AD00014C74 /* ChartModel.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
 				AECB77AD28D36E0A004B77F2 /* CaculateViewController.swift in Sources */,
+				AE77884328DCA15500014C74 /* SettingTableViewCell.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
 				AECB77B428D36E5D004B77F2 /* ChartPatternCollectionViewCell.swift in Sources */,
 				AECB776428CCA389004B77F2 /* APIKey.swift in Sources */,
@@ -617,6 +649,8 @@
 				DEVELOPMENT_TEAM = 7HN73WS8Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "One Percent";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치권한이 필요한 이유";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -646,6 +680,8 @@
 				DEVELOPMENT_TEAM = 7HN73WS8Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "One Percent";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치권한이 필요한 이유";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -13,9 +13,9 @@ import Then
 class MainListView: BaseView {
     
     lazy var tableView: UITableView = {
-        let view = UITableView.init(frame: .zero, style: .insetGrouped)
+        let view = UITableView.init(frame: .zero, style: .plain)
         view.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
-        view.rowHeight = 70
+        view.rowHeight = 170
         view.backgroundColor = Constants.BaseColor.background
         return view
     }()
@@ -28,13 +28,15 @@ class MainListView: BaseView {
     }
     
     let locationImageView = UIImageView().then {
-        $0.backgroundColor = .systemPink
+        $0.backgroundColor = .clear
+        $0.image = UIImage(systemName: "location.circle")
+        $0.tintColor = Constants.BaseColor.point
     }
     
     let locationLabel = UILabel().then {
         $0.textColor = Constants.BaseColor.text
-        $0.font = .boldSystemFont(ofSize: 20)
-        $0.text = "위치"
+        $0.font = .boldSystemFont(ofSize: 22)
+        $0.text = "서울, 노원구"
     }
     
     let weatherImageView = UIImageView().then {
@@ -132,7 +134,7 @@ class MainListView: BaseView {
         weatherImageView.snp.makeConstraints { make in
             make.top.equalTo(weatherView.snp.top).offset(16)
             make.trailing.equalTo(weatherView.snp.trailing).offset(-16)
-            make.width.height.equalTo(100)
+            make.width.height.equalTo(90)
         }
         
         currentTempLabel.snp.makeConstraints { make in
