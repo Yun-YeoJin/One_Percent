@@ -24,7 +24,7 @@ class MainListView: BaseView {
         $0.image = UIImage(named: "backgroundImage")
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
-        $0.alpha = 0.5
+        $0.alpha = 0.7
     }
     
     let locationImageView = UIImageView().then {
@@ -35,14 +35,19 @@ class MainListView: BaseView {
     
     let locationLabel = UILabel().then {
         $0.textColor = Constants.BaseColor.text
-        $0.font = .boldSystemFont(ofSize: 22)
-        $0.text = "서울, 노원구"
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.text = "서울특별시, 노원구"
+    }
+    
+    let weatherBackgroundView = UIView().then {
+        $0.backgroundColor = .white
+        $0.alpha = 0.5
+        $0.layer.cornerRadius = 20
     }
     
     let weatherImageView = UIImageView().then {
-        $0.backgroundColor = .white
+        $0.backgroundColor = .clear
         $0.contentMode = .scaleAspectFill
-        $0.layer.cornerRadius = 20
     }
     
     let currentTempLabel = UILabel().then {
@@ -106,7 +111,7 @@ class MainListView: BaseView {
         [tableView, weatherView, floatingButton].forEach {
             self.addSubview($0)
         }
-        [locationImageView, locationLabel, weatherImageView, currentTempLabel, maxminTempLabel, windLabel, humidityLabel, pressureLabel, messageLabel].forEach {
+        [locationImageView, locationLabel, weatherBackgroundView, weatherImageView, currentTempLabel, maxminTempLabel, windLabel, humidityLabel, pressureLabel, messageLabel].forEach {
             self.addSubview($0)
         }
       
@@ -116,7 +121,7 @@ class MainListView: BaseView {
         
         weatherView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(safeAreaLayoutGuide)
-            make.height.equalToSuperview().multipliedBy(0.3)
+            make.height.equalToSuperview().multipliedBy(0.28)
         }
         
         locationImageView.snp.makeConstraints { make in
@@ -131,10 +136,16 @@ class MainListView: BaseView {
             make.height.equalTo(30)
         }
         
+        weatherBackgroundView.snp.makeConstraints { make in
+            make.top.equalTo(weatherView.snp.top).offset(16)
+            make.trailing.equalTo(weatherView.snp.trailing).offset(-16)
+            make.width.height.equalTo(110)
+        }
+        
         weatherImageView.snp.makeConstraints { make in
             make.top.equalTo(weatherView.snp.top).offset(16)
             make.trailing.equalTo(weatherView.snp.trailing).offset(-16)
-            make.width.height.equalTo(90)
+            make.width.height.equalTo(110)
         }
         
         currentTempLabel.snp.makeConstraints { make in

@@ -12,6 +12,13 @@ import Then
 
 class MainListTableViewCell: BaseTableViewCell {
     
+    let backgroundImageView = UIImageView().then {
+        $0.backgroundColor = .opaqueSeparator
+        $0.alpha = 0.7
+        $0.layer.borderColor = Constants.BaseColor.border
+        $0.layer.cornerRadius = 20
+    }
+    
     let stockNameLabel = UILabel().then {
         $0.text = "삼성전자"
         $0.textColor = Constants.BaseColor.text
@@ -83,13 +90,18 @@ class MainListTableViewCell: BaseTableViewCell {
     
     override func configureUI() {
         
-        [stockNameLabel, earningRateLabel, rateLabel, underBarView, stockPriceLabel, stockCurrentPriceLabel, stockQuantityLabel, totalPriceLabel].forEach {
+        [backgroundImageView, stockNameLabel, earningRateLabel, rateLabel, underBarView, stockPriceLabel, stockCurrentPriceLabel, stockQuantityLabel, totalPriceLabel].forEach {
             self.addSubview($0)
         }
         
     }
     
     override func setConstraints() {
+        
+        backgroundImageView.snp.makeConstraints { make in
+            make.leading.top.equalTo(4)
+            make.trailing.bottom.equalTo(-4)
+        }
         
         stockNameLabel.snp.makeConstraints { make in
             make.top.equalTo(12)
