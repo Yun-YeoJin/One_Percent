@@ -50,7 +50,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return 2
         } else {
             return 3
         }
@@ -60,8 +60,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reusableIdentifier, for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
         
         if indexPath.section == 0 {
-            cell.iconImageView.image = UIImage(systemName: "bell.and.waveform.fill")
-            cell.settingLabel.text = "푸시 알림 설정"
+            if indexPath.row == 0 {
+                cell.iconImageView.image = UIImage(systemName: "bell.and.waveform.fill")
+                cell.settingLabel.text = "푸시 알림 설정"
+            } else if indexPath.row == 1 {
+                cell.iconImageView.image = UIImage(systemName: "arrow.counterclockwise.icloud")
+                cell.settingLabel.text = "초기화"
+            }
+            
         } else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 cell.iconImageView.image = UIImage(systemName: "speaker.badge.exclamationmark")

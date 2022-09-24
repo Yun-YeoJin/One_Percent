@@ -125,8 +125,11 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
                             } else {
                                 header.isHidden = false
                                 header.titleLabel.text = Section.chartPattern.title
+                                header.titleLabel.snp.updateConstraints { make in
+                                    make.edges.equalToSuperview()
+                                    make.height.equalTo(44)
+                                }
                             }
-                            
                         } else {
                             if candleData.isEmpty {
                                 header.isHidden = true
@@ -137,9 +140,14 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
                             } else {
                                 header.isHidden = false
                                 header.titleLabel.text = Section.candlePattern.title
+                                header.titleLabel.snp.updateConstraints { make in
+                                    make.edges.equalToSuperview()
+                                    make.height.equalTo(44)
+                                }
                             }
                             
                         }
+                        
                         return header
                     }
                 }

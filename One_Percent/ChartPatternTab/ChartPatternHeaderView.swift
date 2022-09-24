@@ -46,7 +46,7 @@ class ChartPatternHeaderView: UICollectionReusableView {
     func setConstraints() {
     
         titleLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(8)
+            make.edges.equalToSuperview()
             make.height.equalTo(44)
         }
         

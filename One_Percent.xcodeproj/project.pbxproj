@@ -21,7 +21,6 @@
 		AE77883E28DB626700014C74 /* StockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77883D28DB626700014C74 /* StockRepository.swift */; };
 		AE77884128DCA14600014C74 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884028DCA14600014C74 /* SettingViewController.swift */; };
 		AE77884328DCA15500014C74 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884228DCA15500014C74 /* SettingTableViewCell.swift */; };
-		AE77884528DCB4D200014C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884428DCB4D200014C74 /* UILabel+Extension.swift */; };
 		AE77884828DD867F00014C74 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884728DD867F00014C74 /* StockDetailViewController.swift */; };
 		AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884928DD868B00014C74 /* StockTableViewCell.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
@@ -86,7 +85,6 @@
 		AE77883D28DB626700014C74 /* StockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepository.swift; sourceTree = "<group>"; };
 		AE77884028DCA14600014C74 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AE77884228DCA15500014C74 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
-		AE77884428DCB4D200014C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AE77884728DD867F00014C74 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		AE77884928DD868B00014C74 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,13 +149,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AE77881828D8B1DB00014C74 /* BuyandSellViewController */ = {
+		AE77881828D8B1DB00014C74 /* BuyandSell */ = {
 			isa = PBXGroup;
 			children = (
 				AE77881928D8B21400014C74 /* BuyandSellViewController.swift */,
 				AE77881B28D8B21F00014C74 /* BuyandSellView.swift */,
 			);
-			path = BuyandSellViewController;
+			path = BuyandSell;
 			sourceTree = "<group>";
 		};
 		AE77881D28DA058500014C74 /* Font */ = {
@@ -266,7 +264,6 @@
 				AECB77AA28D31CAD004B77F2 /* String+Extension.swift */,
 				AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */,
 				AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */,
-				AE77884428DCB4D200014C74 /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,7 +303,7 @@
 			children = (
 				AE77884628DD866E00014C74 /* StockDetail */,
 				AE77883F28DCA13A00014C74 /* Setting */,
-				AE77881828D8B1DB00014C74 /* BuyandSellViewController */,
+				AE77881828D8B1DB00014C74 /* BuyandSell */,
 				AECB779328CE3AAA004B77F2 /* MainListViewController.swift */,
 				AECB779528CE3B2A004B77F2 /* MainListView.swift */,
 				AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */,
@@ -470,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE77884528DCB4D200014C74 /* UILabel+Extension.swift in Sources */,
 				AE77881728D76BBF00014C74 /* CandleModel.swift in Sources */,
 				AECB779828CE3B38004B77F2 /* MainListTableViewCell.swift in Sources */,
 				AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */,

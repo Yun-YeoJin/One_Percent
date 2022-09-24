@@ -12,6 +12,7 @@ import SnapKit
 import Then
 import SwiftUI
 import Kingfisher
+import RealmSwift
 
 class MainListViewController: BaseViewController {
     
@@ -19,11 +20,26 @@ class MainListViewController: BaseViewController {
     
     let locationManager = CLLocationManager()
     
-    var myLocation: CLLocationCoordinate2D?
+    var lat: Double = 37.517829
+    var lon: Double = 126.886270
+    
+    var myLocation = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
     
     static let identifier = "MainListViewController"
     
     let notificationCenter = UNUserNotificationCenter.current()
+    
+    let config = Realm.Configuration(schemaVersion: 1)
+    
+    lazy var localRealm = try! Realm(configuration: config)
+    
+    let repository = StockRepository()
+    
+    var tasks: Results<Stock>! {
+        didSet {
+            mainView.tableView.reloadData()
+        }
+    }
     
     override func loadView() {
         self.view = mainView
@@ -32,6 +48,10 @@ class MainListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
+        
+        checkLocationServiceAuthorizationStatus()
+        
         if UserDefaults.standard.bool(forKey: "SecondRun") == false {
             
             let vc = OnBoardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
@@ -39,6 +59,8 @@ class MainListViewController: BaseViewController {
             self.present(vc, animated: true, completion: nil)
             
         }
+        
+        tasks = localRealm.objects(Stock.self)
         
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
@@ -59,7 +81,7 @@ class MainListViewController: BaseViewController {
         
         mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
         
-        weatherAPI()
+        //weatherAPI()
         requestAuthorization()
         sendNotification()
     }
@@ -93,6 +115,10 @@ class MainListViewController: BaseViewController {
         
         return menu
         
+    }
+    
+    func requestRealm() {
+        tasks = repository.fetch()
     }
     
     //MARK: Notification 설정
@@ -204,7 +230,7 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainListTableViewCell.reusableIdentifier, for: indexPath) as? MainListTableViewCell else { return UITableViewCell() }
-        
+    
         return cell
     }
     
@@ -216,67 +242,73 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         transition(vc, transitionStyle: .present)
         
     }
+
 }
 
 
 //MARK: 사용자 위치 설정
 
-extension MainListViewController: CLLocationManagerDelegate {
+extension MainListViewController {
     
-    func checkUserDeviceLocationServiceAuthorization() {
+    func checkLocationServiceAuthorizationStatus() {
         
         let authorizationStatus: CLAuthorizationStatus
         
         if #available(iOS 14.0, *) {
-            //인스턴스를 통해 locationManager가 가지고 있는 상태를 가져옴.
             authorizationStatus = locationManager.authorizationStatus
         } else {
             authorizationStatus = CLLocationManager.authorizationStatus()
         }
         
-        //iOS 위치 서비스 활성화 여부 체크: locationServicesEnabled
         if CLLocationManager.locationServicesEnabled() {
-            //위치 서비스가 활성화 되어 있음 => 위치 권한 요청 가능 => 위치 권한을 요청
-            checkUserCurrentLocationAuthorization(authorizationStatus)
+            checkCurrentLocationAuthorizationStatus(authorizationStatus)
         } else {
-            print("위치 서비스가 꺼져 있어 위치 권한 요청이 불가합니다.")
+            print("위치 권한 확인하세요.")
         }
-        
     }
     
-    func checkUserCurrentLocationAuthorization(_ authorizationStatus: CLAuthorizationStatus) {
+    func checkCurrentLocationAuthorizationStatus(_ authorizationStatus: CLAuthorizationStatus) {
+        
         switch authorizationStatus {
-            
         case .notDetermined:
-            print("NOTDETERMINED")
-            
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
             
         case .restricted, .denied:
-            print("DENIED, 아이폰 설정으로 유도")
+            
+            showRequestLocationServiceAlert()
             
         case .authorizedWhenInUse:
-            print("WHEN IN USE")
+            
+            AddressAPIManager.shared.getLocationData(lat: lat, lon: lon) { value in
+                self.mainView.locationLabel.text = "\(value.regionFirst)"
+                
+                WeatherAPIManager.shared.getWeatherData(lat: self.lat, lon: self.lon) { value in
+                    //첫번째 뷰
+                    let url = URL(string: "https://openweathermap.org/img/wn/\(value.iconId)@2x.png")
+                    self.mainView.weatherImageView.kf.setImage(with: url)
+                    self.mainView.currentTempLabel.text = value.temperatureText
+                    self.mainView.maxminTempLabel.text = value.maxMinText
+                    self.mainView.windLabel.text = value.windText
+                    self.mainView.humidityLabel.text = value.humidityText
+                    self.mainView.pressureLabel.text = value.pressureText
+                    self.mainView.messageLabel.text = WeatherModel.getMessage(weather: value.weather)
+                }
+            }
             
             locationManager.startUpdatingLocation()
-            
         default:
-            print("DEFAULT")
+            print("항상 허용")
         }
     }
-    
-    
-    
     func showRequestLocationServiceAlert() {
-        
         let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
         let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
             
+            //설정페이지로 가는링크
             if let appSetting = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(appSetting)
             }
-            
         }
         let cancel = UIAlertAction(title: "취소", style: .default)
         requestLocationServiceAlert.addAction(cancel)
@@ -284,11 +316,43 @@ extension MainListViewController: CLLocationManagerDelegate {
         
         present(requestLocationServiceAlert, animated: true, completion: nil)
     }
+}
+    
+extension MainListViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+                
+        if let coordinate = locations.last?.coordinate {
+            lat = coordinate.latitude
+            lon = coordinate.longitude
+            
+            myLocation = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            
+            AddressAPIManager.shared.getLocationData(lat: lat, lon: lon) { value in
+                self.mainView.locationLabel.text = "\(value.regionFirst), \(value.regionSecond)"
+                
+                WeatherAPIManager.shared.getWeatherData(lat: self.lat, lon: self.lon) { value in
+                    
+                    let url = URL(string: "https://openweathermap.org/img/wn/\(value.iconId)@2x.png")
+                    self.mainView.weatherImageView.kf.setImage(with: url)
+                    self.mainView.currentTempLabel.text = value.temperatureText
+                    self.mainView.maxminTempLabel.text = value.maxMinText
+                    self.mainView.windLabel.text = value.windText
+                    self.mainView.humidityLabel.text = value.humidityText
+                    self.mainView.pressureLabel.text = value.pressureText
+                    self.mainView.messageLabel.text = WeatherModel.getMessage(weather: value.weather)
+                }
+            }
+        }
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        
-        checkUserDeviceLocationServiceAuthorization()
-        
+        checkLocationServiceAuthorizationStatus()
     }
     
 }

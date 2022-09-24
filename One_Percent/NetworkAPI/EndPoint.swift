@@ -13,4 +13,6 @@ struct EndPoint {
     
     static let newsURL = "https://openapi.naver.com/v1/search/news.json?"
     
+    static let kakaoAddress = "https://dapi.kakao.com/v2/local/geo/coord2address.json?"
+    
 }

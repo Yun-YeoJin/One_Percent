@@ -179,12 +179,12 @@ class MainListView: BaseView {
         }
         
         messageLabel.snp.makeConstraints { make in
-            make.top.equalTo(pressureLabel.snp.bottom).offset(16)
-            make.leading.equalTo(weatherView.snp.leading).offset(16)
+            make.top.equalTo(weatherBackgroundView.snp.bottom).offset(36)
+            make.leading.equalTo(pressureLabel.snp.trailing).offset(16)
+            make.trailing.equalTo(-16)
             make.height.equalTo(20)
         }
         
-   
         tableView.snp.makeConstraints { make in
             make.top.equalTo(weatherView.snp.bottom).offset(0)
             make.leading.bottom.trailing.equalTo(safeAreaLayoutGuide)

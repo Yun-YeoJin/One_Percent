@@ -23,8 +23,7 @@ class SettingTableViewCell: BaseTableViewCell {
         $0.textAlignment = .left
         $0.font = .systemFont(ofSize: 20)
     }
-    
-   
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
