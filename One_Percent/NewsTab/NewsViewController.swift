@@ -115,12 +115,22 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let url = URL(string: domesticNewsList[indexPath.row].link) else {
-            return
+        if indexPath.section == 0 {
+            guard let url = URL(string: domesticNewsList[indexPath.row].link) else {
+                return
+            }
+            
+            let safari = SFSafariViewController(url: url)
+            present(safari, animated: true)
+        } else {
+            guard let url = URL(string: globalNewsList[indexPath.row].link) else {
+                return
+            }
+            
+            let safari = SFSafariViewController(url: url)
+            present(safari, animated: true)
         }
-        
-        let safari = SFSafariViewController(url: url)
-        present(safari, animated: true)
+       
         
     }
     //MARK: TableViewHeader UI 설정

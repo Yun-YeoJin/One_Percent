@@ -21,6 +21,9 @@
 		AE77883E28DB626700014C74 /* StockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77883D28DB626700014C74 /* StockRepository.swift */; };
 		AE77884128DCA14600014C74 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884028DCA14600014C74 /* SettingViewController.swift */; };
 		AE77884328DCA15500014C74 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884228DCA15500014C74 /* SettingTableViewCell.swift */; };
+		AE77884528DCB4D200014C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884428DCB4D200014C74 /* UILabel+Extension.swift */; };
+		AE77884828DD867F00014C74 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884728DD867F00014C74 /* StockDetailViewController.swift */; };
+		AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884928DD868B00014C74 /* StockTableViewCell.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -42,7 +45,6 @@
 		AECB777728CE2C4D004B77F2 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777628CE2C4D004B77F2 /* Then */; };
 		AECB777A28CE2C89004B77F2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777928CE2C89004B77F2 /* Realm */; };
 		AECB777C28CE2C89004B77F2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777B28CE2C89004B77F2 /* RealmSwift */; };
-		AECB777F28CE2C9A004B77F2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = AECB777E28CE2C9A004B77F2 /* FSCalendar */; };
 		AECB778228CE2CAC004B77F2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AECB778128CE2CAC004B77F2 /* Alamofire */; };
 		AECB778528CE2CBC004B77F2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AECB778428CE2CBC004B77F2 /* SwiftyJSON */; };
 		AECB778828CE2D5B004B77F2 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AECB778728CE2D5B004B77F2 /* JGProgressHUD */; };
@@ -84,6 +86,9 @@
 		AE77883D28DB626700014C74 /* StockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepository.swift; sourceTree = "<group>"; };
 		AE77884028DCA14600014C74 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AE77884228DCA15500014C74 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		AE77884428DCB4D200014C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		AE77884728DD867F00014C74 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		AE77884928DD868B00014C74 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +144,6 @@
 				AECB777428CE2C43004B77F2 /* SnapKit in Frameworks */,
 				AECB778828CE2D5B004B77F2 /* JGProgressHUD in Frameworks */,
 				AECB778228CE2CAC004B77F2 /* Alamofire in Frameworks */,
-				AECB777F28CE2C9A004B77F2 /* FSCalendar in Frameworks */,
 				AECB777728CE2C4D004B77F2 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +189,15 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		AE77884628DD866E00014C74 /* StockDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AE77884728DD867F00014C74 /* StockDetailViewController.swift */,
+				AE77884928DD868B00014C74 /* StockTableViewCell.swift */,
+			);
+			path = StockDetail;
+			sourceTree = "<group>";
+		};
 		AECB772E28CC9EEC004B77F2 = {
 			isa = PBXGroup;
 			children = (
@@ -212,7 +225,7 @@
 				AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */,
 				AECB773E28CC9EEC004B77F2 /* ViewController.swift */,
 				AECB774328CC9EEE004B77F2 /* Assets.xcassets */,
-				AECB779228CE3A7D004B77F2 /* MainListViewController */,
+				AECB779228CE3A7D004B77F2 /* MainStockListTab */,
 				AECB779B28CF1FEA004B77F2 /* CaculateTab */,
 				AECB779928CF1FE5004B77F2 /* ChartPatternTab */,
 				AECB77A528D061CA004B77F2 /* NewsTab */,
@@ -253,6 +266,7 @@
 				AECB77AA28D31CAD004B77F2 /* String+Extension.swift */,
 				AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */,
 				AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */,
+				AE77884428DCB4D200014C74 /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -287,16 +301,17 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
-		AECB779228CE3A7D004B77F2 /* MainListViewController */ = {
+		AECB779228CE3A7D004B77F2 /* MainStockListTab */ = {
 			isa = PBXGroup;
 			children = (
+				AE77884628DD866E00014C74 /* StockDetail */,
 				AE77883F28DCA13A00014C74 /* Setting */,
 				AE77881828D8B1DB00014C74 /* BuyandSellViewController */,
 				AECB779328CE3AAA004B77F2 /* MainListViewController.swift */,
 				AECB779528CE3B2A004B77F2 /* MainListView.swift */,
 				AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */,
 			);
-			path = MainListViewController;
+			path = MainStockListTab;
 			sourceTree = "<group>";
 		};
 		AECB779928CF1FE5004B77F2 /* ChartPatternTab */ = {
@@ -380,7 +395,6 @@
 				AECB777628CE2C4D004B77F2 /* Then */,
 				AECB777928CE2C89004B77F2 /* Realm */,
 				AECB777B28CE2C89004B77F2 /* RealmSwift */,
-				AECB777E28CE2C9A004B77F2 /* FSCalendar */,
 				AECB778128CE2CAC004B77F2 /* Alamofire */,
 				AECB778428CE2CBC004B77F2 /* SwiftyJSON */,
 				AECB778728CE2D5B004B77F2 /* JGProgressHUD */,
@@ -418,7 +432,6 @@
 				AECB777228CE2C43004B77F2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				AECB777528CE2C4D004B77F2 /* XCRemoteSwiftPackageReference "Then" */,
 				AECB777828CE2C89004B77F2 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				AECB777D28CE2C9A004B77F2 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				AECB778028CE2CAC004B77F2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				AECB778328CE2CBC004B77F2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				AECB778628CE2D5A004B77F2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
@@ -457,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE77884528DCB4D200014C74 /* UILabel+Extension.swift in Sources */,
 				AE77881728D76BBF00014C74 /* CandleModel.swift in Sources */,
 				AECB779828CE3B38004B77F2 /* MainListTableViewCell.swift in Sources */,
 				AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */,
@@ -480,12 +494,14 @@
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
+				AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */,
 				AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */,
 				AECB77BB28D49B2A004B77F2 /* Int+Extension.swift in Sources */,
 				AECB77AB28D31CAE004B77F2 /* String+Extension.swift in Sources */,
 				AECB77A928D06F5C004B77F2 /* NewsTableViewCell.swift in Sources */,
 				AECB779D28D05830004B77F2 /* EndPoint.swift in Sources */,
 				AECB77AF28D36E14004B77F2 /* CaculateView.swift in Sources */,
+				AE77884828DD867F00014C74 /* StockDetailViewController.swift in Sources */,
 				AE77881A28D8B21400014C74 /* BuyandSellViewController.swift in Sources */,
 				AE77881528D766AD00014C74 /* ChartModel.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
@@ -757,14 +773,6 @@
 				kind = branch;
 			};
 		};
-		AECB777D28CE2C9A004B77F2 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		AECB778028CE2CAC004B77F2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -816,11 +824,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AECB777828CE2C89004B77F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		AECB777E28CE2C9A004B77F2 /* FSCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AECB777D28CE2C9A004B77F2 /* XCRemoteSwiftPackageReference "FSCalendar" */;
-			productName = FSCalendar;
 		};
 		AECB778128CE2CAC004B77F2 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

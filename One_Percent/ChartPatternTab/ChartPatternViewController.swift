@@ -11,9 +11,6 @@ import UIKit
 class ChartPatternViewController: BaseViewController {
     
     let mainView = ChartPatternView()
-    
-    var chartDetail = ChartInfo()
-    var candleDetail = CandleInfo()
    
     enum Section: CaseIterable {
         case chartPattern
@@ -27,6 +24,9 @@ class ChartPatternViewController: BaseViewController {
         }
     }
     
+    var chartData: [PatternsModel] = []
+    var candleData: [PatternsModel] = []
+    
     override func loadView() {
         self.view = mainView
     }
@@ -36,11 +36,19 @@ class ChartPatternViewController: BaseViewController {
         
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
-        mainView.searchBar.delegate = self
         mainView.collectionView.register(ChartPatternCollectionViewCell.self, forCellWithReuseIdentifier: ChartPatternCollectionViewCell.reusableIdentifier)
         mainView.collectionView.register(ChartPatternHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ChartPatternHeaderView")
         
         mainView.collectionView.collectionViewLayout = layout()
+        
+        mainView.searchBar.delegate = self
+        mainView.searchBar.showsCancelButton = false
+        
+        chartData = ChartInfo.chartPattern
+        candleData = CandleInfo.candlePattern
+        
+
+        self.navigationItem.hidesSearchBarWhenScrolling = false // Scroll시 Search부분 남겨두기
         
     }
     
@@ -52,7 +60,6 @@ class ChartPatternViewController: BaseViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         
     }
-    
 }
 
 extension ChartPatternViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -64,9 +71,9 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if section == 0 {
-            return chartDetail.chartPattern.count
+            return chartData.count
         } else {
-            return candleDetail.candlePattern.count
+            return candleData.count
         }
         
         
@@ -75,17 +82,19 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChartPatternCollectionViewCell.reusableIdentifier, for: indexPath) as? ChartPatternCollectionViewCell else { return UICollectionViewCell() }
-        
-        if indexPath.section == 0 {
-            let data = chartDetail.chartPattern[indexPath.item]
-            cell.titleLabel.text = data.title
-            cell.chartImageView.image = UIImage(named: data.imageName)
-        } else {
-            let data = candleDetail.candlePattern[indexPath.item]
-            cell.titleLabel.text = data.title
-            cell.chartImageView.image = UIImage(named: data.imageName)
-        }
-        
+            
+            if indexPath.section == 0 {
+//                let data = ChartInfo.chartPattern[indexPath.item]
+                let data = chartData[indexPath.item]
+                cell.titleLabel.text = data.title
+                cell.chartImageView.image = UIImage(named: data.imageName)
+            } else {
+//                let data = CandleInfo.candlePattern[indexPath.item]
+                let data = candleData[indexPath.item]
+                cell.titleLabel.text = data.title
+                cell.chartImageView.image = UIImage(named: data.imageName)
+            }
+            
         return cell
     }
     
@@ -93,44 +102,51 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
         
         let vc = ChartDetailViewController()
         if indexPath.section == 0 {
-            vc.patternData = chartDetail.chartPattern[indexPath.item]
+            vc.patternData = chartData[indexPath.item]
         } else {
-            vc.patternData = candleDetail.candlePattern[indexPath.item]
+            vc.patternData = candleData[indexPath.item]
         }
         transition(vc, transitionStyle: .presentNavigation)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
                     if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ChartPatternHeaderView.identifier, for: indexPath) as? ChartPatternHeaderView {
+                        
                         if indexPath.section == 0 {
-                            header.titleLabel.text = Section.chartPattern.title
+                            
+                            if chartData.isEmpty {
+                                header.isHidden = true
+                                header.titleLabel.snp.updateConstraints { make in
+                                    make.edges.equalToSuperview()
+                                    make.height.equalTo(0)
+                                }
+                            } else {
+                                header.isHidden = false
+                                header.titleLabel.text = Section.chartPattern.title
+                            }
+                            
                         } else {
-                            header.titleLabel.text = Section.candlePattern.title
+                            if candleData.isEmpty {
+                                header.isHidden = true
+                                header.titleLabel.snp.updateConstraints { make in
+                                    make.edges.equalToSuperview()
+                                    make.height.equalTo(0)
+                                }
+                            } else {
+                                header.isHidden = false
+                                header.titleLabel.text = Section.candlePattern.title
+                            }
+                            
                         }
                         return header
                     }
                 }
                 return UICollectionReusableView()
             }
-    
-        
-    }
 
-extension ChartPatternViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width = mainView.collectionView.frame.width
-        let height: CGFloat = 100
-        return CGSize(width: width, height: height)
     }
-}
-    
-
-extension ChartPatternViewController: UISearchBarDelegate {
-    
-}
 
 private func layout() -> UICollectionViewCompositionalLayout {
     
@@ -144,10 +160,10 @@ private func layout() -> UICollectionViewCompositionalLayout {
     group.interItemSpacing = .fixed(20)
     
     let section = NSCollectionLayoutSection(group: group)
-    section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20)
-    section.interGroupSpacing = 20
+    section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20)
+    section.interGroupSpacing = 10
     
-    let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+    let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
     
     let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
     section.boundarySupplementaryItems = [header]
@@ -155,3 +171,46 @@ private func layout() -> UICollectionViewCompositionalLayout {
     let layout = UICollectionViewCompositionalLayout(section: section)
     return layout
 }
+
+//MARK: UISearchBarController 설정
+extension ChartPatternViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+        if searchText != "" {
+            
+            var filteredChartPatterns: [PatternsModel] = []
+            for item in ChartInfo.chartPattern {
+                if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
+                    filteredChartPatterns.append(item)
+                }
+            }
+            chartData = filteredChartPatterns
+            
+            var filteredCandlePatterns: [PatternsModel] = []
+            for item in CandleInfo.candlePattern {
+                if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
+                    filteredCandlePatterns.append(item)
+                }
+            }
+            candleData = filteredCandlePatterns
+
+
+        } else {
+            chartData = ChartInfo.chartPattern
+            candleData = CandleInfo.candlePattern
+        }
+        
+        mainView.collectionView.reloadData()
+        
+
+        
+    }
+    
+}
+
+

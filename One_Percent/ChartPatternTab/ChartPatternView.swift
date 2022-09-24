@@ -11,16 +11,15 @@ import SnapKit
 import Then
 
 class ChartPatternView: BaseView {
-    
-    let searchBar = UISearchBar().then {
-        $0.tintColor = .black
-        $0.backgroundColor = Constants.BaseColor.background
-    }
-    
+ 
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         return view
     }()
+    
+    let searchBar = UISearchBar().then {
+        $0.placeholder = "차트 검색하기"
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,20 +30,19 @@ class ChartPatternView: BaseView {
     }
     
     override func configureUI() {
-        [searchBar, collectionView].forEach {
+        [collectionView, searchBar].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
-        
+    
         searchBar.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
-            make.leading.trailing.equalTo(0)
-            make.height.equalTo(44)
+            make.top.leading.trailing.equalTo(safeAreaLayoutGuide)
         }
+        
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom)
+            make.top.equalTo(searchBar.snp.bottom).offset(0)
             make.bottom.leading.trailing.equalTo(0)
         }
     }

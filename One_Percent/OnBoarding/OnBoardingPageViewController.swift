@@ -36,7 +36,6 @@ class OnBoardingPageViewController: UIPageViewController {
         self.makeBottomButton()
         self.makePageControl()
        
-       
     }
     
     func makePageVC() {

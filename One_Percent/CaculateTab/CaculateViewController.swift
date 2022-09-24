@@ -53,10 +53,12 @@ class CaculateViewController: BaseViewController {
                     self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
                     
                 } else if self.mainView.selected == 1 {
-                    self.mainView.resultViewLabel.text = "₩ " + round(moneyDouble * pow(1 + ((rateDouble/100) / (dateDouble / 12)), dateDouble * dateDouble / 12)).plusCommas()
+                    self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
+                    //self.mainView.resultViewLabel.text = "₩ " + round(moneyDouble * pow(1 + ((rateDouble/100) / (dateDouble / 12)), dateDouble * dateDouble / 12)).plusCommas()
 
                 } else {
-                    self.mainView.resultViewLabel.text = "₩ " + round(moneyDouble * pow(1 + ((rateDouble/100) / (dateDouble / 365)), dateDouble * dateDouble / 365)).plusCommas()
+                    self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
+                    //self.mainView.resultViewLabel.text = "₩ " + round(moneyDouble * pow(1 + ((rateDouble/100) / (dateDouble / 365)), dateDouble * dateDouble / 365)).plusCommas()
                     
                 }
                 
