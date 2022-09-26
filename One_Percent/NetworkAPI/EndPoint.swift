@@ -15,4 +15,6 @@ struct EndPoint {
     
     static let kakaoAddress = "https://dapi.kakao.com/v2/local/geo/coord2address.json?"
     
+    static let stockNameURL = "http://apis.data.go.kr/1160100/service/GetKrxListedInfoService/getItemInfo?"
+    
 }

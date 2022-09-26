@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+//MARK: 네이버 뉴스 검색 API
 class NewsAPIManager {
     
     static let shared = NewsAPIManager()
@@ -48,6 +49,7 @@ class NewsAPIManager {
     }
 }
 
+//MARK: 카카오 주소찾기 API
 class AddressAPIManager {
 
     private init() {}
@@ -82,6 +84,7 @@ class AddressAPIManager {
     }
 }
 
+//MARK: OpenWeather 날씨 API
 class WeatherAPIManager {
     
     private init() {}
@@ -112,6 +115,39 @@ class WeatherAPIManager {
                 
                 completionHandler(weather)
                 
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+//MARK: 공공데이터 상장종목정보 API
+class StockNameAPIManager {
+
+    private init() {}
+
+    static let shared = StockNameAPIManager()
+
+    func getStockName(query: String, completionHandler: @escaping ([StockNameModel]) -> ()) {
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        
+        let url = "\(EndPoint.stockNameURL)serviceKey=\(APIKey.stock)&resultType=json&numOfRows=50&basDt=20220923&likeItmsNm=\(query)"
+       
+        AF.request(url, method: .get).validate().responseData(queue: .global()) { response in
+            switch response.result {
+
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+
+                let stockName = json["response"]["body"]["items"]["item"].arrayValue.map {
+                    StockNameModel(stockName: $0["itmsNm"].stringValue, stockMarket: $0["mrktCtg"].stringValue, stockNumber: $0["srtnCd"].stringValue)
+                }
+
+                completionHandler(stockName)
+
             case .failure(let error):
                 print(error)
             }
