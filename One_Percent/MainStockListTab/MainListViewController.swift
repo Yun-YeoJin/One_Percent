@@ -116,13 +116,22 @@ class MainListViewController: BaseViewController {
         let sortName = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
             self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockName")
         }
-        let sortQuantity = UIAction(title: "수량(주)순", image: UIImage(systemName: "chart.bar.xaxis")) { _ in
+        let sortLargeQuantity = UIAction(title: "수량(주) 많은순", image: UIImage(systemName: "chart.bar.fill")) { _ in
             self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockQuantity", ascending: false)
         }
-        let sortDate = UIAction(title: "매매일자순", image: UIImage(systemName: "calendar.badge.clock")) { _ in
+        
+        let sortSmallQuantity = UIAction(title: "수량(주) 적은순", image: UIImage(systemName: "chart.bar")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockQuantity", ascending: true)
+        }
+        
+        let sortCurrentDate = UIAction(title: "매매일자 최신순", image: UIImage(systemName: "calendar.badge.plus")) { _ in
             self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockDate", ascending: false)
         }
-        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortName, sortQuantity, sortDate])
+        
+        let sortOlderDate = UIAction(title: "매매일자 오래된순", image: UIImage(systemName: "calendar.badge.minus")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockDate", ascending: true)
+        }
+        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortName, sortLargeQuantity, sortSmallQuantity, sortCurrentDate, sortOlderDate])
         
         return menu
         
