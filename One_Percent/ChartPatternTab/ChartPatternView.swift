@@ -19,6 +19,7 @@ class ChartPatternView: BaseView {
     
     let searchBar = UISearchBar().then {
         $0.placeholder = "차트 검색하기"
+        $0.backgroundColor = Constants.BaseColor.background
     }
     
     override init(frame: CGRect) {

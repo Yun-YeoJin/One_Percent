@@ -47,7 +47,8 @@ class ChartPatternViewController: BaseViewController {
         chartData = ChartInfo.chartPattern
         candleData = CandleInfo.candlePattern
         
-
+        self.hideKeyboardWhenTappedAround()
+        
         self.navigationItem.hidesSearchBarWhenScrolling = false // Scroll시 Search부분 남겨두기
         
     }

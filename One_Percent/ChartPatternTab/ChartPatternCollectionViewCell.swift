@@ -21,7 +21,6 @@ class ChartPatternCollectionViewCell: BaseCollectionViewCell {
     }
     
     let titleLabel = UILabel().then {
-        
         $0.font = .boldSystemFont(ofSize: 20)
         $0.textAlignment = .center
         $0.textColor = Constants.BaseColor.text

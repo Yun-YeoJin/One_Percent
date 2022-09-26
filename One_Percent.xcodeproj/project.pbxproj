@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE5A2ED328E1AC520026E400 /* StockNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A2ED228E1AC520026E400 /* StockNameModel.swift */; };
 		AE77881528D766AD00014C74 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881428D766AD00014C74 /* ChartModel.swift */; };
 		AE77881728D76BBF00014C74 /* CandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881628D76BBF00014C74 /* CandleModel.swift */; };
 		AE77881A28D8B21400014C74 /* BuyandSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77881928D8B21400014C74 /* BuyandSellViewController.swift */; };
@@ -23,6 +24,8 @@
 		AE77884328DCA15500014C74 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884228DCA15500014C74 /* SettingTableViewCell.swift */; };
 		AE77884828DD867F00014C74 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884728DD867F00014C74 /* StockDetailViewController.swift */; };
 		AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884928DD868B00014C74 /* StockTableViewCell.swift */; };
+		AEB4B60428E1B6500004CE79 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60328E1B6500004CE79 /* SearchViewController.swift */; };
+		AEB4B60628E1B65C0004CE79 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -72,6 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE5A2ED228E1AC520026E400 /* StockNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockNameModel.swift; sourceTree = "<group>"; };
 		AE77881428D766AD00014C74 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		AE77881628D76BBF00014C74 /* CandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleModel.swift; sourceTree = "<group>"; };
 		AE77881928D8B21400014C74 /* BuyandSellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyandSellViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		AE77884228DCA15500014C74 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		AE77884728DD867F00014C74 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		AE77884928DD868B00014C74 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		AEB4B60328E1B6500004CE79 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 		AE77881828D8B1DB00014C74 /* BuyandSell */ = {
 			isa = PBXGroup;
 			children = (
+				AEB4B60228E1B6390004CE79 /* Search */,
 				AE77881928D8B21400014C74 /* BuyandSellViewController.swift */,
 				AE77881B28D8B21F00014C74 /* BuyandSellView.swift */,
 			);
@@ -194,6 +201,15 @@
 				AE77884928DD868B00014C74 /* StockTableViewCell.swift */,
 			);
 			path = StockDetail;
+			sourceTree = "<group>";
+		};
+		AEB4B60228E1B6390004CE79 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AEB4B60328E1B6500004CE79 /* SearchViewController.swift */,
+				AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		AECB772E28CC9EEC004B77F2 = {
@@ -339,6 +355,7 @@
 				AECB779F28D05893004B77F2 /* WeatherModel.swift */,
 				AECB77A328D06071004B77F2 /* NewsModel.swift */,
 				AE77882728DA137100014C74 /* AddressModel.swift */,
+				AE5A2ED228E1AC520026E400 /* StockNameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,12 +492,14 @@
 				AE77884128DCA14600014C74 /* SettingViewController.swift in Sources */,
 				AE77882828DA137100014C74 /* AddressModel.swift in Sources */,
 				AECB77B928D495C9004B77F2 /* UIViewController+Extension.swift in Sources */,
+				AEB4B60428E1B6500004CE79 /* SearchViewController.swift in Sources */,
 				AECB775E28CCA27D004B77F2 /* Transition+Extension.swift in Sources */,
 				AECB77A428D06071004B77F2 /* NewsModel.swift in Sources */,
 				AECB779428CE3AAA004B77F2 /* MainListViewController.swift in Sources */,
 				AEE7228528D6D3F7002B569C /* ChartDetailView.swift in Sources */,
 				AEE7227C28D4C371002B569C /* PatternModel.swift in Sources */,
 				AECB776628CCA395004B77F2 /* APIManager.swift in Sources */,
+				AE5A2ED328E1AC520026E400 /* StockNameModel.swift in Sources */,
 				AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */,
 				AE77883E28DB626700014C74 /* StockRepository.swift in Sources */,
 				AEE7228328D6D3EF002B569C /* ChartDetailViewController.swift in Sources */,
@@ -510,6 +529,7 @@
 				AECB77A028D05893004B77F2 /* WeatherModel.swift in Sources */,
 				AECB77A728D06F50004B77F2 /* NewsViewController.swift in Sources */,
 				AE77881C28D8B21F00014C74 /* BuyandSellView.swift in Sources */,
+				AEB4B60628E1B65C0004CE79 /* SearchTableViewCell.swift in Sources */,
 				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
 				AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */,
 			);
@@ -662,12 +682,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "One Percent";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치권한이 필요한 이유";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치에 따른 날씨 정보를 제공하기 위해 위치 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -693,12 +715,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "One Percent";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치권한이 필요한 이유";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치에 따른 날씨 정보를 제공하기 위해 위치 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
