@@ -22,7 +22,7 @@ class BuyandSellView: BaseView {
     }
     
     let contentSearchBar = UISearchBar().then {
-        $0.placeholder = "종목명을 검색하세요"
+        $0.placeholder = "종목명을 검색하세요."
         $0.barStyle = .default
     }
     
@@ -90,7 +90,7 @@ class BuyandSellView: BaseView {
     }
     
     let countLabel = UILabel().then {
-        $0.text = "수량(주)"
+        $0.text = "수량 (주)"
         $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
         $0.textAlignment = .left
     }
@@ -108,9 +108,24 @@ class BuyandSellView: BaseView {
         $0.layer.borderColor = Constants.BaseColor.border
     }
     
-   
+    let dateLabel = UILabel().then {
+        $0.text = "매매일자"
+        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
+        $0.textAlignment = .left
+    }
     
+    let dateDatePicker = UIDatePicker().then {
+        $0.backgroundColor = Constants.BaseColor.background
+        $0.preferredDatePickerStyle = .compact
+        $0.locale = Locale(identifier: "ko_KR")
+        $0.datePickerMode = .date
+        $0.timeZone = TimeZone(identifier: "UTC+9")
+    }
     
+    let underBarView5 = UIView().then {
+        $0.backgroundColor = Constants.BaseColor.text
+        $0.layer.borderColor = Constants.BaseColor.border
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -124,7 +139,7 @@ class BuyandSellView: BaseView {
     
     override func configureUI() {
         
-        [contentLabel, contentSearchBar, underBarView, buyandsellLabel, stackview, underBarView2, priceLabel, priceTextField, underBarView3, countLabel, countTextField, underBarView4].forEach {
+        [contentLabel, contentSearchBar, underBarView, buyandsellLabel, stackview, underBarView2, priceLabel, priceTextField, underBarView3, countLabel, countTextField, underBarView4, dateLabel, dateDatePicker, underBarView5].forEach {
             self.addSubview($0)
             
             [buyButton, sellButton].forEach {
@@ -233,6 +248,26 @@ class BuyandSellView: BaseView {
         
         underBarView4.snp.makeConstraints { make in
             make.top.equalTo(countLabel.snp.bottom).offset(8)
+            make.height.equalTo(1)
+            make.trailing.equalTo(self.safeAreaLayoutGuide).offset(-16)
+            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+        }
+        
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(underBarView4.snp.bottom).offset(24)
+            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.height.equalTo(50)
+        }
+        
+        dateDatePicker.snp.makeConstraints { make in
+            make.top.equalTo(underBarView4.snp.bottom).offset(24)
+            make.leadingMargin.equalTo(dateLabel.snp.trailing).offset(30)
+            make.trailingMargin.equalTo(-16)
+            make.height.equalTo(50)
+        }
+        
+        underBarView5.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel.snp.bottom).offset(8)
             make.height.equalTo(1)
             make.trailing.equalTo(self.safeAreaLayoutGuide).offset(-16)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)

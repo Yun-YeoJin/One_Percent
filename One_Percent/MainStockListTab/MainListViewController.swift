@@ -45,6 +45,13 @@ class MainListViewController: BaseViewController {
         self.view = mainView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        requestRealm()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,15 +88,19 @@ class MainListViewController: BaseViewController {
         
         mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
         
-        //weatherAPI()
         requestAuthorization()
         sendNotification()
+        
+        StockNameAPIManager.shared.getStockName(query: "삼성전자") { list in
+            print(list)
+        }
+        
     }
     
     @objc func floatingButtonClicked() {
         
         let vc = BuyandSellViewController()
-        transition(vc, transitionStyle: .push)
+        transition(vc, transitionStyle: .presentFullNavigation)
         
     }
     
@@ -102,16 +113,16 @@ class MainListViewController: BaseViewController {
     
     @objc func alignButtonClicked() -> UIMenu  {
         
-        let sortContents = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
-            
+        let sortName = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockName")
         }
-        let sortCheckBox = UIAction(title: "수익률순", image: UIImage(systemName: "chart.line.uptrend.xyaxis")) { _ in
-            
+        let sortQuantity = UIAction(title: "수량(주)순", image: UIImage(systemName: "chart.bar.xaxis")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockQuantity", ascending: false)
         }
-        let sortFavorite = UIAction(title: "총 평가액순", image: UIImage(systemName: "dollarsign.circle")) { _ in
-            
+        let sortDate = UIAction(title: "매매일자순", image: UIImage(systemName: "calendar.badge.clock")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockDate", ascending: false)
         }
-        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortContents, sortCheckBox, sortFavorite])
+        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortName, sortQuantity, sortDate])
         
         return menu
         
@@ -159,26 +170,7 @@ class MainListViewController: BaseViewController {
         notificationCenter.add(request)
         
     }
-    
-    func weatherAPI() {
-        
-        WeatherAPIManager.shared.getWeatherData(lat: 37.65128, lon: 127.08335) { value in
-            
-            let url = URL(string: "https://openweathermap.org/img/wn/\(value.iconId)@2x.png")
-            self.mainView.weatherImageView.kf.setImage(with: url)
-            
-            self.mainView.currentTempLabel.text = value.temperatureText
-            self.mainView.maxminTempLabel.text = value.maxMinText
-            self.mainView.windLabel.text = value.windText
-            self.mainView.humidityLabel.text = value.humidityText
-            self.mainView.pressureLabel.text = value.pressureText
-            self.mainView.messageLabel.text = WeatherModel.getMessage(weather: value.weather)
-            
-        }
-        
-    }
-    
-    
+ 
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -225,11 +217,16 @@ class MainListViewController: BaseViewController {
 extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainListTableViewCell.reusableIdentifier, for: indexPath) as? MainListTableViewCell else { return UITableViewCell() }
+    
+        cell.stockNameLabel.text = tasks[indexPath.row].stockName
+        cell.stockPriceLabel.text = "체결 단가 : " + String((tasks[indexPath.row].stockPrice).withCommas()) + "원"
+        cell.stockQuantityLabel.text = "수량(주) : " +  String((tasks[indexPath.row].stockQuantity).withCommas()) + "주"
+        cell.totalPriceLabel.text = "총 평가액 : " + String((tasks[indexPath.row].stockPrice * tasks[indexPath.row].stockQuantity).withCommas()) + "원"
     
         return cell
     }
@@ -241,6 +238,18 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = StockDetailViewController()
         transition(vc, transitionStyle: .present)
         
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = UIContextualAction(style: .destructive, title: "삭제") { action, view, completionHandler in
+            
+            self.repository.deleteItem(self.tasks[indexPath.row])
+        
+            self.requestRealm()
+        }
+        
+        return UISwipeActionsConfiguration(actions: [delete])
     }
 
 }
