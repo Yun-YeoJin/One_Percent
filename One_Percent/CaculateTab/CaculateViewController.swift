@@ -30,8 +30,7 @@ class CaculateViewController: BaseViewController {
         
         if mainView.moneyTextField.text?.isEmpty ?? true || mainView.rateTextField.text?.isEmpty ?? true || mainView.dateTextField.text?.isEmpty ?? true || mainView.selected < 0 {
             showAlert(title: "계산이 불가능해요!", message: "원금, 이자율, 투자 기간, 계산 단위를 확인하세요!", buttonTitle: "확인") { UIAlertAction in
-                
-                
+        
             }
             
         } else {

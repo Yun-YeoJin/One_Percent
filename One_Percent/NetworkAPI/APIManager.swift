@@ -33,7 +33,6 @@ class NewsAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
    
                 let list = json["items"].arrayValue.map { NewsModel(title: $0["title"].stringValue, description: $0["description"].stringValue, pubDate: $0["pubDate"].stringValue, link: $0["link"].stringValue)
                 }
@@ -140,7 +139,6 @@ class StockNameAPIManager {
 
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
 
                 let stockName = json["response"]["body"]["items"]["item"].arrayValue.map {
                     StockNameModel(stockName: $0["itmsNm"].stringValue, stockMarket: $0["mrktCtg"].stringValue, stockNumber: $0["srtnCd"].stringValue)
@@ -162,11 +160,9 @@ class StockPriceAPIManager {
 
     static let shared = StockPriceAPIManager()
 
-    func getStockPrice(query: String, baseDate: String, completionHandler: @escaping ([String]) -> ()) {
+    func getStockPrice(query: String, baseDate: String, completionHandler: @escaping (String) -> () ) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        
-    //http://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey=TelFwB%2BCBJN8nK5P2hHeDxrVT9AAXcV3mg%2BiDT0eRxJqfJ%2FyimtwFUi2%2FCn0GOVt4DAL2k5UuTJeNEBKoWBIhQ%3D%3D&numOfRows=1&resultType=json&endBasDt=20220927&itmsNm=%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90
         
         let url = "\(EndPoint.stockPriceURL)serviceKey=\(APIKey.stock)&numOfRows=1&resultType=json&endBasDt=\(baseDate)&itmsNm=\(query)"
        
@@ -175,13 +171,8 @@ class StockPriceAPIManager {
 
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
-
-                let stockPrice = json["response"]["body"]["items"]["item"].arrayValue.map {
-                    $0["clpr"].stringValue
-                }
-
-                completionHandler(stockPrice)
+    
+                completionHandler(json["response"]["body"]["items"]["item"][0]["clpr"].stringValue)
 
             case .failure(let error):
                 print(error)

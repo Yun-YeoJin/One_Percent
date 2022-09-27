@@ -54,6 +54,16 @@ extension Date {
     }
 }
 
+extension String {
+    func stringFromDate() -> String {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter.string(from: now)
+    }
+}
+
 extension String  {
     var isNumber: Bool {
         return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil

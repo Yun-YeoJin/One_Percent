@@ -162,7 +162,7 @@ class MainListViewController: BaseViewController {
         notificationContent.badge = 1
         
         // 트리거 : 1. 시간간격 2. 캘린더 3. 위치에 따라 설정 가능
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
         // 트리거 - 캘린더
         var dateComponent = DateComponents()
@@ -241,7 +241,7 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let vc = StockDetailViewController()
-        transition(vc, transitionStyle: .present)
+        transition(vc, transitionStyle: .presentNavigation)
         
     }
     
@@ -253,10 +253,9 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         
             self.requestRealm()
         }
-        
         return UISwipeActionsConfiguration(actions: [delete])
+        
     }
-
 }
 
 

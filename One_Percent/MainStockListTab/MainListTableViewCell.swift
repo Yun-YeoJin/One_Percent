@@ -26,18 +26,18 @@ class MainListTableViewCell: BaseTableViewCell {
         $0.font = .boldSystemFont(ofSize: 20)
     }
     
-    let earningRateLabel = UILabel().then {
-        $0.text = " 수익률 : "
+    let closePriceLabel = UILabel().then {
+        $0.text = "전날주가 :"
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
-        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = .boldSystemFont(ofSize: 17)
     }
     
-    let rateLabel = UILabel().then {
-        $0.text = " +4.4% "
-        $0.textColor = .systemRed
+    let closePriceRateLabel = UILabel().then {
+        $0.text = "32,000원"
+        $0.textColor = Constants.BaseColor.point
         $0.textAlignment = .left
-        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = .boldSystemFont(ofSize: 17)
     }
     
     let underBarView = UIView().then {
@@ -47,13 +47,6 @@ class MainListTableViewCell: BaseTableViewCell {
     
     let stockPriceLabel = UILabel().then {
         $0.text = "평균 매수가 : 59,320원"
-        $0.textColor = Constants.BaseColor.text
-        $0.textAlignment = .left
-        $0.font = .boldSystemFont(ofSize: 15)
-    }
-    
-    let stockCurrentPriceLabel = UILabel().then {
-        $0.text = "현재 주가 : 62,100원"
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 15)
@@ -73,6 +66,12 @@ class MainListTableViewCell: BaseTableViewCell {
         $0.font = .boldSystemFont(ofSize: 15)
     }
     
+    let buyandsellButton = UIButton().then {
+        $0.layer.cornerRadius = 10
+        $0.backgroundColor = .clear
+        $0.setTitle("매수", for: .normal)
+    }
+    
     
     
     
@@ -90,7 +89,7 @@ class MainListTableViewCell: BaseTableViewCell {
     
     override func configureUI() {
         
-        [backgroundImageView, stockNameLabel, earningRateLabel, rateLabel, underBarView, stockPriceLabel, stockCurrentPriceLabel, stockQuantityLabel, totalPriceLabel].forEach {
+        [backgroundImageView, stockNameLabel, closePriceLabel, closePriceRateLabel, underBarView, stockPriceLabel, stockQuantityLabel, totalPriceLabel, buyandsellButton].forEach {
             self.addSubview($0)
         }
         
@@ -99,24 +98,30 @@ class MainListTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         
         backgroundImageView.snp.makeConstraints { make in
-            make.leading.top.equalTo(4)
-            make.trailing.bottom.equalTo(-4)
+            make.leading.top.bottom.trailing.equalToSuperview().inset(8)
+        }
+        
+        buyandsellButton.snp.makeConstraints { make in
+            make.top.equalTo(underBarView.snp.bottom).offset(8)
+            make.trailing.equalToSuperview().inset(16)
+            make.width.equalTo(44)
+            make.height.equalTo(30)
         }
         
         stockNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(12)
-            make.leading.equalTo(16)
+            make.top.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
         
-        earningRateLabel.snp.makeConstraints { make in
-            make.top.equalTo(12)
-            make.trailing.equalTo(rateLabel.snp.leading).offset(-16)
+        closePriceLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(12)
+            make.trailing.equalTo(closePriceRateLabel.snp.leading).offset(-4)
             make.height.equalTo(20)
         }
         
-        rateLabel.snp.makeConstraints { make in
-            make.top.equalTo(12)
+        closePriceRateLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(12)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(20)
         }
@@ -130,25 +135,19 @@ class MainListTableViewCell: BaseTableViewCell {
         
         stockPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(underBarView.snp.bottom).offset(8)
-            make.leading.equalTo(16)
-            make.height.equalTo(20)
-        }
-        
-        stockCurrentPriceLabel.snp.makeConstraints { make in
-            make.top.equalTo(stockPriceLabel.snp.bottom).offset(8)
-            make.leading.equalTo(16)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
         
         stockQuantityLabel.snp.makeConstraints { make in
-            make.top.equalTo(stockCurrentPriceLabel.snp.bottom).offset(8)
-            make.leading.equalTo(16)
+            make.top.equalTo(stockPriceLabel.snp.bottom).offset(8)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
         
         totalPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(stockQuantityLabel.snp.bottom).offset(8)
-            make.leading.equalTo(16)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
         

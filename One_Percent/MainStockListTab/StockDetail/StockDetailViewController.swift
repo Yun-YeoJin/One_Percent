@@ -48,28 +48,21 @@ extension StockDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StockTableViewCell.reusableIdentifier, for: indexPath) as? StockTableViewCell else { return UITableViewCell() }
-        
-        
-        if indexPath.row % 2 == 0 {
+    
             cell.iconImageView.image = UIImage(systemName: "plus.square.fill")
             cell.iconImageView.tintColor = .systemRed
             cell.stockNameLabel.text = "삼성전자"
-        } else if indexPath.row % 2 == 1 {
-            cell.iconImageView.image = UIImage(systemName: "minus.square.fill")
-            cell.iconImageView.tintColor = .systemBlue
-            cell.stockNameLabel.text = "삼성전자"
-        }
-        
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 300
     }
     
     //MARK: TableViewHeader UI 설정

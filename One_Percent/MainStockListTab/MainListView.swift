@@ -15,7 +15,7 @@ class MainListView: BaseView {
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: .zero, style: .plain)
         view.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
-        view.rowHeight = 170
+        view.rowHeight = 140
         view.backgroundColor = Constants.BaseColor.background
         return view
     }()
@@ -36,7 +36,7 @@ class MainListView: BaseView {
     let locationLabel = UILabel().then {
         $0.textColor = Constants.BaseColor.text
         $0.font = .boldSystemFont(ofSize: 20)
-        $0.text = "서울특별시, 노원구"
+        $0.text = "위치"
     }
     
     let weatherBackgroundView = UIView().then {
