@@ -76,6 +76,10 @@ class BuyandSellViewController: BaseViewController, SendStockDelegate {
     
     @objc func saveButtonClicked() {
         
+        if mainView.contentSearchBar.text?.isEmpty ?? true || mainView.priceTextField.text?.isEmpty ?? true || mainView.countTextField.text?.isEmpty ?? true || mainView.selected < 0 {
+            showAlert(title: "항목을 선택해주세요!", message: "종목명, 매수/매도, 체결 단가, 수량을 확인하세요!", buttonTitle: "확인") { UIAlertAction in }
+        } else {
+        
         let stockname = mainView.contentSearchBar.text ?? ""
         
         var price = self.mainView.priceTextField.text ?? ""
@@ -98,6 +102,7 @@ class BuyandSellViewController: BaseViewController, SendStockDelegate {
         
         dismiss(animated: true)
         
+    }
     }
   
 }

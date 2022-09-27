@@ -113,8 +113,13 @@ extension SearchViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.hud.dismiss(animated: true)
+                self.dismisskeyboard()
             }
         }
+    }
+    
+    func dismisskeyboard() {
+        view.endEditing(true)
     }
 
 }
