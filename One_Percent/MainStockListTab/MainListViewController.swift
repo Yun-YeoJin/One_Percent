@@ -231,7 +231,20 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.stockNameLabel.text = tasks[indexPath.row].stockName
         cell.stockPriceLabel.text = "체결 단가 : " + String((tasks[indexPath.row].stockPrice).withCommas()) + "원"
         cell.stockQuantityLabel.text = "수량(주) : " +  String((tasks[indexPath.row].stockQuantity).withCommas()) + "주"
-        cell.totalPriceLabel.text = "총 평가액 : " + String((tasks[indexPath.row].stockPrice * tasks[indexPath.row].stockQuantity).withCommas()) + "원"
+        cell.totalPriceLabel.text = "총 거래액 : " + String((tasks[indexPath.row].stockPrice * tasks[indexPath.row].stockQuantity).withCommas()) + "원"
+        StockPriceAPIManager.shared.getStockPrice(query: tasks[indexPath.row].stockName, baseDate: Date().description.stringFromDate(), completionHandler: { price in
+            DispatchQueue.main.async {
+                guard let priceInt = Int(price) else { return }
+                cell.closePriceRateLabel.text = String(priceInt.withCommas()) + "원"
+            }
+        })
+        if tasks[indexPath.row].isBuy == true {
+            cell.buyandsellButton.setTitle("매수", for: .normal)
+            cell.buyandsellButton.backgroundColor = .systemRed
+        } else {
+            cell.buyandsellButton.setTitle("매도", for: .normal)
+            cell.buyandsellButton.backgroundColor = .systemBlue
+        }
     
         return cell
     }
@@ -249,9 +262,11 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let delete = UIContextualAction(style: .destructive, title: "삭제") { action, view, completionHandler in
             
-            self.repository.deleteItem(self.tasks[indexPath.row])
-        
-            self.requestRealm()
+            self.showAlert(title: "정말로 삭제하시겠습니까?", message: "삭제한 데이터는 되돌릴 수 없습니다.", buttonTitle: "삭제") { action in
+                self.repository.deleteItem(self.tasks[indexPath.row])
+                self.requestRealm()
+            }
+
         }
         return UISwipeActionsConfiguration(actions: [delete])
         
