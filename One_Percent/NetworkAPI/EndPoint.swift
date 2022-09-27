@@ -17,4 +17,6 @@ struct EndPoint {
     
     static let stockNameURL = "http://apis.data.go.kr/1160100/service/GetKrxListedInfoService/getItemInfo?"
     
+    static let stockPriceURL = "http://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?"
+    
 }

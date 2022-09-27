@@ -91,10 +91,6 @@ class MainListViewController: BaseViewController {
         requestAuthorization()
         sendNotification()
         
-        StockNameAPIManager.shared.getStockName(query: "삼성전자") { list in
-            print(list)
-        }
-        
     }
     
     @objc func floatingButtonClicked() {

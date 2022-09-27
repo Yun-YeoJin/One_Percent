@@ -29,7 +29,7 @@ class SearchViewController: BaseViewController {
     }()
     
     let searchBar: UISearchBar = {
-       let view = UISearchBar()
+        let view = UISearchBar()
         view.placeholder = "종목명을 입력하세요."
         view.barStyle = .default
         view.backgroundColor = Constants.BaseColor.background
@@ -72,7 +72,6 @@ class SearchViewController: BaseViewController {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(stockList.count)
         return stockList.count
     }
     
@@ -102,23 +101,22 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-            hud.show(in: self.view)
-
-                StockNameAPIManager.shared.getStockName(query: searchText) { list in
-
-                    self.stockList = list
-                    print(list)
-
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.hud.dismiss(animated: true)
-                }
-
-
+        
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        hud.show(in: self.view)
+        
+        StockNameAPIManager.shared.getStockName(query: searchBar.text ?? "") { list in
+            
+            self.stockList = list
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.hud.dismiss(animated: true)
+            }
         }
     }
-    
+
 }
+
+

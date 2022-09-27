@@ -76,22 +76,7 @@ class BuyandSellViewController: BaseViewController, SendStockDelegate {
     
     @objc func saveButtonClicked() {
         
-       
-        let stockname = mainView.contentSearchBar.text ?? "" //이름으로 필터링해서 있는지 확인 -> 필터링을 한 값이 0보다 클 때만 데이터를 가져옴
-        
-//        var fetchedData = repository.fetch()
-//        let predicate = NSPredicate(format: "stockName CONTAINS[c] %@" ,stockname)
-//        var filteredDataList = repository.filterStock(predicate)
-//        print("fetchedDatais",fetchedData)
-//        print("filteredDatais",filteredDataList)
-//
-//        if filteredDataList.count > 0 {
-//            let filteredData = filteredDataList[0]
-//            if mainView.selected == 0 {
-//               let totalQuantity = filteredData.stockQuantity + (quantityInt)
-//               let averagePrice = ((filteredData.stockPrice * filteredData.stockQuantity) + (priceInt * quantityInt)) / totalQuantity
-//            }
-//        }
+        let stockname = mainView.contentSearchBar.text ?? ""
         
         var price = self.mainView.priceTextField.text ?? ""
         price = price.replace(target: ",", withString: "")
@@ -161,6 +146,13 @@ extension BuyandSellViewController: UISearchBarDelegate {
         vc.delegate = self
         transition(vc, transitionStyle: .present)
         
+        dismisskeyboard()
     }
+    
+    func dismisskeyboard() {
+        view.endEditing(true)
+    }
+    
+   
     
 }

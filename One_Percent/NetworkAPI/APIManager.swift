@@ -155,4 +155,39 @@ class StockNameAPIManager {
     }
 }
 
+//MARK: 공공데이터 주식 가격정보 API
+class StockPriceAPIManager {
+
+    private init() {}
+
+    static let shared = StockPriceAPIManager()
+
+    func getStockPrice(query: String, baseDate: String, completionHandler: @escaping ([String]) -> ()) {
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        
+    //http://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey=TelFwB%2BCBJN8nK5P2hHeDxrVT9AAXcV3mg%2BiDT0eRxJqfJ%2FyimtwFUi2%2FCn0GOVt4DAL2k5UuTJeNEBKoWBIhQ%3D%3D&numOfRows=1&resultType=json&endBasDt=20220927&itmsNm=%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90
+        
+        let url = "\(EndPoint.stockPriceURL)serviceKey=\(APIKey.stock)&numOfRows=1&resultType=json&endBasDt=\(baseDate)&itmsNm=\(query)"
+       
+        AF.request(url, method: .get).validate().responseData(queue: .global()) { response in
+            switch response.result {
+
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+
+                let stockPrice = json["response"]["body"]["items"]["item"].arrayValue.map {
+                    $0["clpr"].stringValue
+                }
+
+                completionHandler(stockPrice)
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
 

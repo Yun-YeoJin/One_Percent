@@ -70,7 +70,7 @@ class SearchTableViewCell: BaseTableViewCell {
         
         stockNameLabel.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(12)
-            make.leading.equalTo(stockMarketLabel.snp.trailing).offset(12)
+            //make.leading.equalTo(stockMarketLabel.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(16)
             //make.height.equalTo(20)
         }

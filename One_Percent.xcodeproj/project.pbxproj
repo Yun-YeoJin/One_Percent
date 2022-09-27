@@ -26,6 +26,7 @@
 		AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884928DD868B00014C74 /* StockTableViewCell.swift */; };
 		AEB4B60428E1B6500004CE79 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60328E1B6500004CE79 /* SearchViewController.swift */; };
 		AEB4B60628E1B65C0004CE79 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */; };
+		AEB4B60928E291F60004CE79 /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = AEB4B60828E291F60004CE79 /* AcknowList */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
@@ -142,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AECB777C28CE2C89004B77F2 /* RealmSwift in Frameworks */,
+				AEB4B60928E291F60004CE79 /* AcknowList in Frameworks */,
 				AECB778528CE2CBC004B77F2 /* SwiftyJSON in Frameworks */,
 				AECB777A28CE2C89004B77F2 /* Realm in Frameworks */,
 				AE77882B28DA268F00014C74 /* Kingfisher in Frameworks */,
@@ -413,6 +415,7 @@
 				AECB778428CE2CBC004B77F2 /* SwiftyJSON */,
 				AECB778728CE2D5B004B77F2 /* JGProgressHUD */,
 				AE77882A28DA268F00014C74 /* Kingfisher */,
+				AEB4B60828E291F60004CE79 /* AcknowList */,
 			);
 			productName = One_Percent;
 			productReference = AECB773728CC9EEC004B77F2 /* One_Percent.app */;
@@ -450,6 +453,7 @@
 				AECB778328CE2CBC004B77F2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				AECB778628CE2D5A004B77F2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AE77882928DA268F00014C74 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				AEB4B60728E291F60004CE79 /* XCRemoteSwiftPackageReference "AcknowList" */,
 			);
 			productRefGroup = AECB773828CC9EEC004B77F2 /* Products */;
 			projectDirPath = "";
@@ -769,6 +773,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		AEB4B60728E291F60004CE79 /* XCRemoteSwiftPackageReference "AcknowList" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vtourraine/AcknowList.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		AECB777228CE2C43004B77F2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -824,6 +836,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE77882928DA268F00014C74 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		AEB4B60828E291F60004CE79 /* AcknowList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEB4B60728E291F60004CE79 /* XCRemoteSwiftPackageReference "AcknowList" */;
+			productName = AcknowList;
 		};
 		AECB777328CE2C43004B77F2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
