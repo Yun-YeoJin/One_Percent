@@ -21,7 +21,13 @@ class SettingTableViewCell: BaseTableViewCell {
     let settingLabel = UILabel().then {
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 20)
+        $0.font = .systemFont(ofSize: 17)
+    }
+    
+    let versionLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.textAlignment = .right
+        $0.font = .systemFont(ofSize: 17)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,7 +44,7 @@ class SettingTableViewCell: BaseTableViewCell {
     
     override func configureUI() {
         
-        [iconImageView, settingLabel].forEach {
+        [iconImageView, settingLabel, versionLabel].forEach {
             self.addSubview($0)
         }
         
@@ -47,17 +53,20 @@ class SettingTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         
         iconImageView.snp.makeConstraints { make in
-            make.top.equalTo(12)
-            make.bottom.equalTo(-12)
-            make.leading.equalTo(16)
+            make.top.bottom.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(16)
             make.width.height.equalTo(30)
         }
         
         settingLabel.snp.makeConstraints { make in
-            make.top.equalTo(12)
-            make.bottom.equalTo(-12)
-            make.leading.equalTo(iconImageView.snp.trailing).offset(12)
-            make.trailing.equalTo(-16)
+            make.top.bottom.equalToSuperview().inset(10)
+            make.leading.equalTo(iconImageView.snp.trailing).offset(16)
+            make.height.equalTo(30)
+        }
+        
+        versionLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(30)
         }
     }
