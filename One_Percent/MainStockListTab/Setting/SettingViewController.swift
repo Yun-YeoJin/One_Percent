@@ -96,7 +96,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.versionLabel.text = "\(getCurrentVersion())"
             } else {
                 cell.iconImageView.image = UIImage(systemName: "cube.transparent")
-                cell.settingLabel.text = "오픈 소스 라이브러리"
+                cell.settingLabel.text = "오픈소스 라이선스"
             }
         }
         
@@ -106,6 +106,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 { //푸시 알림설정
+            
+            let NOTIalert: UIAlertController = UIAlertController(title: "설정창으로 이동하시겠습니까?", message: "알림 > One Percent > 알림 허용 체크", preferredStyle: .alert)
+            let NOTIaction: UIAlertAction = UIAlertAction(title: "설정 변경하기", style: .default, handler: { (ACTION) in
+                //앱 강제 종료
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {exit(0)})
+                //앱 설정 이동
+                let NOTIurl = NSURL(string:"App-prefs:root=NOTIFICATIONS_ID&path=yeojin.SeSAC.One-Percent")! as URL
+                UIApplication.shared.open(NOTIurl)
+            })
+            NOTIalert.addAction(NOTIaction)
+            DispatchQueue.main.async{
+                    UIApplication.shared.windows.first { $0.isKeyWindow }?.rootViewController?.present(NOTIalert, animated: true, completion: nil)
+            }
             
         } else {
             if indexPath.row == 0 { //문의하기
