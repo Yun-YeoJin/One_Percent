@@ -152,13 +152,22 @@ class CaculateView: BaseView {
         sender.backgroundColor = .systemTeal
         
         selected = sender.tag
-       
+        
+        if selected == 0 {
+            dateLabel.text = "투자 기간 (연 복리)"
+        } else if selected == 1 {
+            dateLabel.text = "투자 기간 (월 복리)"
+        } else if selected == 2 {
+            dateLabel.text = "투자 기간 (일 복리)"
+        } else {
+            dateLabel.text = "투자 기간"
+        }
     }
     
     override func setConstraints() {
         
         moneyLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(30)
+            make.top.equalTo(self.safeAreaLayoutGuide).offset(20)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
             make.height.equalTo(24)
         }
@@ -171,7 +180,7 @@ class CaculateView: BaseView {
         }
         
         rateLabel.snp.makeConstraints { make in
-            make.top.equalTo(moneyTextField.snp.bottom).offset(30)
+            make.top.equalTo(moneyTextField.snp.bottom).offset(20)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
             make.height.equalTo(24)
         }
@@ -183,21 +192,8 @@ class CaculateView: BaseView {
             make.height.equalTo(50)
         }
         
-        dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(rateTextField.snp.bottom).offset(30)
-            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
-            make.height.equalTo(24)
-        }
-        
-        dateTextField.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(16)
-            make.leadingMargin.equalTo(16)
-            make.trailingMargin.equalTo(-16)
-            make.height.equalTo(50)
-        }
-        
         caculateLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateTextField.snp.bottom).offset(40)
+            make.top.equalTo(rateTextField.snp.bottom).offset(20)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
             make.height.equalTo(24)
         }
@@ -209,8 +205,21 @@ class CaculateView: BaseView {
             make.height.equalTo(50)
         }
         
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(stackview.snp.bottom).offset(20)
+            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.height.equalTo(24)
+        }
+        
+        dateTextField.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel.snp.bottom).offset(16)
+            make.leadingMargin.equalTo(16)
+            make.trailingMargin.equalTo(-16)
+            make.height.equalTo(50)
+        }
+    
         resultLabel.snp.makeConstraints { make in
-            make.top.equalTo(stackview.snp.bottom).offset(50)
+            make.top.equalTo(dateTextField.snp.bottom).offset(30)
             make.leadingMargin.equalTo(12)
             make.trailingMargin.equalTo(-12)
             make.height.equalTo(24)

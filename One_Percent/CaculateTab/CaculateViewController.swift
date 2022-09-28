@@ -50,14 +50,21 @@ class CaculateViewController: BaseViewController {
                 
                 if self.mainView.selected == 0 {
                     self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
+                    self.mainView.moneyTextField.resignFirstResponder()
+                    self.mainView.rateTextField.resignFirstResponder()
+                    self.mainView.dateTextField.resignFirstResponder()
                     
                 } else if self.mainView.selected == 1 {
                     self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
-                    //self.mainView.resultViewLabel.text = "₩ " + round(moneyDouble * pow(1 + ((rateDouble/100) / (dateDouble / 12)), dateDouble * dateDouble / 12)).plusCommas()
+                    self.mainView.moneyTextField.resignFirstResponder()
+                    self.mainView.rateTextField.resignFirstResponder()
+                    self.mainView.dateTextField.resignFirstResponder()
 
                 } else {
                     self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
-                    //self.mainView.resultViewLabel.text = "₩ " + round(moneyDouble * pow(1 + ((rateDouble/100) / (dateDouble / 365)), dateDouble * dateDouble / 365)).plusCommas()
+                    self.mainView.moneyTextField.resignFirstResponder()
+                    self.mainView.rateTextField.resignFirstResponder()
+                    self.mainView.dateTextField.resignFirstResponder()
                     
                 }
                 
