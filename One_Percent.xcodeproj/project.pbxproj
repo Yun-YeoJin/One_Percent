@@ -27,6 +27,9 @@
 		AE82C66328E3F798002CB358 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = AE82C66228E3F798002CB358 /* Tabman */; };
 		AE82C66528E440A2002CB358 /* GlobalNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82C66428E440A2002CB358 /* GlobalNewsViewController.swift */; };
 		AE82C66728E440C5002CB358 /* DomesticNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82C66628E440C5002CB358 /* DomesticNewsViewController.swift */; };
+		AE82C66A28E468C5002CB358 /* OpenSourceLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82C66928E468C5002CB358 /* OpenSourceLicense.swift */; };
+		AE82C66C28E46A37002CB358 /* OpenSourceLicenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82C66B28E46A37002CB358 /* OpenSourceLicenseTableViewCell.swift */; };
+		AE82C66E28E46CBD002CB358 /* OpenSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82C66D28E46CBD002CB358 /* OpenSourceModel.swift */; };
 		AEB4B60428E1B6500004CE79 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60328E1B6500004CE79 /* SearchViewController.swift */; };
 		AEB4B60628E1B65C0004CE79 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
@@ -96,6 +99,9 @@
 		AE77884928DD868B00014C74 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		AE82C66428E440A2002CB358 /* GlobalNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalNewsViewController.swift; sourceTree = "<group>"; };
 		AE82C66628E440C5002CB358 /* DomesticNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticNewsViewController.swift; sourceTree = "<group>"; };
+		AE82C66928E468C5002CB358 /* OpenSourceLicense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicense.swift; sourceTree = "<group>"; };
+		AE82C66B28E46A37002CB358 /* OpenSourceLicenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseTableViewCell.swift; sourceTree = "<group>"; };
+		AE82C66D28E46CBD002CB358 /* OpenSourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceModel.swift; sourceTree = "<group>"; };
 		AEB4B60328E1B6500004CE79 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +200,7 @@
 		AE77883F28DCA13A00014C74 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				AE82C66828E46895002CB358 /* OpenSource License */,
 				AE77884028DCA14600014C74 /* SettingViewController.swift */,
 				AE77884228DCA15500014C74 /* SettingTableViewCell.swift */,
 			);
@@ -207,6 +214,16 @@
 				AE77884928DD868B00014C74 /* StockTableViewCell.swift */,
 			);
 			path = StockDetail;
+			sourceTree = "<group>";
+		};
+		AE82C66828E46895002CB358 /* OpenSource License */ = {
+			isa = PBXGroup;
+			children = (
+				AE82C66928E468C5002CB358 /* OpenSourceLicense.swift */,
+				AE82C66B28E46A37002CB358 /* OpenSourceLicenseTableViewCell.swift */,
+				AE82C66D28E46CBD002CB358 /* OpenSourceModel.swift */,
+			);
+			path = "OpenSource License";
 			sourceTree = "<group>";
 		};
 		AEB4B60228E1B6390004CE79 /* Search */ = {
@@ -526,8 +543,10 @@
 				AECB77AB28D31CAE004B77F2 /* String+Extension.swift in Sources */,
 				AECB77A928D06F5C004B77F2 /* NewsTableViewCell.swift in Sources */,
 				AECB779D28D05830004B77F2 /* EndPoint.swift in Sources */,
+				AE82C66C28E46A37002CB358 /* OpenSourceLicenseTableViewCell.swift in Sources */,
 				AECB77AF28D36E14004B77F2 /* CaculateView.swift in Sources */,
 				AE77884828DD867F00014C74 /* StockDetailViewController.swift in Sources */,
+				AE82C66E28E46CBD002CB358 /* OpenSourceModel.swift in Sources */,
 				AE77881A28D8B21400014C74 /* BuyandSellViewController.swift in Sources */,
 				AE77881528D766AD00014C74 /* ChartModel.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
@@ -544,6 +563,7 @@
 				AEB4B60628E1B65C0004CE79 /* SearchTableViewCell.swift in Sources */,
 				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
 				AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */,
+				AE82C66A28E468C5002CB358 /* OpenSourceLicense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,27 +50,27 @@ class CaculateViewController: BaseViewController {
                 
                 if self.mainView.selected == 0 {
                     self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
-                    self.mainView.moneyTextField.resignFirstResponder()
-                    self.mainView.rateTextField.resignFirstResponder()
-                    self.mainView.dateTextField.resignFirstResponder()
+                    self.dismissNumberPad()
                     
                 } else if self.mainView.selected == 1 {
                     self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
-                    self.mainView.moneyTextField.resignFirstResponder()
-                    self.mainView.rateTextField.resignFirstResponder()
-                    self.mainView.dateTextField.resignFirstResponder()
+                    self.dismissNumberPad()
 
                 } else {
                     self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
-                    self.mainView.moneyTextField.resignFirstResponder()
-                    self.mainView.rateTextField.resignFirstResponder()
-                    self.mainView.dateTextField.resignFirstResponder()
+                    self.dismissNumberPad()
                     
                 }
                 
             }
         }
         
+    }
+    
+    func dismissNumberPad() {
+        self.mainView.moneyTextField.resignFirstResponder()
+        self.mainView.rateTextField.resignFirstResponder()
+        self.mainView.dateTextField.resignFirstResponder()
     }
     
     override func configureUI() {

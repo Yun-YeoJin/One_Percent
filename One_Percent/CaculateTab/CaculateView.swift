@@ -41,7 +41,7 @@ class CaculateView: BaseView {
         $0.backgroundColor = Constants.BaseColor.textField
         $0.layer.cornerRadius = 25
         $0.textAlignment = .center
-        $0.keyboardType = .decimalPad
+        $0.keyboardType = .numberPad
     }
     
     let dateLabel = UILabel().then {
@@ -115,7 +115,7 @@ class CaculateView: BaseView {
         $0.textColor = Constants.BaseColor.text
         $0.font = .boldSystemFont(ofSize: 20)
         $0.textAlignment = .center
-        $0.preferredMaxLayoutWidth = .leastNormalMagnitude
+        $0.adjustsFontSizeToFitWidth = true
     }
     
     override init(frame: CGRect) {
@@ -167,74 +167,71 @@ class CaculateView: BaseView {
     override func setConstraints() {
         
         moneyLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(20)
-            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.top.equalTo(safeAreaLayoutGuide).offset(16)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(24)
         }
         
         moneyTextField.snp.makeConstraints { make in
             make.top.equalTo(moneyLabel.snp.bottom).offset(16)
-            make.leadingMargin.equalTo(16)
-            make.trailingMargin.equalTo(-16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
         
         rateLabel.snp.makeConstraints { make in
             make.top.equalTo(moneyTextField.snp.bottom).offset(20)
-            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(24)
         }
         
         rateTextField.snp.makeConstraints { make in
             make.top.equalTo(rateLabel.snp.bottom).offset(16)
-            make.leadingMargin.equalTo(16)
-            make.trailingMargin.equalTo(-16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
         
         caculateLabel.snp.makeConstraints { make in
             make.top.equalTo(rateTextField.snp.bottom).offset(20)
-            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(24)
         }
         
         stackview.snp.makeConstraints { make in
             make.top.equalTo(caculateLabel.snp.bottom).offset(8)
-            make.leadingMargin.equalTo(12)
-            make.trailingMargin.equalTo(-12)
+            make.leading.trailing.equalToSuperview().inset(12)
             make.height.equalTo(50)
         }
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(stackview.snp.bottom).offset(20)
-            make.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.leading.equalToSuperview().inset(16)
             make.height.equalTo(24)
         }
         
         dateTextField.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).offset(16)
-            make.leadingMargin.equalTo(16)
-            make.trailingMargin.equalTo(-16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
     
         resultLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateTextField.snp.bottom).offset(30)
-            make.leadingMargin.equalTo(12)
-            make.trailingMargin.equalTo(-12)
+            make.top.equalTo(dateTextField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(12)
             make.height.equalTo(24)
         }
         
         resultView.snp.makeConstraints { make in
             make.top.equalTo(resultLabel.snp.bottom).offset(8)
-            make.leadingMargin.equalTo(12)
-            make.trailingMargin.equalTo(-12)
-            make.height.equalTo(60)
+            make.leading.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(50)
         }
         
         resultViewLabel.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(resultView.safeAreaLayoutGuide)
-            make.height.equalTo(30)
+            make.top.equalTo(resultView.snp.top).offset(8)
+            make.leading.equalTo(resultView.snp.leading).offset(8)
+            make.bottom.equalTo(resultView.snp.bottom).offset(-8)
+            make.trailing.equalTo(resultView.snp.trailing).offset(-8)
+            
         }
     }
 }
