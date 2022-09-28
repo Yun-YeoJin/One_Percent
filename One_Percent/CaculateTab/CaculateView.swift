@@ -41,7 +41,7 @@ class CaculateView: BaseView {
         $0.backgroundColor = Constants.BaseColor.textField
         $0.layer.cornerRadius = 25
         $0.textAlignment = .center
-        $0.keyboardType = .numberPad
+        $0.keyboardType = .decimalPad
     }
     
     let dateLabel = UILabel().then {

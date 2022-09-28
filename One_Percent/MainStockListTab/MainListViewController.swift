@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import StoreKit
 
 import SnapKit
 import Then
@@ -90,6 +91,7 @@ class MainListViewController: BaseViewController {
         
         requestAuthorization()
         sendNotification()
+        
         
     }
     
@@ -253,8 +255,8 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let vc = StockDetailViewController()
-        transition(vc, transitionStyle: .presentNavigation)
+//        let vc = StockDetailViewController()
+//        transition(vc, transitionStyle: .presentNavigation)
         
     }
     

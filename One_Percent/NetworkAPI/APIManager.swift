@@ -21,7 +21,7 @@ class NewsAPIManager {
     
     let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        let url = EndPoint.newsURL + "query=\(text)&display=10&start=\(startPage)"
+        let url = EndPoint.newsURL + "query=\(text)&display=50&start=\(startPage)"
         
         let header: HTTPHeaders = [
             "X-Naver-Client-Id": APIKey.NAVER_ID,

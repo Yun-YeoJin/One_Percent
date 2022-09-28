@@ -40,6 +40,26 @@ class SettingViewController: BaseViewController {
         }
     }
     
+    func sendReview() {
+        
+        if let appstoreURL = URL(string: "https://apps.apple.com/app/id1645004697") {
+            var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
+            components?.queryItems = [
+              URLQueryItem(name: "action", value: "write-review")
+            ]
+            guard let writeReviewURL = components?.url else {
+                return
+            }
+            UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func getCurrentVersion() -> String {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
+        return version
+    }
+    
     
 }
 
@@ -73,7 +93,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 {
                 cell.iconImageView.image = UIImage(systemName: "iphone.homebutton.circle")
                 cell.settingLabel.text = "버전 정보(Ver)"
-                cell.versionLabel.text = "1.0"
+                cell.versionLabel.text = "\(getCurrentVersion())"
             } else {
                 cell.iconImageView.image = UIImage(systemName: "cube.transparent")
                 cell.settingLabel.text = "오픈 소스 라이브러리"
@@ -84,15 +104,23 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        
+        if indexPath.section == 0 { //푸시 알림설정
             
         } else {
             if indexPath.row == 0 { //문의하기
                 sendEmail()
             } else if indexPath.row == 1 { //리뷰남기기
+                sendReview()
+            } else if indexPath.row == 2 { //버전 정보
+                
+            } else { //오픈 소스 라이브러리
                 
             }
+            
         }
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -193,10 +221,10 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
     }
 
     // 현재 버전 가져오기
-    func getCurrentVersion() -> String {
-        guard let dictionary = Bundle.main.infoDictionary,
-              let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
-        return version
-    }
+//    func getCurrentVersion() -> String {
+//        guard let dictionary = Bundle.main.infoDictionary,
+//              let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
+//        return version
+//    }
     
 }

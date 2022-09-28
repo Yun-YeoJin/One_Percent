@@ -24,6 +24,9 @@
 		AE77884328DCA15500014C74 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884228DCA15500014C74 /* SettingTableViewCell.swift */; };
 		AE77884828DD867F00014C74 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884728DD867F00014C74 /* StockDetailViewController.swift */; };
 		AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77884928DD868B00014C74 /* StockTableViewCell.swift */; };
+		AE82C66328E3F798002CB358 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = AE82C66228E3F798002CB358 /* Tabman */; };
+		AE82C66528E440A2002CB358 /* GlobalNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82C66428E440A2002CB358 /* GlobalNewsViewController.swift */; };
+		AE82C66728E440C5002CB358 /* DomesticNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82C66628E440C5002CB358 /* DomesticNewsViewController.swift */; };
 		AEB4B60428E1B6500004CE79 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60328E1B6500004CE79 /* SearchViewController.swift */; };
 		AEB4B60628E1B65C0004CE79 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */; };
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
@@ -91,6 +94,8 @@
 		AE77884228DCA15500014C74 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		AE77884728DD867F00014C74 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		AE77884928DD868B00014C74 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		AE82C66428E440A2002CB358 /* GlobalNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalNewsViewController.swift; sourceTree = "<group>"; };
+		AE82C66628E440C5002CB358 /* DomesticNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomesticNewsViewController.swift; sourceTree = "<group>"; };
 		AEB4B60328E1B6500004CE79 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AECB773728CC9EEC004B77F2 /* One_Percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One_Percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +151,7 @@
 				AECB777A28CE2C89004B77F2 /* Realm in Frameworks */,
 				AE77882B28DA268F00014C74 /* Kingfisher in Frameworks */,
 				AECB777428CE2C43004B77F2 /* SnapKit in Frameworks */,
+				AE82C66328E3F798002CB358 /* Tabman in Frameworks */,
 				AECB778828CE2D5B004B77F2 /* JGProgressHUD in Frameworks */,
 				AECB778228CE2CAC004B77F2 /* Alamofire in Frameworks */,
 				AECB777728CE2C4D004B77F2 /* Then in Frameworks */,
@@ -365,6 +371,8 @@
 			children = (
 				AECB77A628D06F50004B77F2 /* NewsViewController.swift */,
 				AECB77A828D06F5C004B77F2 /* NewsTableViewCell.swift */,
+				AE82C66428E440A2002CB358 /* GlobalNewsViewController.swift */,
+				AE82C66628E440C5002CB358 /* DomesticNewsViewController.swift */,
 			);
 			path = NewsTab;
 			sourceTree = "<group>";
@@ -413,6 +421,7 @@
 				AECB778428CE2CBC004B77F2 /* SwiftyJSON */,
 				AECB778728CE2D5B004B77F2 /* JGProgressHUD */,
 				AE77882A28DA268F00014C74 /* Kingfisher */,
+				AE82C66228E3F798002CB358 /* Tabman */,
 			);
 			productName = One_Percent;
 			productReference = AECB773728CC9EEC004B77F2 /* One_Percent.app */;
@@ -450,6 +459,7 @@
 				AECB778328CE2CBC004B77F2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				AECB778628CE2D5A004B77F2 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AE77882928DA268F00014C74 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				AE82C66128E3F798002CB358 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = AECB773828CC9EEC004B77F2 /* Products */;
 			projectDirPath = "";
@@ -510,6 +520,7 @@
 				AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
 				AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */,
+				AE82C66528E440A2002CB358 /* GlobalNewsViewController.swift in Sources */,
 				AECB779628CE3B2A004B77F2 /* MainListView.swift in Sources */,
 				AECB77BB28D49B2A004B77F2 /* Int+Extension.swift in Sources */,
 				AECB77AB28D31CAE004B77F2 /* String+Extension.swift in Sources */,
@@ -529,6 +540,7 @@
 				AECB77A028D05893004B77F2 /* WeatherModel.swift in Sources */,
 				AECB77A728D06F50004B77F2 /* NewsViewController.swift in Sources */,
 				AE77881C28D8B21F00014C74 /* BuyandSellView.swift in Sources */,
+				AE82C66728E440C5002CB358 /* DomesticNewsViewController.swift in Sources */,
 				AEB4B60628E1B65C0004CE79 /* SearchTableViewCell.swift in Sources */,
 				AECB776D28CCBE98004B77F2 /* BaseTableViewCell.swift in Sources */,
 				AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */,
@@ -677,12 +689,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7HN73WS8Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "One Percent";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치에 따른 날씨 정보를 제공하기 위해 위치 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치를 기반으로 날씨 정보를 제공하기 위한 위치 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -710,12 +722,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7HN73WS8Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = One_Percent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "One Percent";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치에 따른 날씨 정보를 제공하기 위해 위치 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치를 기반으로 날씨 정보를 제공하기 위한 위치 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -767,6 +779,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.0.0;
+			};
+		};
+		AE82C66128E3F798002CB358 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		AECB777228CE2C43004B77F2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -824,6 +844,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE77882928DA268F00014C74 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		AE82C66228E3F798002CB358 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE82C66128E3F798002CB358 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 		AECB777328CE2C43004B77F2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
