@@ -128,7 +128,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 { //버전 정보
                 
             } else { //오픈 소스 라이브러리
-                
+                let vc = OpenSourceLicenseViewController()
+                transition(vc, transitionStyle: .push)
             }
             
         }

@@ -45,6 +45,13 @@ class StockTableViewCell: BaseTableViewCell {
         $0.font = .systemFont(ofSize: 15)
     }
     
+    let totalPriceLabel = UILabel().then {
+        $0.text = "2,202,000원"
+        $0.textColor = Constants.BaseColor.text
+        $0.textAlignment = .left
+        $0.font = .systemFont(ofSize: 15)
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -68,33 +75,30 @@ class StockTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         
         iconImageView.snp.makeConstraints { make in
-            make.top.equalTo(12)
-            make.leading.equalTo(12)
+            make.top.leading.equalToSuperview().inset(12)
             make.width.height.equalTo(30)
         }
         
         stockNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(12)
+            make.top.trailing.equalToSuperview().inset(12)
             make.leading.equalTo(iconImageView.snp.trailing).offset(12)
-            make.trailing.equalTo(-16)
             make.height.equalTo(30)
         }
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(stockNameLabel.snp.bottom).offset(12)
-            make.leading.equalTo(12)
+            make.leading.equalToSuperview().inset(12)
             make.height.equalTo(22)
         }
         
         stockQuantityLabel.snp.makeConstraints { make in
-            make.top.equalTo(12)
-            make.trailing.equalTo(-12)
+            make.top.trailing.equalToSuperview().inset(12)
             make.height.equalTo(30)
         }
         
         stockPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(stockQuantityLabel.snp.bottom).offset(12)
-            make.trailing.equalTo(-12)
+            make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(30)
         }
         
