@@ -52,6 +52,13 @@ extension Date {
         dateFormatter.dateFormat = "yyyy년 MM월 dd일 - a hh:mm"
         return dateFormatter.string(from: self)
     }
+    
+    func stockDateToString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self)
+    }
 }
 
 extension String {

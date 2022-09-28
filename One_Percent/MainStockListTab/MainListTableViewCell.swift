@@ -20,21 +20,19 @@ class MainListTableViewCell: BaseTableViewCell {
     }
     
     let stockNameLabel = UILabel().then {
-        $0.text = "삼성전자"
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 20)
     }
     
     let closePriceLabel = UILabel().then {
-        $0.text = "전날주가 :"
+        $0.text = "전일종가 :"
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 17)
     }
     
     let closePriceRateLabel = UILabel().then {
-        $0.text = "32,000원"
         $0.textColor = Constants.BaseColor.point
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 17)
@@ -46,21 +44,18 @@ class MainListTableViewCell: BaseTableViewCell {
     }
     
     let stockPriceLabel = UILabel().then {
-        $0.text = "평균 매수가 : 59,320원"
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 15)
     }
     
     let stockQuantityLabel = UILabel().then {
-        $0.text = "수량(주) : 300주"
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 15)
     }
     
     let totalPriceLabel = UILabel().then {
-        $0.text = "총 평가액 : 18,630,000원"
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 15)
@@ -72,6 +67,11 @@ class MainListTableViewCell: BaseTableViewCell {
         $0.setTitle("매수", for: .normal)
     }
     
+    let stockDateLabel = UILabel().then {
+        $0.textColor = Constants.BaseColor.text
+        $0.textAlignment = .right
+        $0.font = .boldSystemFont(ofSize: 15)
+    }
     
     
     
@@ -89,7 +89,7 @@ class MainListTableViewCell: BaseTableViewCell {
     
     override func configureUI() {
         
-        [backgroundImageView, stockNameLabel, closePriceLabel, closePriceRateLabel, underBarView, stockPriceLabel, stockQuantityLabel, totalPriceLabel, buyandsellButton].forEach {
+        [backgroundImageView, stockNameLabel, closePriceLabel, closePriceRateLabel, underBarView, stockPriceLabel, stockQuantityLabel, totalPriceLabel, buyandsellButton, stockDateLabel].forEach {
             self.addSubview($0)
         }
         
@@ -111,7 +111,6 @@ class MainListTableViewCell: BaseTableViewCell {
         stockNameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(12)
             make.leading.equalToSuperview().inset(16)
-            make.height.equalTo(20)
         }
         
         closePriceLabel.snp.makeConstraints { make in
@@ -122,14 +121,13 @@ class MainListTableViewCell: BaseTableViewCell {
         
         closePriceRateLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(12)
-            make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
         
         underBarView.snp.makeConstraints { make in
             make.top.equalTo(stockNameLabel.snp.bottom).offset(8)
-            make.leading.equalTo(safeAreaLayoutGuide).offset(16)
-            make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(1)
         }
         
@@ -148,6 +146,12 @@ class MainListTableViewCell: BaseTableViewCell {
         totalPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(stockQuantityLabel.snp.bottom).offset(8)
             make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(20)
+        }
+        
+        stockDateLabel.snp.makeConstraints { make in
+            make.top.equalTo(stockQuantityLabel.snp.bottom).offset(8)
+            make.trailing.bottom.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
         

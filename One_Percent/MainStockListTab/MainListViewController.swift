@@ -234,6 +234,7 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.stockPriceLabel.text = "체결 단가 : " + String((tasks[indexPath.row].stockPrice).withCommas()) + "원"
         cell.stockQuantityLabel.text = "수량(주) : " +  String((tasks[indexPath.row].stockQuantity).withCommas()) + "주"
         cell.totalPriceLabel.text = "총 거래액 : " + String((tasks[indexPath.row].stockPrice * tasks[indexPath.row].stockQuantity).withCommas()) + "원"
+        
         StockPriceAPIManager.shared.getStockPrice(query: tasks[indexPath.row].stockName, baseDate: Date().description.stringFromDate(), completionHandler: { price in
             DispatchQueue.main.async {
                 guard let priceInt = Int(price) else { return }
@@ -247,6 +248,8 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.buyandsellButton.setTitle("매도", for: .normal)
             cell.buyandsellButton.backgroundColor = .systemBlue
         }
+        
+        cell.stockDateLabel.text = tasks[indexPath.row].stockDate.stockDateToString()
     
         return cell
     }
