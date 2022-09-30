@@ -43,13 +43,13 @@ class NewsTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(8)
-            make.leading.equalTo(8)
+            make.top.equalToSuperview().inset(8)
+            make.leading.trailing.equalToSuperview().inset(0)
             make.height.equalTo(30)
         }
         
         pubDateLabel.snp.makeConstraints { make in
-            make.leading.equalTo(8)
+            make.leading.equalToSuperview().inset(0)
             make.top.equalTo(titleLabel.snp.bottom).offset(16)
             make.height.equalTo(20)
         }

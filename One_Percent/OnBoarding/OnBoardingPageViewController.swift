@@ -169,7 +169,7 @@ extension OnBoardingPageViewController: UIPageViewControllerDataSource {
         self.currentindex = currentindex //현재 페이지 알려주기
         if currentindex == pages.count - 1 //마지막 index가 맞으면
         {
-            return pages.first
+            return nil
         } else {
             return pages[currentindex + 1]
         }

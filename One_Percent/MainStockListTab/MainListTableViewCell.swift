@@ -33,6 +33,7 @@ class MainListTableViewCell: BaseTableViewCell {
     }
     
     let closePriceRateLabel = UILabel().then {
+        $0.text = "불러오는중"
         $0.textColor = Constants.BaseColor.point
         $0.textAlignment = .left
         $0.font = .boldSystemFont(ofSize: 17)

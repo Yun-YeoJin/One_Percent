@@ -50,22 +50,19 @@ class ChartDetailView: BaseView {
     override func setConstraints() {
         
         chartImageView.snp.makeConstraints { make in
-            make.top.leading.equalTo(20)
-            make.trailing.equalTo(-20)
+            make.top.leading.trailing.equalToSuperview().inset(30)
             make.height.equalToSuperview().multipliedBy(0.5)
         }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(chartImageView.snp.bottom).offset(40)
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
+            make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(44)
         }
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
+            make.leading.trailing.equalToSuperview().inset(40)
         }
         
     }
