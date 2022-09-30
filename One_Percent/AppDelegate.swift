@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // 3.포그라운드 수신 : delegate 등록해주어야 한다.
         UNUserNotificationCenter.current().delegate = self
         
+        sleep(1)
+        
         return true
     }
     
