@@ -45,9 +45,9 @@ class OnBoardingPageViewController: UIPageViewController {
         itemVC1.mainTitle = "하루의 시작을 1%와 함께하세요."
         itemVC1.desrcription = """
         
-        하루의 1%의 일복리 수익률을 기록할 때,
+        하루 1%의 수익률을 기록할 때,
         
-        365일 후엔 38배의 수익을 얻습니다.
+        365일 후엔 약 38배의 수익을 얻을 수 있습니다.
         
         """
         
@@ -57,9 +57,9 @@ class OnBoardingPageViewController: UIPageViewController {
         itemVC2.mainTitle = "나만의 매매일지를 기록하세요."
         itemVC2.desrcription = """
         
-        자신만의 매매일지를 기록하여
+        자신만의 주식 매매일지를
         
-        수익률을 알아보세요.
+        기록하고 관리해보세요.
         
         """
         
@@ -69,7 +69,7 @@ class OnBoardingPageViewController: UIPageViewController {
         itemVC3.mainTitle = "경제뉴스도 틈틈히 확인하세요."
         itemVC3.desrcription = """
 
-        경제뉴스 탭으로 시시각각 바뀌는 증시 뉴스를
+        시시각각 바뀌는 증시 상황을
 
         가장 빠르게 확인해보세요.
 
