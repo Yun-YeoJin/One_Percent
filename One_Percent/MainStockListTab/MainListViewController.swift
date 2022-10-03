@@ -28,8 +28,6 @@ class MainListViewController: BaseViewController {
     
     static let identifier = "MainListViewController"
     
-    let notificationCenter = UNUserNotificationCenter.current()
-    
     let config = Realm.Configuration(schemaVersion: 1)
     
     lazy var localRealm = try! Realm(configuration: config)
@@ -89,8 +87,6 @@ class MainListViewController: BaseViewController {
         
         mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
         
-        requestAuthorization()
-        
     }
     
     @objc func floatingButtonClicked() {
@@ -136,46 +132,6 @@ class MainListViewController: BaseViewController {
     func requestRealm() {
         tasks = repository.fetch()
     }
-    
-    //MARK: Notification 설정
-    
-    func requestAuthorization () {
-        
-        let autorizationOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
-        
-        notificationCenter.requestAuthorization(options: autorizationOptions) { success, error in
-            if success {
-                
-                self.sendNotification()
-            }
-        }
-    }
-    
-    func sendNotification() {
-        
-        // Contents
-        let notificationContent = UNMutableNotificationContent() // mutable 없으면 get-only임
-        
-        notificationContent.title = "⏰ 오늘도 1% 잊지 않으셨죠!?"
-        //notificationContent.subtitle = "오늘 행운의 숫자는 \(Int.random(in: 1...45))"
-        notificationContent.body = "나만의 매매일지를 작성해볼까요?"
-        notificationContent.badge = 1
-        
-        // 트리거 : 1. 시간간격 2. 캘린더 3. 위치에 따라 설정 가능
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
-        // 트리거 - 캘린더
-        var dateComponent = DateComponents()
-        dateComponent.hour = 9
-        
-        let trigger2 = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-        
-        let request = UNNotificationRequest(identifier: "\(Date())", content: notificationContent, trigger: trigger2)
-        
-        notificationCenter.add(request)
-        
-    }
- 
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
