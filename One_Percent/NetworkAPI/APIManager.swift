@@ -33,7 +33,8 @@ class NewsAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-   
+                print(json)
+                
                 let list = json["items"].arrayValue.map { NewsModel(title: $0["title"].stringValue, description: $0["description"].stringValue, pubDate: $0["pubDate"].stringValue, link: $0["link"].stringValue)
                 }
                 

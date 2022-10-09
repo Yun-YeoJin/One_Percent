@@ -32,6 +32,19 @@ struct CandleInfo {
         PatternsModel(title: "강한 양봉후 도지 캔들", description: "상승으로 계속 진행될 확률 : 71%", imageName: "Candle19"),
         PatternsModel(title: "상승 잉태형 캔들", description: "상승으로 추세전환될 확률 : 53%", imageName: "Candle20"),
         PatternsModel(title: "하락 잉태형 캔들", description: "하락으로 추세전환될 확률 : 53%", imageName: "Candle21"),
-        
+        PatternsModel(title: "상승 장악형 캔들", description: "상승으로 추세전환될 확률 : 63%", imageName: "Candle22"),
+        PatternsModel(title: "하락 장악형 캔들", description: "하락으로 추세전환될 확률 : 79%", imageName: "Candle23"),
+        PatternsModel(title: "상승 십자 잉태형 캔들", description: "하락으로 계속 진행될 확률 : 55%", imageName: "Candle24"),
+        PatternsModel(title: "하락 십자 잉태형 캔들", description: "상승으로 계속 진행될 확률 : 57%", imageName: "Candle25"),
+        PatternsModel(title: "관통형 캔들", description: "상승으로 추세전환될 확률 : 64%", imageName: "Candle26"),
+        PatternsModel(title: "흑운형 캔들", description: "하락으로 추세전환될 확률 : 60%", imageName: "Candle27"),
+        PatternsModel(title: "샛별형 캔들", description: "상승으로 추세전환될 확률 : 78%", imageName: "Candle28"),
+        PatternsModel(title: "석별형 캔들", description: "하락으로 추세전환될 확률 : 72%", imageName: "Candle29"),
+        PatternsModel(title: "상승 잉태 확인형 캔들", description: "상승으로 추세전환될 확률 : 65%", imageName: "Candle30"),
+        PatternsModel(title: "하락 잉태 확인형 캔들", description: "하락으로 추세전환될 확률 : 60%", imageName: "Candle31"),
+        PatternsModel(title: "상승 장악 확인형 캔들", description: "상승으로 추세전환될 확률 : 75%", imageName: "Candle32"),
+        PatternsModel(title: "하락 장악 확인형 캔들", description: "하락으로 추세전환될 확률 : 69%", imageName: "Candle33"),
+
+
     ]
 }
