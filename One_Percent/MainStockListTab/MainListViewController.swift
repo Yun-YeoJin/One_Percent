@@ -55,8 +55,9 @@ class MainListViewController: BaseViewController {
         super.viewDidLoad()
         
         locationManager.delegate = self
-        
+       
         checkLocationServiceAuthorizationStatus()
+        locationManagerDidChangeAuthorization(locationManager)
         
         if UserDefaults.standard.bool(forKey: "SecondRun") == false {
             
@@ -233,26 +234,60 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 
+extension MainListViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+                
+        if let coordinate = locations.last?.coordinate {
+            lat = coordinate.latitude
+            lon = coordinate.longitude
+            
+            myLocation = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            
+            AddressAPIManager.shared.getLocationData(lat: lat, lon: lon) { value in
+                self.mainView.locationLabel.text = "\(value.regionFirst), \(value.regionSecond)"
+                
+                WeatherAPIManager.shared.getWeatherData(lat: self.lat, lon: self.lon) { value in
+                    
+                    let url = URL(string: "https://openweathermap.org/img/wn/\(value.iconId)@2x.png")
+                    self.mainView.weatherImageView.kf.setImage(with: url)
+                    self.mainView.currentTempLabel.text = value.temperatureText
+                    self.mainView.maxminTempLabel.text = value.maxMinText
+                    self.mainView.windLabel.text = value.windText
+                    self.mainView.humidityLabel.text = value.humidityText
+                    self.mainView.pressureLabel.text = value.pressureText
+                    self.mainView.messageLabel.text = WeatherModel.getMessage(weather: value.weather)
+                }
+            }
+        }
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        checkLocationServiceAuthorizationStatus()
+    }
+    
+    func checkLocationServiceAuthorizationStatus() {
+                
+        let authorizationStatus: CLAuthorizationStatus
+        authorizationStatus = locationManager.authorizationStatus
+                
+        checkCurrentLocationAuthorizationStatus(authorizationStatus)
+                        
+       
+    }
+
+    
+}
+
 //MARK: 사용자 위치 설정
 
 extension MainListViewController {
-    
-    func checkLocationServiceAuthorizationStatus() {
-        
-        let authorizationStatus: CLAuthorizationStatus
-        
-        if #available(iOS 14.0, *) {
-            authorizationStatus = locationManager.authorizationStatus
-        } else {
-            authorizationStatus = CLLocationManager.authorizationStatus()
-        }
-        
-        if CLLocationManager.locationServicesEnabled() {
-            checkCurrentLocationAuthorizationStatus(authorizationStatus)
-        } else {
-            print("위치 권한 확인하세요.")
-        }
-    }
     
     func checkCurrentLocationAuthorizationStatus(_ authorizationStatus: CLAuthorizationStatus) {
         
@@ -305,41 +340,3 @@ extension MainListViewController {
     }
 }
     
-extension MainListViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-                
-        if let coordinate = locations.last?.coordinate {
-            lat = coordinate.latitude
-            lon = coordinate.longitude
-            
-            myLocation = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-            
-            AddressAPIManager.shared.getLocationData(lat: lat, lon: lon) { value in
-                self.mainView.locationLabel.text = "\(value.regionFirst), \(value.regionSecond)"
-                
-                WeatherAPIManager.shared.getWeatherData(lat: self.lat, lon: self.lon) { value in
-                    
-                    let url = URL(string: "https://openweathermap.org/img/wn/\(value.iconId)@2x.png")
-                    self.mainView.weatherImageView.kf.setImage(with: url)
-                    self.mainView.currentTempLabel.text = value.temperatureText
-                    self.mainView.maxminTempLabel.text = value.maxMinText
-                    self.mainView.windLabel.text = value.windText
-                    self.mainView.humidityLabel.text = value.humidityText
-                    self.mainView.pressureLabel.text = value.pressureText
-                    self.mainView.messageLabel.text = WeatherModel.getMessage(weather: value.weather)
-                }
-            }
-        }
-        locationManager.stopUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationServiceAuthorizationStatus()
-    }
-    
-}
