@@ -26,7 +26,6 @@ class NewsViewController: TabmanViewController {
        
         bar.backgroundColor = Constants.BaseColor.background
         bar.backgroundView.style = .blur(style: .regular)
-        
         bar.buttons.customize { (button) in
             button.tintColor = .white
             button.selectedTintColor = Constants.BaseColor.point

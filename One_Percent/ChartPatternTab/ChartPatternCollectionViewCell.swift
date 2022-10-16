@@ -20,12 +20,8 @@ class ChartPatternCollectionViewCell: BaseCollectionViewCell {
         $0.clipsToBounds = true
     }
     
-    let titleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 20)
-        $0.textAlignment = .center
-        $0.textColor = Constants.BaseColor.text
+    let titleLabel = normalTitleLabel().then {
         $0.adjustsFontSizeToFitWidth = true
-        
     }
     
     override init(frame: CGRect) {

@@ -12,25 +12,16 @@ import Then
 
 class SearchTableViewCell: BaseTableViewCell {
     
-    let stockNumberLabel = UILabel().then {
-        $0.text = "A018260"
-        $0.textColor = Constants.BaseColor.text
+    let stockNumberLabel = contentsLabel().then {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 15)
     }
     
-    let stockMarketLabel = UILabel().then {
-        $0.text = "KOSPI"
-        $0.textColor = Constants.BaseColor.text
+    let stockMarketLabel = contentsLabel().then {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 15)
     }
     
-    let stockNameLabel = UILabel().then {
-        $0.text = "삼성에스디에스"
-        $0.textColor = Constants.BaseColor.text
+    let stockNameLabel = contentsLabel().then {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 15)
     }
     
 

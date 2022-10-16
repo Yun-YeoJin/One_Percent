@@ -12,16 +12,12 @@ import Then
 
 class NewsTableViewCell: BaseTableViewCell {
     
-    let titleLabel = UILabel().then {
-        $0.font = UIFont(name: "ChosunSm", size: 20)
+    let titleLabel = newsTitleLabel().then {
         $0.textAlignment = .left
-        $0.textColor = Constants.BaseColor.text
     }
     
-    let pubDateLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 15)
+    let pubDateLabel = contentsLabel().then {
         $0.textAlignment = .left
-        $0.textColor = Constants.BaseColor.text
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

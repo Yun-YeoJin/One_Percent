@@ -14,80 +14,46 @@ class CaculateView: BaseView {
     
     var selected = -1 // 0을 넣으면 tag값이 있기 때문에 나올 수 없는 값을 넣어줌.
     
-    let moneyLabel = UILabel().then {
+    let moneyLabel = calculateLabel().then {
         $0.text = "원금(₩)"
-        $0.textColor = Constants.BaseColor.text
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
-        $0.textAlignment = .left
     }
     
-    let moneyTextField = UITextField().then {
-
-        $0.attributedPlaceholder = NSAttributedString(string: "원금을 입력하세요. ex) 100,000", attributes: [NSAttributedString.Key.foregroundColor : Constants.BaseColor.placeholder])
-        $0.backgroundColor = Constants.BaseColor.textField
-        $0.layer.cornerRadius = 25
-        $0.textAlignment = .center
-        $0.keyboardType = .numberPad
-    }
+    let moneyTextField = TextFieldView().then {
+        
+        $0.attributedPlaceholder = NSAttributedString(string: "원금을 입력하세요. ex) 100,000", attributes: [NSAttributedString.Key.foregroundColor : Constants.BaseColor.placeholder])    }
     
-    let rateLabel = UILabel().then {
+    let rateLabel = calculateLabel().then {
         $0.text = "이자율(%)"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
-        $0.textAlignment = .left
     }
     
-    let rateTextField = UITextField().then {
+    let rateTextField = TextFieldView().then {
         $0.attributedPlaceholder = NSAttributedString(string: "이자율을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : Constants.BaseColor.placeholder])
-        $0.backgroundColor = Constants.BaseColor.textField
-        $0.layer.cornerRadius = 25
-        $0.textAlignment = .center
-        $0.keyboardType = .numberPad
     }
     
-    let dateLabel = UILabel().then {
+    let dateLabel = calculateLabel().then {
         $0.text = "투자 기간"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
-        $0.textAlignment = .left
     }
     
-    let dateTextField = UITextField().then {
+    let dateTextField = TextFieldView().then {
         $0.attributedPlaceholder = NSAttributedString(string: "투자 기간을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : Constants.BaseColor.placeholder])
-        $0.backgroundColor = Constants.BaseColor.textField
-        $0.layer.cornerRadius = 25
-        $0.textAlignment = .center
-        $0.keyboardType = .numberPad
     }
     
-    let caculateLabel = UILabel().then {
+    let caculateLabel = calculateLabel().then {
         $0.text = "복리 계산 단위 선택"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
-        $0.textAlignment = .left
     }
     
-    let yearCaculateButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
+    let yearCaculateButton = CalculateButtonView().then {
         $0.setTitle("연 복리", for: .normal)
-        $0.layer.cornerRadius = 10
-        $0.layer.borderColor = Constants.BaseColor.border
-        $0.backgroundColor = Constants.BaseColor.textField
         $0.tag = 0
     }
     
-    let monthCaculateButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
+    let monthCaculateButton = CalculateButtonView().then {
         $0.setTitle("월 복리", for: .normal)
-        $0.layer.cornerRadius = 10
-        $0.layer.borderColor = Constants.BaseColor.border
-        $0.backgroundColor = Constants.BaseColor.textField
         $0.tag = 1
     }
     
-    let dayCaculateButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
+    let dayCaculateButton = CalculateButtonView().then {
         $0.setTitle("일 복리", for: .normal)
-        $0.layer.cornerRadius = 10
-        $0.layer.borderColor = Constants.BaseColor.border
-        $0.backgroundColor = Constants.BaseColor.textField
         $0.tag = 2
     }
     
@@ -98,10 +64,8 @@ class CaculateView: BaseView {
         $0.spacing = 5
     }
     
-    let resultLabel = UILabel().then {
+    let resultLabel = calculateLabel().then {
         $0.text = "복리 계산 결과"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 15)
-        $0.textAlignment = .left
     }
     
     let resultView = UIView().then {
@@ -213,7 +177,7 @@ class CaculateView: BaseView {
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
-    
+        
         resultLabel.snp.makeConstraints { make in
             make.top.equalTo(dateTextField.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(12)

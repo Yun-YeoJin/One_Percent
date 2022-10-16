@@ -25,31 +25,21 @@ class StockTableViewCell: BaseTableViewCell {
     }
     
     let dateLabel = UILabel().then {
-        $0.text = " 2022/09/23 "
         $0.textColor = Constants.BaseColor.text
         $0.textAlignment = .left
         $0.font = .systemFont(ofSize: 17)
     }
     
-    let stockQuantityLabel = UILabel().then {
-        $0.text = "40주"
-        $0.textColor = Constants.BaseColor.text
+    let stockQuantityLabel = contentsLabel().then {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 15)
     }
     
-    let stockPriceLabel = UILabel().then {
-        $0.text = "62,000원"
-        $0.textColor = Constants.BaseColor.text
+    let stockPriceLabel = contentsLabel().then {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 15)
     }
     
-    let totalPriceLabel = UILabel().then {
-        $0.text = "2,202,000원"
-        $0.textColor = Constants.BaseColor.text
+    let totalPriceLabel = contentsLabel().then {
         $0.textAlignment = .left
-        $0.font = .systemFont(ofSize: 15)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

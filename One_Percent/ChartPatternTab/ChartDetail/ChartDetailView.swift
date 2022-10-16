@@ -18,17 +18,12 @@ class ChartDetailView: BaseView {
         $0.clipsToBounds = true
     }
     
-    let titleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 20)
-        $0.textColor = Constants.BaseColor.text
-        $0.textAlignment = .center
-        $0.text = "여기가 제목"
+    let titleLabel = normalTitleLabel().then {
+        $0.text = "제목"
     }
     
-    let descriptionLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 15)
+    let descriptionLabel = contentsLabel().then {
         $0.textAlignment = .center
-        $0.textColor = Constants.BaseColor.text
         $0.numberOfLines = 0
         $0.text = "여기가 내용"
     }

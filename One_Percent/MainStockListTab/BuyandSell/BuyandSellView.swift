@@ -14,11 +14,8 @@ class BuyandSellView: BaseView {
     
     var selected = -1
     
-    let contentLabel = UILabel().then {
+    let contentLabel = BuyandSellLabel().then {
         $0.text = "종목명"
-        $0.textColor = Constants.BaseColor.text
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
-        $0.textAlignment = .left
     }
     
     let contentSearchBar = UISearchBar().then {
@@ -31,27 +28,17 @@ class BuyandSellView: BaseView {
         $0.layer.borderColor = Constants.BaseColor.border
     }
     
-    let buyandsellLabel = UILabel().then {
+    let buyandsellLabel = BuyandSellLabel().then {
         $0.text = "매수 / 매도"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
-        $0.textAlignment = .left
     }
     
-    let buyButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
+    let buyButton = BuyandSellButtonView().then {
         $0.setTitle("매수(Buy)", for: .normal)
-        $0.layer.cornerRadius = 25
-        $0.layer.borderColor = Constants.BaseColor.border
-        $0.backgroundColor = Constants.BaseColor.textField
         $0.tag = 0
     }
     
-    let sellButton = UIButton().then {
-        $0.setTitleColor(Constants.BaseColor.text, for: .normal)
+    let sellButton = BuyandSellButtonView().then {
         $0.setTitle("매도(Sell)", for: .normal)
-        $0.layer.cornerRadius = 25
-        $0.layer.borderColor = Constants.BaseColor.border
-        $0.backgroundColor = Constants.BaseColor.textField
         $0.tag = 1
     }
     
@@ -67,21 +54,15 @@ class BuyandSellView: BaseView {
         $0.layer.borderColor = Constants.BaseColor.border
     }
     
-    let priceLabel = UILabel().then {
+    let priceLabel = BuyandSellLabel().then {
         $0.text = "체결 단가"
-        $0.textColor = Constants.BaseColor.text
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
-        $0.textAlignment = .left
         $0.adjustsFontSizeToFitWidth = true
     }
     
-    let priceTextField = UITextField().then {
+    let priceTextField = TextFieldView().then {
 
         $0.attributedPlaceholder = NSAttributedString(string: "체결 단가를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : Constants.BaseColor.placeholder])
-        $0.backgroundColor = Constants.BaseColor.textField
-        $0.layer.cornerRadius = 25
-        $0.textAlignment = .center
-        $0.keyboardType = .numberPad
+        
     }
     
     let underBarView3 = UIView().then {
@@ -89,18 +70,13 @@ class BuyandSellView: BaseView {
         $0.layer.borderColor = Constants.BaseColor.border
     }
     
-    let countLabel = UILabel().then {
+    let countLabel = BuyandSellLabel().then {
         $0.text = "수량 (주)"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
-        $0.textAlignment = .left
     }
     
-    let countTextField = UITextField().then {
+    let countTextField = TextFieldView().then {
         $0.attributedPlaceholder = NSAttributedString(string: "수량(주)를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : Constants.BaseColor.placeholder])
-        $0.backgroundColor = Constants.BaseColor.textField
-        $0.layer.cornerRadius = 25
-        $0.textAlignment = .center
-        $0.keyboardType = .numberPad
+        
     }
     
     let underBarView4 = UIView().then {
@@ -108,10 +84,8 @@ class BuyandSellView: BaseView {
         $0.layer.borderColor = Constants.BaseColor.border
     }
     
-    let dateLabel = UILabel().then {
+    let dateLabel = BuyandSellLabel().then {
         $0.text = "매매일자"
-        $0.font = UIFont(name: "VITRO PRIDE TTF", size: 17)
-        $0.textAlignment = .left
     }
     
     let dateDatePicker = UIDatePicker().then {
