@@ -46,7 +46,106 @@
 
 ## **이슈**
 
-- 추후 업로드 예정..
+1. Open API를 이용한 네트워크 통신 중 HTML 마크다운이 같이 출력되는 이슈 → htmlEncodedString를 이용해 HTML 마크다운을 지워줌으로써 해결.
+
+```swift
+extension String {
+    
+    init?(htmlEncodedString: String) {
+        
+        guard let data = htmlEncodedString.data(using: .utf8) else {
+            return nil
+        }
+        
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+        
+        guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
+            return nil
+        }
+        
+        self.init(attributedString.string)
+    }
+```
+
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reusableIdentifier, for: indexPath) as? NewsTableViewCell else { return UITableViewCell() }
+        
+            cell.titleLabel.text = String(htmlEncodedString: "\(domesticNewsList[indexPath.row].title)")!
+				
+				return cell
+}
+```
+
+2. 복리 계산기 탭에서 천의 자리마다 쉼표를 찍어주는데 계산할 때 쉼표를 빼고 Int값으로 변환하여 계산해야 하는 이슈
+- extension String에 func replace 작성
+
+```swift
+extension String {
+
+	 func replace( target: String,  withString: String) -> String {
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+	 }
+
+}
+```
+
+- TextField 값에 replace를 이용해 콤마를 없애주고 그 값을 Float형태로 변환한다.
+
+```swift
+var money = self.mainView.moneyTextField.text ?? ""
+money = money.replace(target: ",", withString: "") //콤마 없애기
+guard let moneyDouble = Float(money) else { return }
+                   
+var rate = self.mainView.rateTextField.text ?? ""
+rate = rate.replace(target: ",", withString: "") //콤마 없애기
+guard let rateDouble = Float(rate) else { return }
+                    
+var date = self.mainView.dateTextField.text ?? ""
+date = date.replace(target: ",", withString: "") //콤마 없애기
+guard let dateDouble = Float(date) else { return }
+                
+if self.mainView.selected == 0 {
+
+		self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
+		self.dismissNumberPad()
+
+} else if self.mainView.selected == 1 {
+
+		self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
+		self.dismissNumberPad()
+
+} else {
+
+		self.mainView.resultViewLabel.text = "₩ " + round((moneyDouble * pow(1 + (rateDouble / 100), dateDouble))).plusCommas()
+		self.dismissNumberPad()
+
+}
+```
+
+3. CollectionView Section이 2개인데 SearchBar를 이용해 검색 기능 수행 시 Section Header 자리가 남아있는 이슈 → header.isHidden과 SnapKit updateConstraints를 이용해서 해결
+
+```swift
+if chartData.isEmpty {
+		header.isHidden = true
+		header.titleLabel.snp.updateConstraints { make in
+		make.edges.equalToSuperview()
+		make.height.equalTo(0)
+	}
+} else {
+		header.isHidden = false
+		header.titleLabel.text = Section.chartPattern.title
+		header.titleLabel.snp.updateConstraints { make in
+		make.edges.equalToSuperview()
+		make.height.equalTo(44)
+	}
+}
+```
+
 
 ## **기획 아이디어**
 
