@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ChartPatternView: BaseView {
+final class ChartPatternView: BaseView {
  
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -24,10 +24,6 @@ class ChartPatternView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func configureUI() {

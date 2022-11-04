@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController {
     
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: .zero, style: .plain)
@@ -40,7 +40,7 @@ class SettingViewController: BaseViewController {
         }
     }
     
-    func sendReview() {
+    private func sendReview() {
         
         if let appstoreURL = URL(string: "https://apps.apple.com/app/id1645004697") {
             var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
@@ -54,7 +54,7 @@ class SettingViewController: BaseViewController {
         }
     }
     
-    func getCurrentVersion() -> String {
+    private func getCurrentVersion() -> String {
         guard let dictionary = Bundle.main.infoDictionary,
               let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
         return version

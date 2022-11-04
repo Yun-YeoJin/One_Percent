@@ -11,7 +11,7 @@ import RealmSwift
 
 // 여러개의 테이블 => CRUD
 
-protocol StockRepositoryType {
+private protocol StockRepositoryType {
     func fetch() -> Results<Stock>
     func fetchSort(_ sort: String) -> Results<Stock>
     func fetchStock(_ item: Stock)
@@ -20,7 +20,7 @@ protocol StockRepositoryType {
 }
     
 
-class StockRepository: StockRepositoryType {
+final class StockRepository: StockRepositoryType {
     
     let config = Realm.Configuration(schemaVersion: 1)
 

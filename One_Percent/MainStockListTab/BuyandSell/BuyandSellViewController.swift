@@ -8,30 +8,26 @@
 import UIKit
 
 import RealmSwift
-import JGProgressHUD
 
-protocol SendStockDelegate: AnyObject {
+public protocol SendStockDelegate: AnyObject {
     func sendStockName(_ text: String)
 }
 
 
-class BuyandSellViewController: BaseViewController, SendStockDelegate {
+final class BuyandSellViewController: BaseViewController, SendStockDelegate {
     
     func sendStockName(_ text: String) {
         mainView.contentSearchBar.text = text
     }
     
-    //let hud = JGProgressHUD()
     
-    let mainView = BuyandSellView()
+    private let mainView = BuyandSellView()
     
     let config = Realm.Configuration(schemaVersion: 1)
 
     lazy var localRealm = try! Realm(configuration: config)
     
-    let repository = StockRepository()
-    
-    //var stockList: [StockNameModel] = []
+    private let repository = StockRepository()
     
     override func loadView() {
         self.view = mainView

@@ -11,11 +11,11 @@ import JGProgressHUD
 import SnapKit
 
 
-class SearchViewController: BaseViewController {
+final class SearchViewController: BaseViewController {
     
-    let hud = JGProgressHUD()
+    private let hud = JGProgressHUD()
     
-    var stockList: [StockNameModel] = []
+    private var stockList: [StockNameModel] = []
     
     weak var delegate: SendStockDelegate?
     
@@ -28,7 +28,7 @@ class SearchViewController: BaseViewController {
         return view
     }()
     
-    let searchBar: UISearchBar = {
+    private let searchBar: UISearchBar = {
         let view = UISearchBar()
         view.placeholder = "종목명을 입력하세요."
         view.barStyle = .default

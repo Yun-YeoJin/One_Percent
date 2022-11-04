@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class BuyandSellView: BaseView {
+final class BuyandSellView: BaseView {
     
     var selected = -1
     
@@ -105,10 +105,6 @@ class BuyandSellView: BaseView {
         super.init(frame: frame)
         
         self.backgroundColor = Constants.BaseColor.background
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func configureUI() {

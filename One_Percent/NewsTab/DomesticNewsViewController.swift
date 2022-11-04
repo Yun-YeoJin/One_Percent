@@ -11,7 +11,7 @@ import SafariServices
 import SnapKit
 import Then
 
-class DomesticNewsViewController: BaseViewController {
+final class DomesticNewsViewController: BaseViewController {
     
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: .zero, style: .insetGrouped)

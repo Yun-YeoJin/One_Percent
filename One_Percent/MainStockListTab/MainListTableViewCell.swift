@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainListTableViewCell: BaseTableViewCell {
+final class MainListTableViewCell: BaseTableViewCell {
     
     let backgroundImageView = UIImageView().then {
         $0.backgroundColor = .opaqueSeparator
@@ -74,8 +74,6 @@ class MainListTableViewCell: BaseTableViewCell {
         $0.font = .boldSystemFont(ofSize: 15)
     }
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -83,10 +81,6 @@ class MainListTableViewCell: BaseTableViewCell {
         
     }
   
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func configureUI() {
         
@@ -155,10 +149,6 @@ class MainListTableViewCell: BaseTableViewCell {
             make.trailing.bottom.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
-        
-        
-        
-        
         
     }
 }

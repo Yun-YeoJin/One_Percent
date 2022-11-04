@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ChartDetailViewController: BaseViewController {
+final class ChartDetailViewController: BaseViewController {
     
-    let mainView = ChartDetailView()
+    private let mainView = ChartDetailView()
     
     var patternData: PatternsModel?
     

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainListView: BaseView {
+final class MainListView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: .zero, style: .plain)
@@ -98,14 +98,10 @@ class MainListView: BaseView {
         
     }()
     
-       
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func configureUI() {
         [tableView, weatherView, floatingButton].forEach {

@@ -15,16 +15,16 @@ import SwiftUI
 import Kingfisher
 import RealmSwift
 
-class MainListViewController: BaseViewController {
+final class MainListViewController: BaseViewController {
     
-    let mainView = MainListView()
+    private let mainView = MainListView()
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     var lat: Double = 37.517829
     var lon: Double = 126.886270
     
-    var myLocation = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+    private var myLocation = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
     
     static let identifier = "MainListViewController"
     
@@ -32,9 +32,9 @@ class MainListViewController: BaseViewController {
     
     lazy var localRealm = try! Realm(configuration: config)
     
-    let repository = StockRepository()
+    private let repository = StockRepository()
     
-    var tasks: Results<Stock>! {
+    private var tasks: Results<Stock>! {
         didSet {
             mainView.tableView.reloadData()
         }
@@ -51,13 +51,7 @@ class MainListViewController: BaseViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        locationManager.delegate = self
-       
-        checkLocationServiceAuthorizationStatus()
-        locationManagerDidChangeAuthorization(locationManager)
+    func checkSecondRun() {
         
         if UserDefaults.standard.bool(forKey: "SecondRun") == false {
             
@@ -66,20 +60,20 @@ class MainListViewController: BaseViewController {
             self.present(vc, animated: true, completion: nil)
             
         }
-        
-        tasks = localRealm.objects(Stock.self)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
         configureUI()
         
-        
         navigationItem.title = "매매일지"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         navigationController?.navigationBar.tintColor = .systemMint
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
-        
         
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.circle"), style: .plain, target: self, action: #selector(settingButtonClicked))
         navigationItem.rightBarButtonItems = [settingButton]
@@ -87,6 +81,14 @@ class MainListViewController: BaseViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.star"), primaryAction: nil, menu: alignButtonClicked())
         
         mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
+        
+        locationManager.delegate = self
+       
+        checkLocationServiceAuthorizationStatus()
+        locationManagerDidChangeAuthorization(locationManager)
+        checkSecondRun()
+        
+        tasks = localRealm.objects(Stock.self)
         
     }
     
@@ -130,7 +132,7 @@ class MainListViewController: BaseViewController {
         
     }
     
-    func requestRealm() {
+    private func requestRealm() {
         tasks = repository.fetch()
     }
     
@@ -151,6 +153,8 @@ class MainListViewController: BaseViewController {
         navigationController?.isToolbarHidden = false
         navigationController?.toolbar.tintColor = Constants.BaseColor.point
         navigationController?.toolbar.backgroundColor = Constants.BaseColor.background
+        
+       
         
     }
     

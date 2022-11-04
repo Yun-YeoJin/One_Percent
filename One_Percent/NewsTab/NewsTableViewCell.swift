@@ -26,10 +26,6 @@ class NewsTableViewCell: BaseTableViewCell {
         self.backgroundColor = .clear
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func configureUI() {
         [titleLabel, pubDateLabel].forEach {
             self.addSubview($0)

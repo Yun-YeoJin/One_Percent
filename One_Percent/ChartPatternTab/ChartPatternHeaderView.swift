@@ -16,11 +16,9 @@ class ChartPatternHeaderView: UICollectionReusableView {
     static let identifier = "ChartPatternHeaderView"
     
     let titleLabel = UILabel().then {
-      
         $0.font = UIFont(name: "VITRO CORE TTF", size: 25)
         $0.textAlignment = .center
         $0.textColor = Constants.BaseColor.text
-      
     }
     
     override init(frame: CGRect) {

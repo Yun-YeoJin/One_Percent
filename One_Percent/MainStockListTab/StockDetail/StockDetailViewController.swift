@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StockDetailViewController: BaseViewController {
+final class StockDetailViewController: BaseViewController {
     
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: .zero, style: .plain)

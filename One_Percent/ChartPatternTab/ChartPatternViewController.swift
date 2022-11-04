@@ -10,7 +10,7 @@ import UIKit
 
 class ChartPatternViewController: BaseViewController {
     
-    let mainView = ChartPatternView()
+    private let mainView = ChartPatternView()
    
     enum Section: CaseIterable {
         case chartPattern
@@ -24,8 +24,8 @@ class ChartPatternViewController: BaseViewController {
         }
     }
     
-    var chartData: [PatternsModel] = []
-    var candleData: [PatternsModel] = []
+    private var chartData: [PatternsModel] = []
+    private var candleData: [PatternsModel] = []
     
     override func loadView() {
         self.view = mainView
@@ -33,16 +33,6 @@ class ChartPatternViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mainView.collectionView.delegate = self
-        mainView.collectionView.dataSource = self
-        mainView.collectionView.register(ChartPatternCollectionViewCell.self, forCellWithReuseIdentifier: ChartPatternCollectionViewCell.reusableIdentifier)
-        mainView.collectionView.register(ChartPatternHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ChartPatternHeaderView")
-        
-        mainView.collectionView.collectionViewLayout = layout()
-        
-        mainView.searchBar.delegate = self
-        mainView.searchBar.showsCancelButton = false
         
         chartData = ChartInfo.chartPattern
         candleData = CandleInfo.candlePattern
@@ -54,6 +44,16 @@ class ChartPatternViewController: BaseViewController {
     }
     
     override func configureUI() {
+        
+        mainView.collectionView.delegate = self
+        mainView.collectionView.dataSource = self
+        mainView.collectionView.register(ChartPatternCollectionViewCell.self, forCellWithReuseIdentifier: ChartPatternCollectionViewCell.reusableIdentifier)
+        mainView.collectionView.register(ChartPatternHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ChartPatternHeaderView")
+        
+        mainView.collectionView.collectionViewLayout = layout()
+        
+        mainView.searchBar.delegate = self
+        mainView.searchBar.showsCancelButton = false
         
         navigationItem.title = "차트 패턴"
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
@@ -85,12 +85,10 @@ extension ChartPatternViewController: UICollectionViewDelegate, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChartPatternCollectionViewCell.reusableIdentifier, for: indexPath) as? ChartPatternCollectionViewCell else { return UICollectionViewCell() }
             
             if indexPath.section == 0 {
-//                let data = ChartInfo.chartPattern[indexPath.item]
                 let data = chartData[indexPath.item]
                 cell.titleLabel.text = data.title
                 cell.chartImageView.image = UIImage(named: data.imageName)
             } else {
-//                let data = CandleInfo.candlePattern[indexPath.item]
                 let data = candleData[indexPath.item]
                 cell.titleLabel.text = data.title
                 cell.chartImageView.image = UIImage(named: data.imageName)

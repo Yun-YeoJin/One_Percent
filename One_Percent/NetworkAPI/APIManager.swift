@@ -133,7 +133,7 @@ class StockNameAPIManager {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         
-        let url = "\(EndPoint.stockNameURL)serviceKey=\(APIKey.stock)&resultType=json&numOfRows=50&basDt=20220923&likeItmsNm=\(query)"
+        let url = "\(EndPoint.stockNameURL)serviceKey=\(APIKey.stock)&resultType=json&numOfRows=50&basDt=20221031&likeItmsNm=\(query)"
        
         AF.request(url, method: .get).validate().responseData(queue: .global()) { response in
             switch response.result {

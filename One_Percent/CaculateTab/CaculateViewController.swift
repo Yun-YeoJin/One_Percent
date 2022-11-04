@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CaculateViewController: BaseViewController {
+final class CaculateViewController: BaseViewController {
     
-    let mainView = CaculateView()
+    private let mainView = CaculateView()
     
     override func loadView() {
         self.view = mainView

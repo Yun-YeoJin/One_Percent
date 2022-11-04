@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SearchTableViewCell: BaseTableViewCell {
+final class SearchTableViewCell: BaseTableViewCell {
     
     let stockNumberLabel = contentsLabel().then {
         $0.textAlignment = .left
@@ -23,18 +23,12 @@ class SearchTableViewCell: BaseTableViewCell {
     let stockNameLabel = contentsLabel().then {
         $0.textAlignment = .left
     }
-    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = .clear
         
-    }
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func configureUI() {

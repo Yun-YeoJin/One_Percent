@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Stock: Object {
+final class Stock: Object {
     @Persisted var stockName: String //제목(필수)
     @Persisted var isBuy: Bool //매수 or 매도(필수)
     @Persisted var stockPrice: Int //주식가격(필수)

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SettingTableViewCell: BaseTableViewCell {
+final class SettingTableViewCell: BaseTableViewCell {
     
     let iconImageView = UIImageView().then {
         $0.backgroundColor = .clear
@@ -35,11 +35,6 @@ class SettingTableViewCell: BaseTableViewCell {
         
         self.backgroundColor = .clear
         
-    }
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func configureUI() {

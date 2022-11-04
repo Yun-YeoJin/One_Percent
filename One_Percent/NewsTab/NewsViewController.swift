@@ -6,14 +6,11 @@
 //
 
 import UIKit
-import SafariServices
 
-import SnapKit
-import Then
 import Tabman
 import Pageboy
 
-class NewsViewController: TabmanViewController {
+final class NewsViewController: TabmanViewController {
     
     private var viewControllers = [DomesticNewsViewController(), GlobalNewsViewController()]
     

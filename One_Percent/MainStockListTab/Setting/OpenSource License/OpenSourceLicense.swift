@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class OpenSourceLicenseViewController: BaseViewController {
+final class OpenSourceLicenseViewController: BaseViewController {
     
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: .zero, style: .plain)
@@ -21,7 +21,7 @@ class OpenSourceLicenseViewController: BaseViewController {
         return view
     }()
     
-    var opensourceData: [OpenSourceModel] = []
+    private var opensourceData: [OpenSourceModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

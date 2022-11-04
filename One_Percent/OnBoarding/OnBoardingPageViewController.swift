@@ -7,11 +7,11 @@
 
 import UIKit
 
-class OnBoardingPageViewController: UIPageViewController {
+final class OnBoardingPageViewController: UIPageViewController {
 
     //let notificationCenter = UNUserNotificationCenter.current()
     
-    let button: UIButton = {
+    private let button: UIButton = {
         let view = UIButton()
         view.setTitle("시작하기", for: .normal)
         view.setTitleColor(.white, for: .normal)
@@ -20,12 +20,12 @@ class OnBoardingPageViewController: UIPageViewController {
         return view
     }()
     
-    var pages = [UIViewController]()
-    var bottomButtonMargin: NSLayoutConstraint?
-    var pageControl = UIPageControl()
-    let startindex = 0
+    private var pages = [UIViewController]()
+    private var bottomButtonMargin: NSLayoutConstraint?
+    private var pageControl = UIPageControl()
+    private let startindex = 0
     
-    var currentindex = 0 { //currentindex -> startindex
+    private var currentindex = 0 { //currentindex -> startindex
         didSet {
             pageControl.currentPage = currentindex
         }
@@ -81,7 +81,7 @@ class OnBoardingPageViewController: UIPageViewController {
 //
 //    }
     
-    func makePageVC() {
+    private func makePageVC() {
         let itemVC1 = OnBoardingItemViewController.init(nibName: "OnBoardingItemViewController", bundle: nil)
         itemVC1.start = "1% 시작하기"
         itemVC1.startImage = UIImage(named: "banner01")
@@ -132,7 +132,7 @@ class OnBoardingPageViewController: UIPageViewController {
         
     }
     
-    func makePageControl() {
+    private func makePageControl() {
         
         self.view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -161,7 +161,7 @@ class OnBoardingPageViewController: UIPageViewController {
     }
     
     //버튼 코드로 만들기.
-    func makeBottomButton() {
+    private func makeBottomButton() {
      
         button.addTarget(self, action: #selector(dismissPageVC), for: .touchUpInside)
    
@@ -190,7 +190,7 @@ class OnBoardingPageViewController: UIPageViewController {
 
 extension OnBoardingPageViewController: UIPageViewControllerDataSource {
     //PageView를 구현하기 위해 해야하는 것,
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    internal func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentindex = pages.firstIndex(of: viewController) else {
             return nil
         }
@@ -204,7 +204,7 @@ extension OnBoardingPageViewController: UIPageViewControllerDataSource {
         }
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    internal func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         guard let currentindex = pages.firstIndex(of: viewController) else {
             return nil
@@ -221,7 +221,7 @@ extension OnBoardingPageViewController: UIPageViewControllerDataSource {
 }
 
 extension OnBoardingPageViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    internal func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         guard let currentVC = pageViewController.viewControllers?.first else { //0번째 인덱스
             return
@@ -234,7 +234,7 @@ extension OnBoardingPageViewController: UIPageViewControllerDelegate {
         
     }
     
-    func buttonPresentationStyle() {
+    private func buttonPresentationStyle() {
         if currentindex == pages.count - 1 { // 마지막 index가 맞으면!
             // 버튼 보여야함
             self.showButton()
@@ -247,11 +247,11 @@ extension OnBoardingPageViewController: UIPageViewControllerDelegate {
         }
     }
     
-    func showButton() {
+    private func showButton() {
         bottomButtonMargin?.constant = -10
     }
     
-    func hideButton() {
+    private func hideButton() {
         bottomButtonMargin?.constant = 100
     }
 }

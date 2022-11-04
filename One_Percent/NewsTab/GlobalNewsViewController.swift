@@ -11,7 +11,7 @@ import SafariServices
 import SnapKit
 import Then
 
-class GlobalNewsViewController: BaseViewController {
+final class GlobalNewsViewController: BaseViewController {
     
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: .zero, style: .insetGrouped)
@@ -22,7 +22,7 @@ class GlobalNewsViewController: BaseViewController {
         return view
     }()
   
-    var globalNewsList: [NewsModel] = []
+    private var globalNewsList: [NewsModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

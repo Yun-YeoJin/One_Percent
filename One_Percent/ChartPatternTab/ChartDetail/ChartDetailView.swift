@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ChartDetailView: BaseView {
+final class ChartDetailView: BaseView {
     
     let chartImageView = UIImageView().then {
         $0.backgroundColor = .blue
@@ -30,10 +30,6 @@ class ChartDetailView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func configureUI() {

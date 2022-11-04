@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class OpenSourceLicenseTableViewCell: BaseTableViewCell {
+final class OpenSourceLicenseTableViewCell: BaseTableViewCell {
     
     let opensourceNameLabel = UILabel().then {
         $0.textColor = Constants.BaseColor.text
@@ -46,11 +46,6 @@ class OpenSourceLicenseTableViewCell: BaseTableViewCell {
         
     }
   
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func configureUI() {
         [opensourceNameLabel, opensourceURL, copyrightLabel, MITLicenseLabel].forEach {
             self.addSubview($0)

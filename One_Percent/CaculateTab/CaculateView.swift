@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CaculateView: BaseView {
+final class CaculateView: BaseView {
     
     var selected = -1 // 0을 넣으면 tag값이 있기 때문에 나올 수 없는 값을 넣어줌.
     
@@ -64,6 +64,7 @@ class CaculateView: BaseView {
         $0.spacing = 5
     }
     
+    
     let resultLabel = calculateLabel().then {
         $0.text = "복리 계산 결과"
     }
@@ -84,10 +85,6 @@ class CaculateView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func configureUI() {

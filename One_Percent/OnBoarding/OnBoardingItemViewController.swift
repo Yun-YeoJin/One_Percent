@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnBoardingItemViewController: UIViewController {
+final class OnBoardingItemViewController: UIViewController {
 
     var start = ""
     var mainTitle = ""
