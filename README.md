@@ -44,7 +44,7 @@
 - Figma를 이용한 앱 아이콘 & 런치 스크린 디자인
 - UIMenu를 이용한 목록 정렬하기
 
-## **이슈**
+## **Trouble Shooting**
 
 1. Open API를 이용한 네트워크 통신 중 HTML 마크다운이 같이 출력되는 이슈 → htmlEncodedString를 이용해 HTML 마크다운을 지워줌으로써 해결.
 
@@ -191,3 +191,10 @@ if chartData.isEmpty {
     - Firebase Crashlytics, Firebase Analytics를 이용해 앱 안정성을 위한 충돌 데이터 수집
     - Firebase Cloud Message를 이용한 푸시 알림으로 변경
     - 버그 수정 및 코드 간소화
+
+### **v1.0.3**
+
+- 2022.11.04 업데이트
+    - 버그 수정 및 코드 간소화
+    - 앱 안정성 개선
+    - 앱 용량을 크게 낮춤!
