@@ -13,11 +13,9 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        //        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        //
-        //        UNUserNotificationCenter.current().delegate = self
-        
+   
+        CheckNetworkConnection.shared.startMonitoring()
+     
         // 원격 알림 시스템에 앱을 등록
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
