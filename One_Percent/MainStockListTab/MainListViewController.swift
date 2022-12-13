@@ -70,20 +70,7 @@ final class MainListViewController: BaseViewController {
         mainView.tableView.register(MainListTableViewCell.self, forCellReuseIdentifier: MainListTableViewCell.reusableIdentifier)
         configureUI()
         
-        navigationItem.title = "매매일지"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
-        navigationController?.navigationBar.tintColor = .systemMint
-        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
-        
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.circle"), style: .plain, target: self, action: #selector(settingButtonClicked))
-        navigationItem.rightBarButtonItems = [settingButton]
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.star"), primaryAction: nil, menu: alignButtonClicked())
-        
-        mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
-        
         locationManager.delegate = self
-       
         checkLocationServiceAuthorizationStatus()
         locationManagerDidChangeAuthorization(locationManager)
         checkSecondRun()
@@ -91,47 +78,7 @@ final class MainListViewController: BaseViewController {
         tasks = localRealm.objects(Stock.self)
         
     }
-    
-    @objc func floatingButtonClicked() {
-        
-        let vc = BuyandSellViewController()
-        transition(vc, transitionStyle: .presentFullNavigation)
-        
-    }
-    
-    @objc func settingButtonClicked() {
-        
-        let vc = SettingViewController()
-        transition(vc, transitionStyle: .push)
-        
-    }
-    
-    @objc func alignButtonClicked() -> UIMenu  {
-        
-        let sortName = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
-            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockName")
-        }
-        let sortLargeQuantity = UIAction(title: "수량(주) 많은순", image: UIImage(systemName: "chart.bar.fill")) { _ in
-            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockQuantity", ascending: false)
-        }
-        
-        let sortSmallQuantity = UIAction(title: "수량(주) 적은순", image: UIImage(systemName: "chart.bar")) { _ in
-            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockQuantity", ascending: true)
-        }
-        
-        let sortCurrentDate = UIAction(title: "매매일자 최신순", image: UIImage(systemName: "calendar.badge.plus")) { _ in
-            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockDate", ascending: false)
-        }
-        
-        let sortOlderDate = UIAction(title: "매매일자 오래된순", image: UIImage(systemName: "calendar.badge.minus")) { _ in
-            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockDate", ascending: true)
-        }
-        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortName, sortLargeQuantity, sortSmallQuantity, sortCurrentDate, sortOlderDate])
-        
-        return menu
-        
-    }
-    
+ 
     private func requestRealm() {
         tasks = repository.fetch()
     }
@@ -154,32 +101,26 @@ final class MainListViewController: BaseViewController {
         navigationController?.toolbar.tintColor = Constants.BaseColor.point
         navigationController?.toolbar.backgroundColor = Constants.BaseColor.background
         
+        navigationItem.title = "매매일지"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
+        navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
+        
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.circle"), style: .plain, target: self, action: #selector(settingButtonClicked))
+        navigationItem.rightBarButtonItems = [settingButton]
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.star"), primaryAction: nil, menu: alignButtonClicked())
+        
+        mainView.floatingButton.addTarget(self, action: #selector(floatingButtonClicked), for: .touchUpInside)
        
         
     }
     
-    @objc func chartPatternTabClicked() {
-        let vc = ChartPatternViewController()
-        transition(vc, transitionStyle: .presentNavigation)
-        
-    }
     
-    @objc func calculateTabClicked() {
-        let vc = CaculateViewController()
-        transition(vc, transitionStyle: .presentNavigation)
-        
-    }
-    
-    @objc func newsTabClicked() {
-        let vc = NewsViewController()
-        transition(vc, transitionStyle: .presentNavigation)
-        
-    }
     
 }
 
 //MARK: 매매일지 TableView 설정
-
 extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -216,9 +157,6 @@ extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-//        let vc = StockDetailViewController()
-//        transition(vc, transitionStyle: .presentNavigation)
         
     }
     
@@ -290,7 +228,6 @@ extension MainListViewController: CLLocationManagerDelegate {
 }
 
 //MARK: 사용자 위치 설정
-
 extension MainListViewController {
     
     func checkCurrentLocationAuthorizationStatus(_ authorizationStatus: CLAuthorizationStatus) {
@@ -344,3 +281,64 @@ extension MainListViewController {
     }
 }
     
+//MARK: Objc func Methods
+extension MainListViewController {
+    @objc func floatingButtonClicked() {
+        
+        let vc = BuyandSellViewController()
+        transition(vc, transitionStyle: .presentFullNavigation)
+        
+    }
+    
+    @objc func settingButtonClicked() {
+        
+        let vc = SettingViewController()
+        transition(vc, transitionStyle: .push)
+        
+    }
+    
+    @objc func alignButtonClicked() -> UIMenu  {
+        
+        let sortName = UIAction(title: "가나다순", image: UIImage(systemName: "abc")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockName")
+        }
+        let sortLargeQuantity = UIAction(title: "수량(주) 많은순", image: UIImage(systemName: "chart.bar.fill")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockQuantity", ascending: false)
+        }
+        
+        let sortSmallQuantity = UIAction(title: "수량(주) 적은순", image: UIImage(systemName: "chart.bar")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockQuantity", ascending: true)
+        }
+        
+        let sortCurrentDate = UIAction(title: "매매일자 최신순", image: UIImage(systemName: "calendar.badge.plus")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockDate", ascending: false)
+        }
+        
+        let sortOlderDate = UIAction(title: "매매일자 오래된순", image: UIImage(systemName: "calendar.badge.minus")) { _ in
+            self.tasks = self.localRealm.objects(Stock.self).sorted(byKeyPath: "stockDate", ascending: true)
+        }
+        let menu = UIMenu(title: "목록 정렬하기", identifier: nil, options: .destructive, children: [sortName, sortLargeQuantity, sortSmallQuantity, sortCurrentDate, sortOlderDate])
+        
+        return menu
+        
+    }
+    
+    @objc func chartPatternTabClicked() {
+        let vc = ChartPatternViewController()
+        transition(vc, transitionStyle: .presentNavigation)
+        
+    }
+    
+    @objc func calculateTabClicked() {
+        let vc = CaculateViewController()
+        transition(vc, transitionStyle: .presentNavigation)
+        
+    }
+    
+    @objc func newsTabClicked() {
+        let vc = NewsViewController()
+        transition(vc, transitionStyle: .presentNavigation)
+        
+    }
+    
+}

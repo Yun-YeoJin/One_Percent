@@ -14,6 +14,7 @@ extension UIViewController {
         case presentNavigation //네비게이션 임베드 present
         case presentFullNavigation //네비게이션 풀스크린
         case push
+        case pop
     }
     
     func transition<T: UIViewController>(_ viewController: T, transitionStyle: TransitionStyle = .present) {
@@ -30,7 +31,8 @@ extension UIViewController {
             self.present(navi, animated: true)
         case .push:
             self.navigationController?.pushViewController(viewController, animated: true)
-        
+        case .pop:
+            self.navigationController?.popToViewController(viewController, animated: true)
         }
     }
 }

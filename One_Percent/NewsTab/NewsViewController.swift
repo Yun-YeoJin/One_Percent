@@ -17,6 +17,8 @@ final class NewsViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
+        
         self.dataSource = self
         // Create bar
         let bar = TMBar.TabBar()
@@ -33,12 +35,16 @@ final class NewsViewController: TabmanViewController {
         // Add to view
         addBar(bar, dataSource: self, at: .bottom)
         
+    }
+    
+    func configureUI() {
+        
         navigationItem.title = "경제 뉴스"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         navigationController?.navigationBar.tintColor = Constants.BaseColor.point
         navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
         view.backgroundColor = Constants.BaseColor.background
-       
+        
     }
 
 }

@@ -21,15 +21,17 @@ final class StockDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Detail"
-        navigationController?.navigationBar.tintColor = .systemMint
-        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
+       
     }
     
     override func configureUI() {
         
         view.addSubview(tableView)
+        
+        navigationItem.title = "Detail"
+        navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         
     }
     

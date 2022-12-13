@@ -26,14 +26,7 @@ final class DomesticNewsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "경제 뉴스"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
-        navigationController?.navigationBar.tintColor = Constants.BaseColor.point
-        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(refreshButtonClicked))
-        
+  
         NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...30)) { list in
             DispatchQueue.main.async {
                 self.domesticNewsList = list
@@ -42,19 +35,18 @@ final class DomesticNewsViewController: BaseViewController {
         }
      }
     
-    @objc func refreshButtonClicked() {
-        
-        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...30)) { list in
-            DispatchQueue.main.async {
-                self.domesticNewsList = list
-                self.tableView.reloadData()
-            }
-        }
-    }
+    
     
     override func configureUI() {
         
         view.addSubview(tableView)
+        
+        navigationItem.title = "경제 뉴스"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
+        navigationController?.navigationBar.tintColor = Constants.BaseColor.point
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(refreshButtonClicked))
         
     }
     
@@ -128,5 +120,17 @@ extension DomesticNewsViewController: UITableViewDelegate, UITableViewDataSource
         return "🇰🇷 국내 증시 🇰🇷"
         
     
+    }
+}
+//MARK: Objc func Methods
+extension DomesticNewsViewController {
+    @objc func refreshButtonClicked() {
+        
+        NewsAPIManager.shared.requestNewsData(query: "국내증시", startPage: Int.random(in: 1...30)) { list in
+            DispatchQueue.main.async {
+                self.domesticNewsList = list
+                self.tableView.reloadData()
+            }
+        }
     }
 }

@@ -13,30 +13,22 @@ public protocol SendStockDelegate: AnyObject {
     func sendStockName(_ text: String)
 }
 
-
 final class BuyandSellViewController: BaseViewController, SendStockDelegate {
     
     func sendStockName(_ text: String) {
         mainView.contentSearchBar.text = text
     }
     
-    
     private let mainView = BuyandSellView()
     
     let config = Realm.Configuration(schemaVersion: 1)
-
+    
     lazy var localRealm = try! Realm(configuration: config)
     
     private let repository = StockRepository()
     
     override func loadView() {
         self.view = mainView
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
     }
     
     override func viewDidLoad() {
@@ -64,43 +56,8 @@ final class BuyandSellViewController: BaseViewController, SendStockDelegate {
         
     }
     
-    @objc func cancelButtonClicked() {
-        
-        self.dismiss(animated: true)
-        
-    }
+   
     
-    @objc func saveButtonClicked() {
-        
-        if mainView.contentSearchBar.text?.isEmpty ?? true || mainView.priceTextField.text?.isEmpty ?? true || mainView.countTextField.text?.isEmpty ?? true || mainView.selected < 0 {
-            showAlert(title: "항목을 선택해주세요!", message: "종목명, 매수/매도, 체결 단가, 수량을 확인하세요!", buttonTitle: "확인") { UIAlertAction in }
-        } else {
-        
-        let stockname = mainView.contentSearchBar.text ?? ""
-        
-        var price = self.mainView.priceTextField.text ?? ""
-        price = price.replace(target: ",", withString: "")
-        guard let stockprice = Int(price) else { return }
-                             
-        var quantity = self.mainView.countTextField.text ?? ""
-        quantity = quantity.replace(target: ",", withString: "") //콤마 없애기
-        guard let stockquantity = Int(quantity) else { return }
-        
-        let stockdate = mainView.dateDatePicker.date
-        
-        if mainView.selected == 0 {
-            let task = Stock(stockName: stockname, isBuy: true, stockPrice: stockprice, stockQuantity: stockquantity, stockDate: stockdate)
-            repository.fetchStock(task)
-        } else {
-            let task = Stock(stockName: stockname, isBuy: false, stockPrice: stockprice, stockQuantity: stockquantity, stockDate: stockdate)
-            repository.fetchStock(task)
-        }
-        
-        dismiss(animated: true)
-        
-    }
-    }
-  
 }
 
 extension BuyandSellViewController: UITextFieldDelegate {
@@ -154,6 +111,45 @@ extension BuyandSellViewController: UISearchBarDelegate {
         view.endEditing(true)
     }
     
-   
     
+    
+}
+//MARK: Objc func Methods
+extension BuyandSellViewController {
+    @objc func cancelButtonClicked() {
+        
+        self.dismiss(animated: true)
+        
+    }
+    
+    @objc func saveButtonClicked() {
+        
+        if mainView.contentSearchBar.text?.isEmpty ?? true || mainView.priceTextField.text?.isEmpty ?? true || mainView.countTextField.text?.isEmpty ?? true || mainView.selected < 0 {
+            showAlert(title: "항목을 선택해주세요!", message: "종목명, 매수/매도, 체결 단가, 수량을 확인하세요!", buttonTitle: "확인") { UIAlertAction in }
+        } else {
+            
+            let stockname = mainView.contentSearchBar.text ?? ""
+            
+            var price = self.mainView.priceTextField.text ?? ""
+            price = price.replace(target: ",", withString: "")
+            guard let stockprice = Int(price) else { return }
+            
+            var quantity = self.mainView.countTextField.text ?? ""
+            quantity = quantity.replace(target: ",", withString: "") //콤마 없애기
+            guard let stockquantity = Int(quantity) else { return }
+            
+            let stockdate = mainView.dateDatePicker.date
+            
+            if mainView.selected == 0 {
+                let task = Stock(stockName: stockname, isBuy: true, stockPrice: stockprice, stockQuantity: stockquantity, stockDate: stockdate)
+                repository.fetchStock(task)
+            } else {
+                let task = Stock(stockName: stockname, isBuy: false, stockPrice: stockprice, stockQuantity: stockquantity, stockDate: stockdate)
+                repository.fetchStock(task)
+            }
+            
+            dismiss(animated: true)
+            
+        }
+    }
 }

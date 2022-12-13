@@ -25,18 +25,18 @@ final class OpenSourceLicenseViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "오픈소스 라이선스"
-        navigationController?.navigationBar.tintColor = .systemMint
-        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
-        
+
         opensourceData = OpenSourceInfo.OpenSource
     }
     
     override func configureUI() {
         
         view.addSubview(tableView)
+        
+        navigationItem.title = "오픈소스 라이선스"
+        navigationController?.navigationBar.tintColor = .systemMint
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
         
     }
     

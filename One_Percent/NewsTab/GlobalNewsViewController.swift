@@ -21,28 +21,11 @@ final class GlobalNewsViewController: BaseViewController {
         view.backgroundColor = Constants.BaseColor.background
         return view
     }()
-  
+    
     private var globalNewsList: [NewsModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "경제 뉴스"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
-        navigationController?.navigationBar.tintColor = Constants.BaseColor.point
-        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(refreshButtonClicked))
-        
-        NewsAPIManager.shared.requestNewsData(query: "세계증시", startPage: Int.random(in: 1...30)) { list in
-            DispatchQueue.main.async {
-                self.globalNewsList = list
-                self.tableView.reloadData()
-            }
-        }
-     }
-    
-    @objc func refreshButtonClicked() {
         
         NewsAPIManager.shared.requestNewsData(query: "세계증시", startPage: Int.random(in: 1...30)) { list in
             DispatchQueue.main.async {
@@ -51,10 +34,17 @@ final class GlobalNewsViewController: BaseViewController {
             }
         }
     }
-    
+ 
     override func configureUI() {
         
         view.addSubview(tableView)
+        
+        navigationItem.title = "경제 뉴스"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "VITRO CORE TTF", size: 20)!]
+        navigationController?.navigationBar.tintColor = Constants.BaseColor.point
+        navigationController?.navigationBar.backgroundColor = Constants.BaseColor.background
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(refreshButtonClicked))
         
     }
     
@@ -86,26 +76,24 @@ extension GlobalNewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reusableIdentifier, for: indexPath) as? NewsTableViewCell else { return UITableViewCell() }
         
-            cell.titleLabel.text = String(htmlEncodedString: "\(globalNewsList[indexPath.row].title)")!
-            cell.pubDateLabel.text = globalNewsList[indexPath.row].pubDate.toDate()?.toString()
-        
-        
+        cell.titleLabel.text = String(htmlEncodedString: "\(globalNewsList[indexPath.row].title)")!
+        cell.pubDateLabel.text = globalNewsList[indexPath.row].pubDate.toDate()?.toString()
+                
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-       
-            guard let url = URL(string: globalNewsList[indexPath.row].link) else {
-                return
-            }
-            
-            let safari = SFSafariViewController(url: url)
-            present(safari, animated: true)
+        guard let url = URL(string: globalNewsList[indexPath.row].link) else {
+            return
+        }
         
-            tableView.deselectRow(at: indexPath, animated: true)
-       
+        let safari = SFSafariViewController(url: url)
+        present(safari, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         
     }
     //MARK: TableViewHeader UI 설정
@@ -115,7 +103,7 @@ extension GlobalNewsViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.textLabel?.textColor = Constants.BaseColor.point
             headerView.textLabel?.font = UIFont(name: "ChosunKm", size: 30)
             headerView.textLabel?.textAlignment = .center
-    
+            
         }
     }
     
@@ -125,7 +113,20 @@ extension GlobalNewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return "🇺🇸 세계 증시 🇺🇸"
-    
+        return "🇺🇸 세계 증시 🇺🇸"
+        
+    }
+}
+
+//MARK: Objc func Methods
+extension GlobalNewsViewController {
+    @objc func refreshButtonClicked() {
+        
+        NewsAPIManager.shared.requestNewsData(query: "세계증시", startPage: Int.random(in: 1...30)) { list in
+            DispatchQueue.main.async {
+                self.globalNewsList = list
+                self.tableView.reloadData()
+            }
+        }
     }
 }

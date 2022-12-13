@@ -10,7 +10,6 @@ import UIKit
 import JGProgressHUD
 import SnapKit
 
-
 final class SearchViewController: BaseViewController {
     
     private let hud = JGProgressHUD()

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class ChartPatternViewController: BaseViewController {
     
     private let mainView = ChartPatternView()
