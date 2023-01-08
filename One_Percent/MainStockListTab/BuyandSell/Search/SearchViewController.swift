@@ -87,9 +87,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let stockNameData = stockList[indexPath.row].stockName
-        
         delegate?.sendStockName(stockNameData)
-        
         self.dismiss(animated: true)
         
     }

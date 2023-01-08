@@ -77,7 +77,9 @@ extension GlobalNewsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reusableIdentifier, for: indexPath) as? NewsTableViewCell else { return UITableViewCell() }
         
         cell.titleLabel.text = String(htmlEncodedString: "\(globalNewsList[indexPath.row].title)")!
+        print(cell.titleLabel.text!)
         cell.pubDateLabel.text = globalNewsList[indexPath.row].pubDate.toDate()?.toString()
+        
                 
         return cell
         
