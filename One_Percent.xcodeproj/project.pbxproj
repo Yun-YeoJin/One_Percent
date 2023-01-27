@@ -44,7 +44,6 @@
 		AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */; };
 		AECB773D28CC9EEC004B77F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */; };
 		AECB773F28CC9EEC004B77F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB773E28CC9EEC004B77F2 /* ViewController.swift */; };
-		AECB774228CC9EEC004B77F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECB774028CC9EEC004B77F2 /* Main.storyboard */; };
 		AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECB774328CC9EEE004B77F2 /* Assets.xcassets */; };
 		AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */; };
 		AECB775228CC9F3D004B77F2 /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */; };
@@ -121,7 +120,6 @@
 		AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AECB773E28CC9EEC004B77F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AECB774128CC9EEC004B77F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AECB774328CC9EEE004B77F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AECB774628CC9EEE004B77F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AECB774828CC9EEE004B77F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,14 +180,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AE77881828D8B1DB00014C74 /* BuyandSell */ = {
+		AE77881828D8B1DB00014C74 /* BuyandSellScene */ = {
 			isa = PBXGroup;
 			children = (
-				AEB4B60228E1B6390004CE79 /* Search */,
+				AEB4B60228E1B6390004CE79 /* SearchScene */,
 				AE77881928D8B21400014C74 /* BuyandSellViewController.swift */,
 				AE77881B28D8B21F00014C74 /* BuyandSellView.swift */,
 			);
-			path = BuyandSell;
+			path = BuyandSellScene;
 			sourceTree = "<group>";
 		};
 		AE77881D28DA058500014C74 /* Font */ = {
@@ -212,23 +210,23 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
-		AE77883F28DCA13A00014C74 /* Setting */ = {
+		AE77883F28DCA13A00014C74 /* SettingScene */ = {
 			isa = PBXGroup;
 			children = (
 				AE82C66828E46895002CB358 /* OpenSource License */,
 				AE77884028DCA14600014C74 /* SettingViewController.swift */,
 				AE77884228DCA15500014C74 /* SettingTableViewCell.swift */,
 			);
-			path = Setting;
+			path = SettingScene;
 			sourceTree = "<group>";
 		};
-		AE77884628DD866E00014C74 /* StockDetail */ = {
+		AE77884628DD866E00014C74 /* StockDetailScene */ = {
 			isa = PBXGroup;
 			children = (
 				AE77884728DD867F00014C74 /* StockDetailViewController.swift */,
 				AE77884928DD868B00014C74 /* StockTableViewCell.swift */,
 			);
-			path = StockDetail;
+			path = StockDetailScene;
 			sourceTree = "<group>";
 		};
 		AE82C66828E46895002CB358 /* OpenSource License */ = {
@@ -249,16 +247,15 @@
 				AE84D2B028FBE8380063283A /* TextFieldView.swift */,
 			);
 			name = CustomView;
-			path = Utility;
 			sourceTree = "<group>";
 		};
-		AEB4B60228E1B6390004CE79 /* Search */ = {
+		AEB4B60228E1B6390004CE79 /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
 				AEB4B60328E1B6500004CE79 /* SearchViewController.swift */,
 				AEB4B60528E1B65C0004CE79 /* SearchTableViewCell.swift */,
 			);
-			path = Search;
+			path = SearchScene;
 			sourceTree = "<group>";
 		};
 		AECB772E28CC9EEC004B77F2 = {
@@ -281,40 +278,25 @@
 		AECB773928CC9EEC004B77F2 /* One_Percent */ = {
 			isa = PBXGroup;
 			children = (
-				AE84D2A128F5B6370063283A /* One_Percent.entitlements */,
-				AE84D29728F5ADCE0063283A /* GoogleService-Info.plist */,
-				AE77883A28DB5E9F00014C74 /* Realm */,
-				AE77881D28DA058500014C74 /* Font */,
+				CA1BBA7029C0447B004A6D4B /* Application */,
 				AECB774828CC9EEE004B77F2 /* Info.plist */,
-				AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */,
-				AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */,
-				AECB773E28CC9EEC004B77F2 /* ViewController.swift */,
-				AECB774328CC9EEE004B77F2 /* Assets.xcassets */,
-				AECB779228CE3A7D004B77F2 /* MainStockListTab */,
-				AECB779B28CF1FEA004B77F2 /* CaculateTab */,
-				AECB779928CF1FE5004B77F2 /* ChartPatternTab */,
-				AECB77A528D061CA004B77F2 /* NewsTab */,
-				AECB776728CCA3BA004B77F2 /* BaseView */,
-				AECB775A28CCA125004B77F2 /* Extension */,
-				AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */,
-				AE84D2AB28FBDFD60063283A /* CustomView */,
-				AECB774028CC9EEC004B77F2 /* Main.storyboard */,
+				CA1BBA6E29C040D0004A6D4B /* Resource */,
+				CA1BBA6D29C040C7004A6D4B /* Data */,
+				CA1BBA6C29C040BC004A6D4B /* Presentation */,
 				AECB776228CCA37A004B77F2 /* Network */,
-				AECB774E28CC9F09004B77F2 /* OnBoarding */,
-				AECB775728CCA0FF004B77F2 /* Protocol */,
 				AECB775F28CCA29A004B77F2 /* Utility */,
 			);
 			path = One_Percent;
 			sourceTree = "<group>";
 		};
-		AECB774E28CC9F09004B77F2 /* OnBoarding */ = {
+		AECB774E28CC9F09004B77F2 /* OnBoardingScene */ = {
 			isa = PBXGroup;
 			children = (
 				AECB775128CC9F3D004B77F2 /* OnBoardingPageViewController.swift */,
 				AECB778E28CE33C7004B77F2 /* OnBoardingItemViewController.swift */,
 				AECB778F28CE33C8004B77F2 /* OnBoardingItemViewController.xib */,
 			);
-			path = OnBoarding;
+			path = OnBoardingScene;
 			sourceTree = "<group>";
 		};
 		AECB775728CCA0FF004B77F2 /* Protocol */ = {
@@ -339,7 +321,10 @@
 		AECB775F28CCA29A004B77F2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				AECB776028CCA2AB004B77F2 /* Constant.swift */,
+				CA1BBA7229C04537004A6D4B /* Constants */,
+				AECB775728CCA0FF004B77F2 /* Protocol */,
+				AECB775A28CCA125004B77F2 /* Extension */,
+				AE84D2AB28FBDFD60063283A /* CustomView */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -356,50 +341,47 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		AECB776728CCA3BA004B77F2 /* BaseView */ = {
+		AECB776728CCA3BA004B77F2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AECB773E28CC9EEC004B77F2 /* ViewController.swift */,
+				CA1BBA6F29C04449004A6D4B /* Cell */,
 				AECB776828CCBE74004B77F2 /* BaseView.swift */,
 				AECB776A28CCBE87004B77F2 /* BaseViewController.swift */,
-				AECB776C28CCBE98004B77F2 /* BaseTableViewCell.swift */,
-				AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */,
 			);
-			path = BaseView;
+			path = Common;
 			sourceTree = "<group>";
 		};
-		AECB779228CE3A7D004B77F2 /* MainStockListTab */ = {
+		AECB779228CE3A7D004B77F2 /* MainStockListScene */ = {
 			isa = PBXGroup;
 			children = (
-				AE77884628DD866E00014C74 /* StockDetail */,
-				AE77883F28DCA13A00014C74 /* Setting */,
-				AE77881828D8B1DB00014C74 /* BuyandSell */,
-				AECB779328CE3AAA004B77F2 /* MainListViewController.swift */,
-				AECB779528CE3B2A004B77F2 /* MainListView.swift */,
-				AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */,
+				CA1BBA7129C044F2004A6D4B /* MainScene */,
+				AE77884628DD866E00014C74 /* StockDetailScene */,
+				AE77883F28DCA13A00014C74 /* SettingScene */,
+				AE77881828D8B1DB00014C74 /* BuyandSellScene */,
 			);
-			path = MainStockListTab;
+			path = MainStockListScene;
 			sourceTree = "<group>";
 		};
-		AECB779928CF1FE5004B77F2 /* ChartPatternTab */ = {
+		AECB779928CF1FE5004B77F2 /* ChartPatternScene */ = {
 			isa = PBXGroup;
 			children = (
-				AEE7228128D6D3DE002B569C /* ChartDetail */,
-				AEE7227A28D4C365002B569C /* PatternModel */,
+				AEE7228128D6D3DE002B569C /* ChartDetailScene */,
 				AECB77B028D36E21004B77F2 /* ChartPatternViewController.swift */,
 				AEE7227F28D4CF22002B569C /* ChartPatternHeaderView.swift */,
 				AECB77B328D36E5D004B77F2 /* ChartPatternCollectionViewCell.swift */,
 				AECB77BC28D4AECD004B77F2 /* ChartPatternView.swift */,
 			);
-			path = ChartPatternTab;
+			path = ChartPatternScene;
 			sourceTree = "<group>";
 		};
-		AECB779B28CF1FEA004B77F2 /* CaculateTab */ = {
+		AECB779B28CF1FEA004B77F2 /* CaculateScene */ = {
 			isa = PBXGroup;
 			children = (
 				AECB77AC28D36E0A004B77F2 /* CaculateViewController.swift */,
 				AECB77AE28D36E14004B77F2 /* CaculateView.swift */,
 			);
-			path = CaculateTab;
+			path = CaculateScene;
 			sourceTree = "<group>";
 		};
 		AECB779E28D05887004B77F2 /* Model */ = {
@@ -413,7 +395,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		AECB77A528D061CA004B77F2 /* NewsTab */ = {
+		AECB77A528D061CA004B77F2 /* NewsScene */ = {
 			isa = PBXGroup;
 			children = (
 				AECB77A628D06F50004B77F2 /* NewsViewController.swift */,
@@ -421,26 +403,96 @@
 				AE82C66428E440A2002CB358 /* GlobalNewsViewController.swift */,
 				AE82C66628E440C5002CB358 /* DomesticNewsViewController.swift */,
 			);
-			path = NewsTab;
+			path = NewsScene;
 			sourceTree = "<group>";
 		};
-		AEE7227A28D4C365002B569C /* PatternModel */ = {
+		AEE7227A28D4C365002B569C /* Chart */ = {
 			isa = PBXGroup;
 			children = (
 				AEE7227B28D4C371002B569C /* PatternModel.swift */,
 				AE77881428D766AD00014C74 /* ChartModel.swift */,
 				AE77881628D76BBF00014C74 /* CandleModel.swift */,
 			);
-			path = PatternModel;
+			path = Chart;
 			sourceTree = "<group>";
 		};
-		AEE7228128D6D3DE002B569C /* ChartDetail */ = {
+		AEE7228128D6D3DE002B569C /* ChartDetailScene */ = {
 			isa = PBXGroup;
 			children = (
 				AEE7228228D6D3EF002B569C /* ChartDetailViewController.swift */,
 				AEE7228428D6D3F7002B569C /* ChartDetailView.swift */,
 			);
-			path = ChartDetail;
+			path = ChartDetailScene;
+			sourceTree = "<group>";
+		};
+		CA1BBA6C29C040BC004A6D4B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AECB774E28CC9F09004B77F2 /* OnBoardingScene */,
+				AECB776728CCA3BA004B77F2 /* Common */,
+				AECB779228CE3A7D004B77F2 /* MainStockListScene */,
+				AECB779B28CF1FEA004B77F2 /* CaculateScene */,
+				AECB779928CF1FE5004B77F2 /* ChartPatternScene */,
+				AECB77A528D061CA004B77F2 /* NewsScene */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CA1BBA6D29C040C7004A6D4B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AEE7227A28D4C365002B569C /* Chart */,
+				AE77883A28DB5E9F00014C74 /* Realm */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CA1BBA6E29C040D0004A6D4B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AE84D29728F5ADCE0063283A /* GoogleService-Info.plist */,
+				AE84D2A128F5B6370063283A /* One_Percent.entitlements */,
+				AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */,
+				AECB774328CC9EEE004B77F2 /* Assets.xcassets */,
+				AE77881D28DA058500014C74 /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CA1BBA6F29C04449004A6D4B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AECB776C28CCBE98004B77F2 /* BaseTableViewCell.swift */,
+				AECB776E28CCBEA8004B77F2 /* BaseCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CA1BBA7029C0447B004A6D4B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				AECB773A28CC9EEC004B77F2 /* AppDelegate.swift */,
+				AECB773C28CC9EEC004B77F2 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CA1BBA7129C044F2004A6D4B /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				AECB779328CE3AAA004B77F2 /* MainListViewController.swift */,
+				AECB779528CE3B2A004B77F2 /* MainListView.swift */,
+				AECB779728CE3B38004B77F2 /* MainListTableViewCell.swift */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		CA1BBA7229C04537004A6D4B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				AECB776028CCA2AB004B77F2 /* Constant.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,7 +585,6 @@
 				AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */,
 				AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */,
 				AE84D29828F5ADCE0063283A /* GoogleService-Info.plist in Resources */,
-				AECB774228CC9EEC004B77F2 /* Main.storyboard in Resources */,
 				AE77882628DA08AF00014C74 /* ChosunSm.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,14 +659,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AECB774028CC9EEC004B77F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AECB774128CC9EEC004B77F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -758,7 +801,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치를 기반으로 날씨 정보를 제공하기 위한 위치 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -796,7 +839,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 위치를 기반으로 날씨 정보를 제공하기 위한 위치 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
