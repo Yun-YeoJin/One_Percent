@@ -86,6 +86,7 @@
 		AEE7228528D6D3F7002B569C /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7228428D6D3F7002B569C /* ChartDetailView.swift */; };
 		CA1D0FFD2D13E52B00E34973 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D0FFC2D13E52B00E34973 /* DateUtils.swift */; };
 		CA1D0FFF2D13E5A300E34973 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D0FFE2D13E5A300E34973 /* Date+Extension.swift */; };
+		CA1D10012D13F41100E34973 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CA1D10002D13F41100E34973 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +160,7 @@
 		AEE7228428D6D3F7002B569C /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 		CA1D0FFC2D13E52B00E34973 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		CA1D0FFE2D13E5A300E34973 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CA1D10002D13F41100E34973 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		CAE87F402D13C05E009EB768 /* One_Percent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = One_Percent.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +291,7 @@
 				CA1BBA6C29C040BC004A6D4B /* Presentation */,
 				AECB776228CCA37A004B77F2 /* Network */,
 				AECB775F28CCA29A004B77F2 /* Utility */,
+				CA1D10002D13F41100E34973 /* PrivacyInfo.xcprivacy */,
 			);
 			path = One_Percent;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				AECB774728CC9EEE004B77F2 /* LaunchScreen.storyboard in Resources */,
 				AECB774428CC9EEE004B77F2 /* Assets.xcassets in Resources */,
 				AE84D29828F5ADCE0063283A /* GoogleService-Info.plist in Resources */,
+				CA1D10012D13F41100E34973 /* PrivacyInfo.xcprivacy in Resources */,
 				AE77882628DA08AF00014C74 /* ChosunSm.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
