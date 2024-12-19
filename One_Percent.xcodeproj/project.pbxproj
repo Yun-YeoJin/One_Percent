@@ -84,6 +84,8 @@
 		AEE7228028D4CF22002B569C /* ChartPatternHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7227F28D4CF22002B569C /* ChartPatternHeaderView.swift */; };
 		AEE7228328D6D3EF002B569C /* ChartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7228228D6D3EF002B569C /* ChartDetailViewController.swift */; };
 		AEE7228528D6D3F7002B569C /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE7228428D6D3F7002B569C /* ChartDetailView.swift */; };
+		CA1D0FFD2D13E52B00E34973 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D0FFC2D13E52B00E34973 /* DateUtils.swift */; };
+		CA1D0FFF2D13E5A300E34973 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D0FFE2D13E5A300E34973 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,7 +111,6 @@
 		AE82C66B28E46A37002CB358 /* OpenSourceLicenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseTableViewCell.swift; sourceTree = "<group>"; };
 		AE82C66D28E46CBD002CB358 /* OpenSourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceModel.swift; sourceTree = "<group>"; };
 		AE84D29728F5ADCE0063283A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AE84D2A128F5B6370063283A /* One_Percent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = One_Percent.entitlements; sourceTree = "<group>"; };
 		AE84D2AC28FBE0110063283A /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		AE84D2AE28FBE5C90063283A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		AE84D2B028FBE8380063283A /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
@@ -156,6 +157,9 @@
 		AEE7227F28D4CF22002B569C /* ChartPatternHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPatternHeaderView.swift; sourceTree = "<group>"; };
 		AEE7228228D6D3EF002B569C /* ChartDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailViewController.swift; sourceTree = "<group>"; };
 		AEE7228428D6D3F7002B569C /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
+		CA1D0FFC2D13E52B00E34973 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		CA1D0FFE2D13E5A300E34973 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CAE87F402D13C05E009EB768 /* One_Percent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = One_Percent.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +318,7 @@
 				AECB77AA28D31CAD004B77F2 /* String+Extension.swift */,
 				AECB77B828D495C9004B77F2 /* UIViewController+Extension.swift */,
 				AECB77BA28D49B2A004B77F2 /* Int+Extension.swift */,
+				CA1D0FFE2D13E5A300E34973 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				AECB775728CCA0FF004B77F2 /* Protocol */,
 				AECB775A28CCA125004B77F2 /* Extension */,
 				AE84D2AB28FBDFD60063283A /* CustomView */,
+				CA1D0FFC2D13E52B00E34973 /* DateUtils.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -451,7 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				AE84D29728F5ADCE0063283A /* GoogleService-Info.plist */,
-				AE84D2A128F5B6370063283A /* One_Percent.entitlements */,
+				CAE87F402D13C05E009EB768 /* One_Percent.entitlements */,
 				AECB774528CC9EEE004B77F2 /* LaunchScreen.storyboard */,
 				AECB774328CC9EEE004B77F2 /* Assets.xcassets */,
 				AE77881D28DA058500014C74 /* Font */,
@@ -620,6 +626,7 @@
 				AECB776128CCA2AB004B77F2 /* Constant.swift in Sources */,
 				AECB776B28CCBE87004B77F2 /* BaseViewController.swift in Sources */,
 				AECB77BD28D4AECD004B77F2 /* ChartPatternView.swift in Sources */,
+				CA1D0FFD2D13E52B00E34973 /* DateUtils.swift in Sources */,
 				AE84D2AD28FBE0110063283A /* LabelView.swift in Sources */,
 				AECB775928CCA113004B77F2 /* ReusableProtocol.swift in Sources */,
 				AE77884A28DD868B00014C74 /* StockTableViewCell.swift in Sources */,
@@ -637,6 +644,7 @@
 				AE77881A28D8B21400014C74 /* BuyandSellViewController.swift in Sources */,
 				AE77881528D766AD00014C74 /* ChartModel.swift in Sources */,
 				AECB779028CE33C8004B77F2 /* OnBoardingItemViewController.swift in Sources */,
+				CA1D0FFF2D13E5A300E34973 /* Date+Extension.swift in Sources */,
 				AECB77AD28D36E0A004B77F2 /* CaculateViewController.swift in Sources */,
 				AE77884328DCA15500014C74 /* SettingTableViewCell.swift in Sources */,
 				AECB773B28CC9EEC004B77F2 /* AppDelegate.swift in Sources */,
@@ -789,7 +797,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = One_Percent/One_Percent.entitlements;
+				CODE_SIGN_ENTITLEMENTS = One_Percent/Resource/One_Percent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -814,6 +823,7 @@
 				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "yeojin.SeSAC.One-Percent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -828,7 +838,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = One_Percent/One_Percent.entitlements;
+				CODE_SIGN_ENTITLEMENTS = One_Percent/Resource/One_Percent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7HN73WS8Q5;
@@ -852,6 +863,7 @@
 				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "yeojin.SeSAC.One-Percent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
