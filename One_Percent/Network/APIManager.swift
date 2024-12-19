@@ -130,8 +130,8 @@ class StockNameAPIManager {
     func getStockName(query: String, completionHandler: @escaping ([StockNameModel]) -> ()) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        
-        let url = "\(EndPoint.stockNameURL)serviceKey=\(APIKey.stock)&resultType=json&numOfRows=50&basDt=20221212&likeItmsNm=\(query)"
+        let yesterDay = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
+        let url = "\(EndPoint.stockNameURL)serviceKey=\(APIKey.stock)&resultType=json&numOfRows=50&basDt=\(yesterDay.yyyyMMdd)&likeItmsNm=\(query)"
        
         AF.request(url, method: .get).validate().responseData(queue: .global()) { response in
             switch response.result {
